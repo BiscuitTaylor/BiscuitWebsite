@@ -35,17 +35,17 @@ introChords = \chordmode { a2:min7 | f2 | a2:min7 | f2| a2:min7 | f2 }
 verseChords = \chordmode 
 {	
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	d2:min | d2:min/e | d2:min/f | f2:maj7  | f2 | a2:min | r2 | r2 
-	d2:min | d2:min/e | d2:min/f | f2:maj7  | f2 | a2:min | r2 | r2 
-	d2:min | d2:min/e | d2:min/f | f2:maj7  | f2 | a2:min 
+	d2:min | d2:min/e | d2:min/f | f2:maj7  | bes2 | bes2 | r2 | r2 
+	f2 | f2 | a2:min | a2:min  | d2:min | d2:min | r2 | r2 
+	d2:min | d2:min/e | d2:min/f | f2:maj7  | bes2 | bes2 
 	g2 | a2:min | f2 | c2  | f2 | a2:min | r2 | r2
 }
 
 chorusChords = \chordmode 
 {
-	g2 | g2| a2:min | bes2 | 
+	d2:min | f2:maj7 | g2:7 | e2:min7 | d2:min
 	f2 | f2 | g2 | g2 |
-	g2 | g2| a2:min | bes2 | 
+	d2:min | f2:maj7 | g2:7 | e2:min7 | d2:min
 	f2 | f2 | g2 | g2 |
 }
 
