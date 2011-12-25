@@ -54,7 +54,7 @@ verseChords = \chordmode
 	d2:min | d2:min/e | d2:min/f | f2:maj7  | bes2 | bes2 | r2 | r2 
 	f2 | f2 | a2:min | a2:min  | d2:min | d2:min | r2 | r2 
 	d2:min | d2:min/e | d2:min/f | f2:maj7  | bes2 | bes2 
-	g2 | a2:min | f2 | c2  | f2 | a2:min | r2 | r2
+	g2 | a2:min | f2 | c'2  | f2 | a2:min | r2 | r2
 }
 
 chorusChords = \chordmode 
