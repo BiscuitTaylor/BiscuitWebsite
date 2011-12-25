@@ -28,7 +28,23 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % ly snippet:
 % ****************************************************************
 \include "predefined-guitar-fretboards.ly"
+% If using standard guitar fretboards,
+% (see \keepWithTag at the start of the \score section)
+% you can comment-out the biscuit-fretboards include. 
 \include "../fretboards/biscuit-fretboards.ly"
+
+defineMyFretboard =
+<<
+\tag #'StandardGuitarFretboard
+{
+  %Nothing to define... defaults work just fine
+}
+\tag #'BiscuitUkeFretboard
+{
+  %define fretboard diagrams for open-g tenor ukulele
+  \biscuitCustomFretboards
+}
+>>
 
 introChords = \chordmode { a2:min7 | f2 | a2:min7 | f2| a2:min7 | f2 }
 
@@ -120,20 +136,23 @@ chorusLyrics =
 		\verseMelody
 		\chorusMelody
 	%}
+    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'StandardGuitarFretboard 
     \new FretBoards 
 	{
+		\defineMyFretboard
 		{
 			%\introChords
-		    \verseChords
-		    \chorusChords
+			\verseChords
+			\chorusChords
 		}
 	}
 	\new ChordNames 
 	{
 		{
-	    	%\introChords
-		    \verseChords
-		    \chorusChords
+			%\introChords
+			\verseChords
+			\chorusChords
 		}	
 	}
 
@@ -175,7 +194,7 @@ chorusLyrics =
 				\set Staff.midiInstrument = #"drawbar organ"
 				
 		{
-	    	%\introChords
+			%\introChords
 		    \verseChords
 		    \chorusChords
 		}	
