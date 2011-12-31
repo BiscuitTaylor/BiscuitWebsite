@@ -200,9 +200,9 @@ chorusMelody =
 	{
         \defineMyFretboard
 		{
-			%\transpose a g
+			\transpose a g
 		    \verseChords
-			%\transpose a g
+			\transpose a g
 			\chorusChords
 		}
 	}
@@ -211,9 +211,9 @@ chorusMelody =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			%\transpose a g
+			\transpose a g
 		    \verseChords
-			%\transpose a g
+			\transpose a g
 			\chorusChords
 		}	
 	}

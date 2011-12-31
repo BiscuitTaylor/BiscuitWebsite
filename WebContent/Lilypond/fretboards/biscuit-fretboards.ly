@@ -6,8 +6,7 @@
 %Define tuning for each string, in # of semitones above middle c
 %biscuitTuning = #`(19 14 11 7)
 %Define tuning for each string, in terms of 'pitch'
-%\makeStringTuning #'biscuitTuning <g'' d'' b' g'>
-\makeStringTuning #'biscuitTuning <g''' d b g>
+\makeStringTuning #'biscuitTuning <g'' d'' b' g'>
 
 
 biscuitCustomFretboards =
@@ -45,10 +44,11 @@ cMajSeven = { <c\4 e'\3 g'\2 b'\1> }
 fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
 %}
 
-%\storePredefinedDiagram #default-fret-table \chordmode {g}
-%                        #biscuitTuning
-%                        #"o;o;o;o;"
 %\storePredefinedDiagram #default-fret-table \gMajor
+
+\storePredefinedDiagram #default-fret-table \chordmode {g,,}
+                        #biscuitTuning
+                        #"o;o;o;o;"
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {g}
                         #biscuitTuning
@@ -58,21 +58,27 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
                         #biscuitTuning
                         #"7-4;6-3;5-2;4-1;"
 \storePredefinedDiagram #default-fret-table 
-						\chordmode {c}
+						\chordmode {c,,}
                         #biscuitTuning
                         #"o;1-2;2-3;o;"
 \storePredefinedDiagram #default-fret-table 
-						\chordmode {c'}
+						\chordmode {c}
                         #biscuitTuning
                         #"5-1;5-1;5-1;5-1;"
-%\storePredefinedDiagram #default-fret-table 
-%						\chordmode {d}
-%                        #biscuitTuning
-%                        #"2-1;3-2;4-3;2-1;"
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {c'}
+                        #biscuitTuning
+                        #"7-1;8-1;10-1;9-1;"
+                        
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {d,}
+                        #biscuitTuning
+                        #"2-1;3-2;4-3;2-1;"
 \storePredefinedDiagram #default-fret-table 
                         \chordmode {d}
                         #biscuitTuning
                         #"7-1;7-1;7-1;7-1;"
+                        
 \storePredefinedDiagram #default-fret-table \chordmode {f}
                         #biscuitTuning
                         #"5-1;6-2;7-3;5-1;"
@@ -129,11 +135,11 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
                         #biscuitTuning
                         #"9-1;9-1;11-3;9-1;"
         
-\storePredefinedDiagram #default-fret-table
-                        \chordmode { bes }
-                        #biscuitTuning
-                        %#"10-1-(10-1;11-2;12-3;10-1-);"
-                        #"10-1;11-2;12-3;10-1;"
+%\storePredefinedDiagram #default-fret-table
+%                        \chordmode { bes }
+%                        #biscuitTuning
+%                        %#"10-1-(10-1;11-2;12-3;10-1-);"
+%                        #"10-1;11-2;12-3;10-1;"
                         
 %TODO: use a predefined chord-shape
 %and move it to the 'bar d' section (quit using the phrase 'open d')
@@ -151,51 +157,25 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
                         #"7-1;7-1;9-3;7-1;"
 
 \addChordShape #'major1ChordShape #biscuitTuning #"1-1-(1-1;2-2;3-3;1-1-);"
-\addChordShape #'cis #biscuitTuning #"1-1-(1-1;2-2;3-3;1-1-);"
+\addChordShape #'cis #biscuitTuning #"1-1;2-2;3-3;1-1;"
 \addChordShape #'compactMinorChordShape #biscuitTuning #"2-2;1-1;2-3;2-4;"
-\addChordShape #'barChordShape #biscuitTuning #"1-1-(1-1;1-1;1-1;1-1-);"
+%\addChordShape #'barChordShape #biscuitTuning #"1-1-(1-1;1-1;1-1;1-1-);"
+\addChordShape #'barChordShape #biscuitTuning #"1-1;1-1;1-1;1-1;"
 
-%\storePredefinedDiagram #default-fret-table 
-%						\chordmode { cis }
-%                        #biscuitTuning
-%						#(chord-shape 'cis biscuitTuning)
+\storePredefinedDiagram #default-fret-table 
+						\chordmode { cis }
+                        #biscuitTuning
+						#(chord-shape 'cis biscuitTuning)
 
-%\storePredefinedDiagram #default-fret-table \chordmode { bes }
-%                        #biscuitTuning
-%%                        #'(offset-fret 9 (chord-shape 'cis biscuitTuning))
-%						#(offset-fret 9 (chord-shape 'cis biscuitTuning))
-
-%\storePredefinedDiagram #default-fret-table
-%                        \chordmode { bes }
-%                        #biscuitTuning
-%                        #"10-1-(10-1;11-2;12-3;10-1-);"
+\storePredefinedDiagram #default-fret-table \chordmode { bes }
+                        #biscuitTuning
+						#(offset-fret 9 (chord-shape 'cis biscuitTuning))
 
 
 %%HandShadowDuck chord shape                       
 %\addChordShape #'cis #biscuitTuning #"1-1-(1-1;2-2;3-3;1-1-)"
                         
 % Alternate Fretboard Tables
-%{
-%\include "predefined-guitar-fretboards.ly"
-
-% Make a blank new fretboard table
-#(define custom-fretboard-table-one (make-fretboard-table))
-
-% Make a new fretboard table as a copy of default-fret-table
-#(define custom-fretboard-table-two (make-fretboard-table default-fret-table))
-
-% Add a chord to custom-fretboard-table-one
-\storePredefinedDiagram #custom-fretboard-table-one
-                        \chordmode{c}
-                        #guitar-tuning
-                        "3-(;3;5;5;5;3-);"
-
-% Add a chord to custom-fretboard-table-two
-\storePredefinedDiagram #custom-fretboard-table-two
-                        \chordmode{c}
-                        #guitar-tuning
-                        "x;3;5;5;5;o;"
-%}
 %{
      % add a new chord shape
 
@@ -316,10 +296,10 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
 						\chordmode {g}
                         #biscuitTuning
                         #"7-1;8-2;9-3;7-1;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c}
-                        #biscuitTuning
-                        #"o;1-2;2-3;o;"
+%\storePredefinedDiagram #default-fret-table 
+%						\chordmode {c,}
+%                        #biscuitTuning
+%                        #"o;1-2;2-3;o;"
 %\storePredefinedDiagram #default-fret-table 
 %						\chordmode {d}
 %                        #biscuitTuning

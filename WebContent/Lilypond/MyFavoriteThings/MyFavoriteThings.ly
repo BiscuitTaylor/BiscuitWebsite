@@ -48,6 +48,12 @@ defineMyFretboard =
 
 introChords = \chordmode { a2:min7 | f2 | a2:min7 | f2| a2:min7 | f2 }
 
+(3/4 time & one sharp)
+[Em7] [Em7] [Em7] [Em7] [Cmaj7] [Cmaj7] [Cmaj7] [Cmaj7] [Am7] [D9] [Gmaj7] [Cmaj7] [Gmaj7] [Cmaj7] [F#m7b5] [B7]
+ return to top; 2nd time through go to 
+ [Emaj7][Emaj7] [Emaj7] [Emaj7] [Emaj7] [Emaj7] [Amaj7][Amaj7] [Amaj7] [Amaj7] [Am7] [D9] [Gmaj7] [Cmaj7] [Gmaj7] [Cmaj7][F#m7b5] [B7b9] [Em7] [C#m7b5] [F#m7b5] [B7] [Em7] [Em7/D] [Cmaj7] [Cmaj7] [Cmaj7] [Cmaj7] [A7] [A7] [Gmaj7] [Cmaj7] [Am7] [D7] [G6] [Cmaj7] [G6] [G6]
+
+
 verseChords = \chordmode 
 {	
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
@@ -100,28 +106,51 @@ verseLyrics =
 <<
   \new Lyrics  \lyricsto verseVocal 
   {
-  If you lie be -- side me in the dark 
-  I can prom -- ise you a sky filled up with stars
-  Love will fill you in the plac -- es emp -- ty
-  I'm wait -- ing for your name in lights
-  wait -- ing for your name in lights
+Em
+Raindrops on roses and whiskers on kittens
+C
+Bright copper kettles and warm woolen mittens
+Am          D7       G            C
+Brown paper packages tied up with strings
+G           C         F#m      B7
+These are a few of my favorite things
+
+
   }
 
-%  \new Lyrics \lyricsto verseVocal 
-%  { \set stanza = "2. "
-%  }
+  \new Lyrics \lyricsto verseVocal 
+  { \set stanza = "2. "
+	Cream colored ponies and crisp apple streudels
+	Doorbells and sleigh bells and schnitzel with noodles
+	Wild geese that fly with the moon on their wings
+	These are a few of my favorite things
+  }
+  
+  \new Lyrics \lyricsto verseVocal 
+  { \set stanza = "2. "
+	Girls in white dresses with blue satin sashes
+	Snowflakes that stay on my nose and eyelashes
+	Silver white winters that melt into springs
+	These are a few of my favorite things
+  }
+  
+  
 >>
 
 chorusLyrics = 
 {
 	\new Lyrics \lyricsto chorusVocal
 	{
-		"Come on o" -- ver here lit -- tle bird I'll show you
-		The on -- ly thing worth dream -- ing for
-		has al -- ways been right at your door.
-		And I won't tell you you're a fool for wish -- ing these things,
-		but lit -- tle birds don't ne -- ed to wish for wings
-	}
+Em
+When the dog bites
+Am       B/D#
+When the bee stings
+Em               C
+When I'm feel -- ing sad
+  C      Am          G        C
+I simp -- ly re -- mem -- ber my fa -- vor -- ite things
+    Am           D7      G
+And then I don't feel so bad	}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,8 +165,8 @@ chorusLyrics =
 		\verseMelody
 		\chorusMelody
 	%}
-    %\keepWithTag #'BiscuitUkeFretboard
-    \keepWithTag #'StandardGuitarFretboard 
+    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'StandardGuitarFretboard 
     \new FretBoards 
 	{
 		\defineMyFretboard
