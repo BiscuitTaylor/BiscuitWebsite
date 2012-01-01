@@ -45,6 +45,10 @@ defineMyFretboard =
 }
 >>
 
+introChords = \chordmode 
+{
+	 d/e1 | d1 | g1 | d/e1 | d1 | g1 
+}
 
 verseChords = \chordmode 
 {	
@@ -53,11 +57,22 @@ verseChords = \chordmode
 	%Bold chord names, so old geezers can grok them			
 	\override ChordName #'font-series = #'bold
     \set predefinedDiagramTable = #custom-fretboard-table-open-e
-	a1 cis1:min  d1 a1
-	a1 cis1:min  d1 a1
-	a1 cis1:min  d1 a1
-	a1 cis1:min  d1 a1
+ g1      d1    g1            
+  d1            g1     
+  d1     a1                 
+         g1     a1    
+             b1:min     c1         
+    g1      c1      
+ d1         a1          
+  c1        g1    
+ d1                     a1          
+  c1     g1    
 }
+
+% notes:
+%                  
+% Intro: DaddE -> D
+% In other words hammer-on the first string as you hit the opening D. 
 
 %Guitar chords for Chorus.. w/fancy bass note shit
 chorusChords =  
@@ -84,30 +99,6 @@ chorusChords =
 		%me.
 	}
 }
-
-%Simplified chords for ukulele
-\tag #'BiscuitUkeFretboard
-{
-	\chordmode 
-	{
-		a2 e2 d1
-		%Take a load off, Fanny.
-		a2 e2 d1
-		%Take a load for free.
-		\break
-		
-		%\mark {\markup { \vspace #5 }
-		a2 e2 d1
-		%Take a load off, Fanny.
-		d1 d1 d1
-		%And...  you put the load right on
-		\break
-		
-		%\mark \markup { \vspace #5 }
-		a2 e2 fis2:min e2 d1 d1
-		%me.
-	}
-}
 >>
 
 verseLyrics = 
@@ -115,113 +106,58 @@ verseLyrics =
   \new Lyrics 
   {
 	\lyricmode {
-After the Goldrush : Neil Young
-
- Intro:
- D(addE) D G    (x2)
-
- G       D                            G             
- Well, I dreamed I saw the knights in armour coming,
-
-        D                 G     
- Sayin' something about a queen.
-
-             D                    A                 
- There where peasants singin' and drummers drummin' 
-
-         G                A    
- And the archer split the tree.
-
-             Bm              C         
- There was a fanfare blowin' to the sun
-
-          G               C      
- that was floating on the breeze.
-
- D                     A          
- Look at Mother Nature on the run 
-
-        C             G    
- In the nineteen seventies.
-
- D                     A          
- Look at Mother Nature on the run 
-
-        C             G    
- In the nineteen seventies.
-
-                                     
- I was lying in a burned out basement
- With a full moon in my eye
- I was hoping for replacement
- When the sun burst through the sky
- There was a band playing in my head
- And I felt like getting high
- I was thinking about what a friend had said
- I was hoping it was a lie
- Thinking about what friend had said
- I was hoping it was a lie
-                            
- Horn solo (lasts one verse)
-
- Well I dreamed I saw the silver spaceship flying
- In the yellow haze of the sun
- There were children crying and colours flying
- All around the chosen one
- All in a dream, all in a dream
- The loading had begun
- Flying mother nature's silver seed
- To a new home in the sun
- Flying mother nature's silver seed
- To a new home
-
-
- notes:
-                  
- Intro: DaddE -> D
- In other words hammer-on the first string as you hit the opening D. 
- (this from the "Decade' file by inges@??? alt.guitar.tab)	}
-  }
-
-  \new Lyrics 
-  { \lyricmode
-  {\set stanza = "2. "
-I was lying in a burned out basement
- With a full moon in my eye
- I was hoping for replacement
- When the sun burst through the sky
- There was a band playing in my head
- And I felt like getting high
- I was thinking about what a friend had said
- I was hoping it was a lie
- Thinking about what friend had said
- I was hoping it was a lie
-  }
-  }
-  
-  \new Lyrics 
-  { \lyricmode
-  {\set stanza = "3. "
-Horn solo (lasts one verse)
+  "Well, I" | "dreamed I saw the knights in" | "armour coming, Sayin'" |
+  "something about a" | queen._There_were | 
+  peasants_singin'_and | drummers_drummin' and the |
+  "archer split the" | tree.
+  "There was a" | fanfare_blowin' | "to the sun that was" |
+  "floating on the" | breeze. |
+  "Look at Mother Nature" | "on the run in the" | 
+  "nineteen seven"- | ties. |
+  "Look at Mother Nature" | "on the run in the" | 
+  "nineteen seven"- | ties. |
   }
   }
 
-
-  \new Lyrics 
-  { \lyricmode
-  {\set stanza = "4. "
-Well I dreamed I saw the silver spaceship flying
- In the yellow haze of the sun
- There were children crying and colours flying
- All around the chosen one
- All in a dream, all in a dream
- The loading had begun
- Flying mother nature's silver seed
- To a new home in the sun
- Flying mother nature's silver seed
- To a new home
-  }
-  }
+%  \new Lyrics 
+%  { \lyricmode
+%  {\set stanza = "2. "
+%I was lying in a burned out basement
+% With a full moon in my eye
+% I was hoping for replacement
+% When the sun burst through the sky
+% There was a band playing in my head
+% And I felt like getting high
+% I was thinking about what a friend had said
+% I was hoping it was a lie
+% Thinking about what friend had said
+% I was hoping it was a lie
+%  }
+%  }
+%  
+%  \new Lyrics 
+%  { \lyricmode
+%  {\set stanza = "3. "
+% Horn solo (lasts one verse)
+%  }
+%  }
+%
+%
+%  \new Lyrics 
+%  { \lyricmode
+%  {\set stanza = "4. "
+% Well I dreamed I saw the silver spaceship flying
+% In the yellow haze of the sun
+% There were children crying and colours flying
+% All around the chosen one
+% All in a dream, all in a dream
+% The loading had begun
+% Flying mother nature's silver seed
+% To a new home in the sun
+% Flying mother nature's silver seed
+% To a new home
+%  }
+%  }
   
 >>
 
@@ -260,10 +196,8 @@ chorusMelody =
 	{
         \defineMyFretboard
 		{
-			%\transpose a g
 		    \verseChords
-			%\transpose a g
-			\chorusChords
+			%\chorusChords
 		}
 	}
 
@@ -271,10 +205,8 @@ chorusMelody =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			%\transpose a g
 		    \verseChords
-			%\transpose a g
-			\chorusChords
+			%\chorusChords
 		}	
 	}
   
@@ -285,8 +217,7 @@ chorusMelody =
 		\verseLyrics
 		\pageBreak
 		%TODO - add D.S. al coda
-		\chorusLyrics
-		\bar "||" %seems to have no effect here.   I guess you can only have bar markers on a Staff
+		%\chorusLyrics
 	}
 
 	% Enable this to write the notes of each chord on a new staff below the melody staff
