@@ -3,8 +3,8 @@
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
-  title = "Little Bird"
-  composer = "Lori Carson / Martine / McFadden / Pimsler"
+  title = "My Favorite Things"
+  composer = "Rodgers & Hammerstein"
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
