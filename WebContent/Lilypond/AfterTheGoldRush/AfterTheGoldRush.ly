@@ -21,6 +21,9 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   line-width = 160\mm
   force-assignment = #""
   line-width = #(- line-width (* mm  3.000000))
+  % Try to add space between the lines, to stretch out the page
+  between-system-space = 2.5\cm % has no effect
+  between-system-padding = #5	% has no effect
 }
 
 
@@ -45,28 +48,51 @@ defineMyFretboard =
 }
 >>
 
-introChords = \chordmode 
-{
-	 d/e1 | d1 | g1 | d/e1 | d1 | g1 
-}
-
 verseChords = \chordmode 
 {	
-	%Big chord names, so old geezers can percieve them			
-	\override ChordName #'font-size = #2 
+	%Super-Big chord names, because we have room			
+	\override ChordName #'font-size = #4 
 	%Bold chord names, so old geezers can grok them			
 	\override ChordName #'font-series = #'bold
-    \set predefinedDiagramTable = #custom-fretboard-table-open-e
-  g1      d1    g1            
-  d1     g1     
-  d1     a1                 
-  g1     a1    
-  b1:min c1         
-  g1     c1      
-  d1     a1          
-  c1     g1    
-  d1     a1          
-  c1     g1    
+    \set predefinedDiagramTable = #default-fret-table
+  g''''1     d'1    g''''1            
+  d'1     g''''1    d'1  
+  a'''''1     g''''1    a'''''1    
+  b''''''1:min c'1    g''''1     c'1      
+  d'1     a'''''1    c'1     g''''1    
+  d'1     a'''''1    c'1     g'''''1    
+}
+
+verseAlternateChords = \chordmode 
+{	
+	%Super-Big chord names, because we have room			
+	\override ChordName #'font-size = #4 
+	%Bold chord names, so old geezers can grok them			
+	\override ChordName #'font-series = #'bold
+    %\set predefinedDiagramTable = #custom-fretboard-table-open-e
+    \set predefinedDiagramTable = #default-fret-table
+  g1     d   g1            
+  d1     g1    d1  
+  a1     g1    a1    
+  b1:min c,,,,1    g1     c''''1      
+  d1     a1    c''''1     g1    
+  d1     a1    c'''''1     g''''''''''''1    
+}
+
+verseNominalChords = \chordmode 
+{	
+	%Super-Big chord names, because we have room			
+	\override ChordName #'font-size = #4 
+	%Bold chord names, so old geezers can grok them			
+	\override ChordName #'font-series = #'bold
+    %\set predefinedDiagramTable = #custom-fretboard-table-open-e
+    \set predefinedDiagramTable = #default-fret-table
+  g1     d   g1            
+  d1     g1    d1  
+  a1     g1    a1    
+  b1:min c1    g1     c1      
+  d1     a1    c1     g1    
+  d1     a1    c1     g1    
 }
 
 % notes:
@@ -96,7 +122,7 @@ verseLyrics =
   \new Lyrics 
   { \lyricmode
   {\set stanza = "2. "
-  "I was" "lyingin a burned out" "basement, with a"
+  "I was" "lying in a burned out" "basement, with a"
   "full moon in my" "eye.  I was" "hoping for re-" 
   "placement - when the" "sun burst through the" "sky. There was a " 
   "band playing" "in my head, and I" "felt like getting" "high I was"
@@ -124,8 +150,24 @@ verseLyrics =
  "Flying mother nature's" "silver seed to a" "new home"
   }
   }
+>> 
+
+verseAlternateChordLyrics = 
+  \new Lyrics 
+  { \lyricmode
+  % Same as verse4 lyrics.  Just an extra copy, for a bonus page.
+  {\set stanza = "4. "
+ "Well I" "dreamed I saw the silver" "spaceship flying, in the"
+ "yellow haze of the" "sun. There were" "children crying and"
+ "colours flying all a-" "round the chosen" "ones.  All in a"
+ "dream, all" "in a dream; the" "loading had be-" gun
+ "Flying mother nature's" "silver seed to a" "new home in the" sun
+ "Flying mother nature's" "silver seed to a" "new home"
+  }
+  }
   
->>
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -162,13 +204,51 @@ verseLyrics =
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 %	\new Staff
 %	{
-%		\repeat unfold 16 {\skip 1} % verse is 16 bars long
-%	 	\chorusChords
+%		\verseChords
 %	 }
 >>
 
   \layout { indent = 0.0\cm }
   \midi {}
+} 
+\pageBreak
+\score
+{
+	%keep only sections tagged BiscuitUkeFretboard
+    \keepWithTag #'BiscuitUkeFretboard
+	%ignore all sections tagged StandardGuitarFretboard
+    %\removeWithTag #'StandardGuitarFretboard 
+<<
+    \new FretBoards 
+	{
+        \defineMyFretboard
+		{
+		    \verseAlternateChords
+		}
+	}
+
+	\new ChordNames 
+	{
+		% \with { midiInstrument = #"acoustic guitar (nylon)" }
+		{
+		    \verseAlternateChords
+		}	
+	}
+  
+	%Lyrics
+	\new Lyrics 
+	{
+        \verseAlternateChordLyrics
+	}
+
+	% Enable this to write the notes of each chord on a new staff below the melody staff
+	\new Staff
+	{
+		\verseNominalChords
+	 }
+>>
+
+  \layout { indent = 0.0\cm }
 } 
 
 % ****************************************************************

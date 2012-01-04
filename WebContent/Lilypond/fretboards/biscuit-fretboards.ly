@@ -46,19 +46,28 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
 
 %\storePredefinedDiagram #default-fret-table \gMajor
 
-\storePredefinedDiagram #default-fret-table \chordmode {g,,}
+\storePredefinedDiagram #default-fret-table \chordmode {g'''''}
                         #biscuitTuning
                         #"o;o;o;o;"
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {g''''}
+                        #biscuitTuning
+                        #"4-3;3-2;5-4;2-1;"
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {g}
                         #biscuitTuning
                         #"7-1;8-2;9-3;7-1;"
 \storePredefinedDiagram #default-fret-table 
+						\chordmode {g''''''''''''}
+                        #biscuitTuning
+                        #"12-1;12-1;12-1;12-1;"
+
+\storePredefinedDiagram #default-fret-table 
 						\chordmode {g:7}
                         #biscuitTuning
                         #"7-4;6-3;5-2;4-1;"
 \storePredefinedDiagram #default-fret-table 
-						\chordmode {c,,}
+						\chordmode {c'}
                         #biscuitTuning
                         #"o;1-2;2-3;o;"
 \storePredefinedDiagram #default-fret-table 
@@ -66,12 +75,20 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
                         #biscuitTuning
                         #"5-1;5-1;5-1;5-1;"
 \storePredefinedDiagram #default-fret-table 
-						\chordmode {c'}
+						\chordmode {c'''''}
                         #biscuitTuning
-                        #"7-1;8-1;10-1;9-1;"
+                        #"5-1;5-1;5-1;5-1;"
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {c''''}
+                        #biscuitTuning
+                        #"7-1;8-2;10-4;9-3;"
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {c,,,,}
+                        #biscuitTuning
+                        #"9-3;8-2;10-4;7-1;"
                         
 \storePredefinedDiagram #default-fret-table 
-						\chordmode {d,}
+						\chordmode {d'}
                         #biscuitTuning
                         #"2-1;3-2;4-3;2-1;"
 \storePredefinedDiagram #default-fret-table 
@@ -110,9 +127,16 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
 \storePredefinedDiagram #default-fret-table \chordmode {a}
                         #biscuitTuning
                         #"9-1;10-2;11-3;9-1;"
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {a'''''}
+                        #biscuitTuning
+                        #"2-1;2-1;2-1;2-1;"
 \storePredefinedDiagram #default-fret-table \chordmode {b}
                        #biscuitTuning
                         #"11-1;12-2;13-3;11-1;"
+\storePredefinedDiagram #default-fret-table \chordmode {b'''''':min}
+                        #biscuitTuning
+                        #"4-2;3-1;4-3;4-3;"
 \storePredefinedDiagram #default-fret-table \chordmode {b:7}
                         #biscuitTuning
                         #"11-4;10-3;9-2;8-1;"
@@ -212,7 +236,7 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
 \storePredefinedDiagram #custom-fretboard-table-open-g
 						\chordmode {f}
                         #biscuitTuning
-                        #"0-1;1-2;3-4;2-3;"
+                        #"o;1-2;3-4;2-3;"
 \storePredefinedDiagram #custom-fretboard-table-open-g
 						\chordmode {c}
                         #biscuitTuning
@@ -221,6 +245,11 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
 						\chordmode {e:min}
                         #biscuitTuning
                         #"o;o;2-2;o;"
+\storePredefinedDiagram #custom-fretboard-table-open-g
+						\chordmode {d}
+                        #biscuitTuning
+                        #"2-1;3-2;4-3;2-1;"
+
 \storePredefinedDiagram #custom-fretboard-table-open-g
 						\chordmode {b:min}
                         #biscuitTuning
