@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Road</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script src="../../Biscuit/galleria/galleria-1.2.6.min.js"></script>
+</head>
+
+<body>
+<div style="text-align: center;">Basic Gallery - Electric Catrike Road<br>
+<br>
+</div>
+
+<div id="gallery">
+    <img src="TrikeMoss/TrikeMoss.JPG">
+    <img src="TrikeMoss/DSC_0476.JPG">
+    <img src="TrikeMoss/DSC_0477.JPG">
+    <img src="TrikeMoss/DSC_0478.JPG">
+</div>
+
+<div style="text-align: center;">Fancier Gallery - Maybe this doesn't work with the Classic galleria theme?<br>
+<br>
+</div>
+<div id="gallery">
+    <a href="TrikeMoss/TrikeMoss.JPG"><img src="TrikeMoss/TrikeMoss_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+    <a href="TrikeMoss/DSC_0476.JPG"><img src="TrikeMoss/DSC_0476_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+    <a href="TrikeMoss/DSC_0477.JPG"><img src="TrikeMoss/DSC_0477_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+    <a href="TrikeMoss/DSC_0478.JPG"><img src="TrikeMoss/DSC_0478_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+</div>
+
+<hr>
+<br>
+<div style="text-align: center;">Elaborate Gallery - Electric Catrike Road<br>
+<br>
+</div>
+
+<div id="gallery">
+    <a rel="TrikeMoss/TrikeMoss_big.JPG" href="TrikeMoss/TrikeMoss.JPG"><img src="TrikeMoss/TrikeMoss_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+    <a rel="TrikeMoss/DSC_0476_big.JPG" href="TrikeMoss/DSC_0476.JPG"><img src="TrikeMoss/DSC_0476_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+    <a rel="TrikeMoss/DSC_0477_big.JPG" href="TrikeMoss/DSC_0477.JPG"><img src="TrikeMoss/DSC_0477_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+    <a rel="TrikeMoss/DSC_0478_big.JPG" href="TrikeMoss/DSC_0478.JPG"><img src="TrikeMoss/DSC_0478_tn.JPG" alt="A Trike before a mossy rock" title="TrikeMoss"></a>
+</div>
+
+<hr>
+<br>
+<div style="text-align: center;">JSON Gallery<br>
+<br>
+</div>
+
+<div id="galleria"></div>
+<script>
+var data = [
+    {
+        thumb: 'TrikeMoss/TrikeMoss_tn.JPG',
+        image: 'TrikeMoss/TrikeMoss.JPG',
+        big: 'TrikeMoss/TrikeMoss_big.JPG',
+        title: 'My title',
+        description: 'My description',
+        link: 'http://biscuit.nfshost.com',
+        layer: '<div><h2>This image is gr8</h2><p>And this text will be on top of the image</p>'
+    },
+    {
+        thumb: 'TrikeMoss/DSC_0476_tn.JPG',
+        image: 'TrikeMoss/DSC_0476.JPG',
+        big: 'TrikeMoss/DSC_0476_big.JPG',
+        title: 'My second title',
+        description: 'My second description',
+        link: '/product.html',
+        layer: '<div><h2>This image is also gr8</h2><p>Good luck with Galleria!</p>'
+    }
+];
+$('#galleria').galleria({
+    dataSource: data
+});
+
+<script>
+    Galleria.loadTheme('../../Biscuit/galleria/themes/classic/galleria.classic.min.js');
+    $("#gallery").galleria({
+        width: 500,
+        height: 500
+    });
+</script>
+
+</body>
+</html>
