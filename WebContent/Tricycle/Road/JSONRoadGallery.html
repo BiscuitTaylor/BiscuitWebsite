@@ -23,7 +23,6 @@ var data = [
         title: 'My title',
         description: 'My description',
         link: 'http://biscuit.nfshost.com',
-        layer: '<div><h2>This image is gr8</h2><p>And this text will be on top of the image</p>'
     },
     {
         thumb: 'TrikeMoss/DSC_0476_tn.JPG',
@@ -32,12 +31,22 @@ var data = [
         title: 'My second title',
         description: 'My second description',
         link: '/product.html',
-        layer: '<div><h2>This image is also gr8</h2><p>Good luck with Galleria!</p>'
     }
 ];
-$('#galleria').galleria({
+</script>
+<script>
+$('#gallery').galleria({
+    width:500,
+    height:500,
     dataSource: data
 });
+</script>
+<script>
+    Galleria.loadTheme('../../Biscuit/galleria/themes/classic/galleria.classic.min.js');
+    $("#gallery").galleria({
+        width: 500,
+        height: 500
+    });
 </script>
 
 </body>
