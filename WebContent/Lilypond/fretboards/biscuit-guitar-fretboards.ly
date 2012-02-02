@@ -1,5 +1,8 @@
-% add FretBoards for standard guitar
+% add FretBoards for guitar
 \version "2.14.0"
+
+% Standard fretboards from predefined-guitar-fretboards.ly are fine for most things...
+% Here we just add a few specialty chords that are used in some of Biscuit's transcriptions
 
 biscuitCustomGuitarFretboards =
 {
