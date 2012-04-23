@@ -34,15 +34,21 @@ introChords = \chordmode { g:min | f | ees }
 
 verseChords = \chordmode 
 {	
+	%Big chord names, so old geezers can percieve them			
+	\override ChordName #'font-size = #2 
+	%Bold chord names, so old geezers can grok them			
+	\override ChordName #'font-series = #'bold
+
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	bes2 | ees2 | f2 | bes2 
-	d2:min | g2:min | d2:min | g2:min %|  \break
+	bes2 ees2 | f2  bes2 |
+	d2:min g2:min | d2:min g2:min %|  
+    bes2 f2 | d2:min g2:min | ees2 bes2 | f2 bes2
 }
 
 verseMelody =
 \new Voice = "verseVocal"
 {
-  b2 r8 g8 ~ g8 e8 | a2 ~ a8 g8 ~ g8 a8 | b2 g2 | r1 | \break
+  bes4 bes4 bes2 | a2 ~ a8 g8 ~ g8 a8 | b2 g2 | r1 | \break
   r4 r8 b8 ~ b8 g8 ~ g8 e8 | a2 \times 2/3 { g4 g4 a4 } | b1| r1 | \break
   r4 c8 c8 ~ c4 b8 a8 | c4 b16 a16 g8 ~ g4 r4 | \break
   r4 c8 c8 d8 c8 ~ c8 c16 b16 | c4 b8 g8 ~ g8 (e8 g16 a16 ~ a8) | \break
@@ -52,38 +58,52 @@ verseMelody =
 
 verseLyrics = 
 <<
-  \new Lyrics  \lyricsto verseVocal 
+  %\new Lyrics  \lyricsto verseVocal 
+  \new Lyrics  
   %\context Lyrics \lyricmode  \with { alignBelowContext = "melodyStaff" }
   %\lyricsto verseMelody 
+  %\override LyricText #'font-size = #2	% increase font by two 'sizes'
   {
-  Hey, hey, hey - the | end is near
-  on a | good day | you can see the | end from  | here; and I |
-  won't turn | back now, though the | way is | clear; I will |
-  stay for | the re- | main- | der
+  \lyricmode {
+	  "Hey, hey,"2  "hey - the"2 \noBreak "end is near."2  "On a"2 
+	  "good day"2  "you can see the"2 | "end from here;"2 "and I"2 |
+	  "won't turn"2 "back now, though the"2 | "way is"2 "clear; I will"2 |
+	  "stay for"2 "the re-"2 | "main-"2  der2
+	  }
   }
 
-  \new Lyrics \lyricsto verseVocal 
-  { \set stanza = "2. "
-  I saw a | life and I | called it | mine - I |
-  saw it | drawn so | sweet and fine | that I |
-  had be - | gun to fill in | all the lines | right |
-  down to | what we'd | name | her
+  %\new Lyrics  \lyricsto verseVocal 
+  \new Lyrics  
+  {
+  \lyricmode
+	  { \set stanza = "2. "
+	  "I saw a"2 "life and I"2 | "called it"2 "mine - I"2 |
+	  "saw it"2 "drawn so"2 | "sweet and"2 "fine ... that I"2 |
+	  "had be -"2 "gun to fill in"2 | "all the lines"2 "right"2 |
+	  "down to"2  what_we'd2 | name2 | her2
+	  }
   }
-
-  \new Lyrics \lyricsto verseVocal
-  { \set stanza = "3. "	
-  Our nature does not | change by will; in the |
-  winter 'round the | ruined mill - the |
-  creek is lying | flat and still; it is |
-  water but it's | frozen
+  %\new Lyrics  \lyricsto verseVocal 
+  \new Lyrics  
+  {
+  \lyricmode
+	  { \set stanza = "3. "	
+	  "Our nature"2 "does not"2 | "change by"2 "will; in the"2 |
+	  "winter"2 'round_the2 | "ruined"2 "mill - the"2 |
+	  "creek is"2 "lying"2 | "flat and"2 "still; it is"2 |
+	  water2 but_it's2 | "fro-"2 zen2
+	  }
   }
-  
-  \new Lyrics \lyricsto verseVocal
+  %\new Lyrics  \lyricsto verseVocal 
+  \new Lyrics  
+  {
+  \lyricmode
   { \set stanza = "4. "	
-  So 'cross the years, and | miles and through - On a | 
-  good day, you can feel my | love for you; Will you |
-  leave me be so that we | can stay true... to the |
-  path that you have | chosen
+  "So 'cross the"2 "years, and"2 | "miles and"2 "through - On a" | 
+  "good day,"2 "you can feel my"2 | "love for"2 "you; Will you"2 |
+  "leave me"2 "be so that we"2 | "can stay"2 "true... to the"2 |
+  "path that"2 "you have"2 | "cho-"2 sen2
+  }
   }
 >>
 
@@ -99,8 +119,8 @@ verseLyrics =
 		\verseMelody
 	%}
 	
-    \keepWithTag #'BiscuitUkeFretboard \new FretBoards 
-    %\removeWithTag #'BiscuitUkeFretboard \new FretBoards 
+    %\keepWithTag #'BiscuitUkeFretboard \new FretBoards 
+    \removeWithTag #'BiscuitUkeFretboard \new FretBoards 
 	{
 		\tag #'BiscuitUkeFretboard
 		{
@@ -113,6 +133,7 @@ verseLyrics =
 	  	
 		{
 			%\introChords
+			\transpose bes g
 		    \verseChords
 		}
 	}
@@ -121,36 +142,37 @@ verseLyrics =
 		%\with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 	    	%\introChords
+			\transpose bes g
 		    \verseChords
 		}	
 	}
 
-	\new Voice = "vocal"
-	{
-		\tempo "Andante - 1.53 Hz " 4 = 92
-		%\tempo "Andante " 4 = 92
-		%\markup { (1.53 Hz) }
-		\relative c''
-		{
-			\numericTimeSignature
-			\time 4/4
-	  		%\introMelody
-			\repeat volta 4 
-			{
-				%\new Staff = "melodyStaff"
-				{
-					\key c \major	
-				    \set Staff.midiInstrument = #"ocarina"
-					%\numericTimeSignature
-					%\time 4/4
-					{
-					    \verseMelody
-					}
-				}
-			}
-
-		}
-	}
+%	\new Voice = "vocal"
+%	{
+%		\tempo "Andante - 1.53 Hz " 4 = 92
+%		%\tempo "Andante " 4 = 92
+%		%\markup { (1.53 Hz) }
+%		\relative c''
+%		{
+%			\numericTimeSignature
+%			\time 4/4
+%	  		%\introMelody
+%			\repeat volta 4 
+%			{
+%				%\new Staff = "melodyStaff"
+%				{
+%					\key c \major	
+%				    \set Staff.midiInstrument = #"ocarina"
+%					%\numericTimeSignature
+%					%\time 4/4
+%					{
+%					    \verseMelody
+%					}
+%				}
+%			}
+%
+%		}
+%	}
   
 	%Lyrics
 	{
