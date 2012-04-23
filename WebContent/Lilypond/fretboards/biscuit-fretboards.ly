@@ -96,6 +96,15 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
                         #biscuitTuning
                         #"7-1;7-1;7-1;7-1;"
                         
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {ees}
+                        #biscuitTuning
+                        #"3-1;4-2;5-3;3-1;"
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {g:min}
+                        #biscuitTuning
+                        #"3-1;3-1;5-3;3-1;"
+
 \storePredefinedDiagram #default-fret-table \chordmode {f}
                         #biscuitTuning
                         #"5-1;6-2;7-3;5-1;"
@@ -191,10 +200,14 @@ fMajSeven = { <c\4 f'\3 a'\2 e''\1> }
                         #biscuitTuning
 						#(chord-shape 'cis biscuitTuning)
 
+
+%\storePredefinedDiagram #default-fret-table \chordmode { bes }
+%                        #biscuitTuning
+%						#(offset-fret 9 (chord-shape 'cis biscuitTuning))
+
 \storePredefinedDiagram #default-fret-table \chordmode { bes }
                         #biscuitTuning
-						#(offset-fret 9 (chord-shape 'cis biscuitTuning))
-
+						#"7-3;6-2;8-4;5-1;"
 
 %%HandShadowDuck chord shape                       
 %\addChordShape #'cis #biscuitTuning #"1-1-(1-1;2-2;3-3;1-1-)"
