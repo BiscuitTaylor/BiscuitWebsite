@@ -175,7 +175,8 @@ verseAlternateChordLyrics =
 \score
 {
 	%keep only sections tagged BiscuitUkeFretboard
-    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'BiscuitUkeFretboard
+    \keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
     %\removeWithTag #'StandardGuitarFretboard 
 <<
@@ -183,6 +184,7 @@ verseAlternateChordLyrics =
 	{
         \defineMyFretboard
 		{
+			\transpose g d
 		    \verseChords
 		}
 	}
@@ -191,6 +193,7 @@ verseAlternateChordLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
+			\transpose g d
 		    \verseChords
 		}	
 	}
@@ -215,7 +218,8 @@ verseAlternateChordLyrics =
 \score
 {
 	%keep only sections tagged BiscuitUkeFretboard
-    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'BiscuitUkeFretboard
+    \keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
     %\removeWithTag #'StandardGuitarFretboard 
 <<
@@ -223,6 +227,7 @@ verseAlternateChordLyrics =
 	{
         \defineMyFretboard
 		{
+			\transpose g d
 		    \verseAlternateChords
 		}
 	}
@@ -231,6 +236,7 @@ verseAlternateChordLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
+			\transpose g d
 		    \verseAlternateChords
 		}	
 	}
