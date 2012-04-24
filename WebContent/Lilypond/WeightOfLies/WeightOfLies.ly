@@ -41,9 +41,9 @@ verseChords = \chordmode
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
 	a1 | a/gis1 |
-	fis1:min | e1 |  d2 d2:sus2
+	fis1:min | e1 |  d2 d2:sus2 |  d2 d2:sus2
 	a1 | a/gis1 |
-	fis1:min | e1 |  d2 d2:sus2
+	fis1:min | e1 |  d2 d2:sus2 |  d2 d2:sus2
 }
 
 chorusChords = \chordmode 
@@ -77,9 +77,9 @@ verseLyrics =
   {
   \lyricmode {
   		"Disappear from your"1 "hometown"1
-		"Go and find the"1 "people that you"1 "know"1 \break
+		"Go and find the"1 "people that you know"1 ""1 ""2. "..."4 \break
 		"Show them all your"1 "good parts"1
-		"Leave town when the"1 "bad ones start to show"1 ""1 \break
+		"Leave town when the"1 "bad ones start to show"1 ""1 ""1 \break
 	  }
   }
 
@@ -89,9 +89,9 @@ verseLyrics =
   \lyricmode
 	  { \set stanza = "2. "
 		"Go and wed a"1 "woman - a"1
-		"pretty girl"1 "that youÕve never met"1 ";  Make"1
+		"pretty girl"1 that_you've_never_met1 ""1 ""2. Make4
 		"sure she knows you"1 "love her well  but"1
-		"donÕt make any"1 "other promis-"1 "es.   The"1
+		don't_make_any1 "other promis-"1 "es."1 ""2.   The4
 	  }
   }
   %\new Lyrics  \lyricsto verseVocal 
@@ -100,8 +100,8 @@ verseLyrics =
   \lyricmode
 	  { \set stanza = "3. "	
 		"I once heard the"1 "worst thing"1
-		"A man can do is"1 "draw a hungry crowd"1
-		"Tell everyone his"1 "name with pride and"1 "confidence"1
+		"A man can do is"1 "draw a hungry crowd"1 ""1 ""2. Tell4
+		"everyone his"1 "name with pride and"1 "confidence"1
 		"But leaving out his"1 "doubt"1 ""1
 	  }
   }
@@ -111,9 +111,9 @@ verseLyrics =
   \lyricmode
 	  { \set stanza = "4. "	
 		"IÕm not sure I"1 "bought those words"1
-		"When I was young I"1 "knew most everything"1
-		"These words have never"1 "meant as much to"1 "anyone"
-		"As they now mean to"1 "me"1 ""1
+		"When I was young I"1 "knew most everything"1 ""1 ""2. "These"4 
+		"words have never"1 "meant as much to"1 "anyone"2. as4
+		"they now mean to"1 "me"1 ""1
 	  }
   }
 >>
@@ -124,8 +124,8 @@ chorusLyrics =
   {
   \lyricmode {
   		"weight of lies will"1 "bring you down, and"1
-		"follow you to"1 "every town, 'cause"1 \break
-		"nothing happens"1 "here that doesnÕt"1 "happen there"1 "So"1
+		"follow you to"1 every_town,_'cause1 \break
+		"nothing happens"1 here_that_doesn't1 "happen there"1 "So"1
 	  }
   }
   \new Lyrics  
@@ -133,7 +133,7 @@ chorusLyrics =
   \lyricmode { \set stanza = "2. "	
 		"when you run make"1 "sure you run to"1
 		"something and not"1 "away from, 'cause"1
-		"lies donÕt need an"1 "aeroplane to"1 "chase you anywhere"1
+		lies_don't_need_an1 "aeroplane to"1 "chase you anywhere"1
 	  }
   }
 >>
