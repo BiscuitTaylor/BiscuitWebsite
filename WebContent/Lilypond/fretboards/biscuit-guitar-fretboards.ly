@@ -33,6 +33,19 @@ biscuitCustomGuitarFretboards =
 
 %TODO: use a predefined chord-shape
 
+% G/F# and Csus2 are used in Weight of Lies
+
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {g/fis}
+                        #guitar-tuning
+                        #"2-1;2-2;o-o;o-o;o-o;3-3;"
+
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {c:sus2}
+                        #guitar-tuning
+                        #"x-x;3-3;o-o;o-o;1-1;o-o;"
+
+
 % end of include file /biscuit-guitar-fretboard.ly
 
 
