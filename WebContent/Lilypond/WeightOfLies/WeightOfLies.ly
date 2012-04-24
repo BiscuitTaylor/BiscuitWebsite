@@ -29,6 +29,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % ****************************************************************
 \include "../fretboards/biscuit-fretboards.ly"
 \include "predefined-guitar-fretboards.ly"
+\include "../fretboards/biscuit-guitar-fretboards.ly"
 
 introChords = \chordmode { g:min | f | ees }
 
