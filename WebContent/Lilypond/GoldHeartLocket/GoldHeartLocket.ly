@@ -39,7 +39,7 @@ verseChords = \chordmode
 	\override ChordName #'font-size = #2 
 	%Bold chord names, so old geezers can grok them			
 	\override ChordName #'font-series = #'bold
-    \set predefinedDiagramTable = #custom-fretboard-table-open-e
+    %\set predefinedDiagramTable = #custom-fretboard-table-open-e
  	d1 | d2 a2 | e1:min | g2 d2 |
 	d1 | d2 a2 | e1:min | g2 d2 |
 }
@@ -85,16 +85,16 @@ verseLyrics =
   {
 	\override LyricText #'font-size = #1	% increase font by one 'sizes'
  	\lyricmode
-  {\set stanza = "2. "
-	Open_it_up_and_she's2 lovely_lovely2
-	"eyes of hazel"2 green2
-	"but I close it up fast 'cause the"2 "rain gets past, and lays a"2
-	"tear down on her"2 "cheek.  I"2
-	promised_her_once_that_I'd2 "never ever"2
-	"break her heart a-"2 "gain; so lord"2
-	"take me there, with a"2 "silent prayer, and her"2
-	"locket in my"2 hand"2
-  }
+	  {\set stanza = "2. "
+		Open_it_up_and_she's2 lovely_lovely2
+		"eyes of hazel"2 green2
+		"but I close it up fast 'cause the"2 "rain gets past, and lays a"2
+		"tear down on her"2 "cheek.  I"2
+		promised_her_once_that_I'd2 "never ever"2
+		"break her heart a-"2 "gain; so lord"2
+		"take me there, with a"2 "silent prayer, and her"2
+		"locket in my"2 hand"2
+	  }
   }
 >>
 
@@ -137,12 +137,12 @@ bridgeLyrics =
 	}
 }
 
-chorusMelody =
-\new Voice = "chorusVocal"
-{
-	%"matter what it takes"
-	e8 e16 e16 e8 d8 e16 e16 e16 g8. |
-}
+%chorusMelody =
+%\new Voice = "chorusVocal"
+%{
+%	%"matter what it takes"
+%	e8 e16 e16 e8 d8 e16 e16 e16 g8. |
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -176,16 +176,8 @@ chorusMelody =
 		\pageBreak
 		%TODO - add D.S. al coda
 		\chorusLyrics
-		\bar "||" %seems to have no effect here.   I guess you can only have bar markers on a Staff
 		\break
 
-        \mark \markup {
-			%Force a gap before showing the bridge
-			\vspace #3 
-			%'Segno'
-         	\musicglyph #"scripts.segno"
-		}
-		
 		\bridgeLyrics
 	}
 

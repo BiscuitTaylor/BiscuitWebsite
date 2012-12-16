@@ -103,7 +103,7 @@ verseLyrics =
 		"everyone his"1 "name with pride and"1 "confidence"1
 		"But leaving out his"1 "doubt"1 ""1
 		
-		IÕm_not_sure_I1 "bought those words"1
+		I'm_not_sure_I1 "bought those words"1
 		"When I was young I"1 "knew most everything"1 ""1 ""2. "These"4 
 		"words have never"1 "meant as much to"1 "anyone"2. as4
 		"they now mean to"1 "me"1 ""1
@@ -152,6 +152,12 @@ chorusLyrics =
         	#'(fret-diagram-details finger-code) = #'in-dot
 		}
 	  	
+%        \keepWithTag #'StandardGuitarFretboard
+%	  	\tag #'StandardGuitarFretboard
+%	  	{
+%             \set instrument = #"Capo 3"
+%             %\transpose a g {\verseChords}
+%        }
 		{
 			%\introChords
 			\transpose a g

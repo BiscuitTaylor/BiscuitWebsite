@@ -55,12 +55,12 @@ verseChords = \chordmode
 	%Bold chord names, so old geezers can grok them			
 	\override ChordName #'font-series = #'bold
     \set predefinedDiagramTable = #default-fret-table
-  g''''1     d'1    g''''1            
-  d'1     g''''1    d'1  
-  a'''''1     g''''1    a'''''1    
-  b''''''1:min c'1    g''''1     c'1      
-  d'1     a'''''1    c'1     g''''1    
-  d'1     a'''''1    c'1     g'''''1    
+  g''1     d1    g''1            
+  d1     g''1    d1  
+  a''1     g''1    a''1    
+  b'1:min c1    g''1     c1      
+  d1     a''1    c1     g''1    
+  d1     a''1    c1     g''1    
 }
 
 verseAlternateChords = \chordmode 
@@ -71,12 +71,12 @@ verseAlternateChords = \chordmode
 	\override ChordName #'font-series = #'bold
     %\set predefinedDiagramTable = #custom-fretboard-table-open-e
     \set predefinedDiagramTable = #default-fret-table
-  g1     d   g1            
-  d1     g1    d1  
-  a1     g1    a1    
-  b1:min c,,,,1    g1     c''''1      
-  d1     a1    c''''1     g1    
-  d1     a1    c'''''1     g''''''''''''1    
+  g''1     d   g''1            
+  d1     g''1    d1  
+  a''1     g''1    a''1    
+  b'1:min c,,,,1    g1     c1      
+  d1     a''1    c1     g1    
+  d1     a''1    c1     g''1    
 }
 
 verseNominalChords = \chordmode 
@@ -87,12 +87,12 @@ verseNominalChords = \chordmode
 	\override ChordName #'font-series = #'bold
     %\set predefinedDiagramTable = #custom-fretboard-table-open-e
     \set predefinedDiagramTable = #default-fret-table
-  g1     d   g1            
-  d1     g1    d1  
-  a1     g1    a1    
-  b1:min c1    g1     c1      
-  d1     a1    c1     g1    
-  d1     a1    c1     g1    
+  g''1     d   g''1            
+  d1     g''1    d1  
+  a''1     g''1    a''1    
+  b'1:min c1    g''1     c1      
+  d1     a''1    c1     g''1    
+  d1     a''1    c1     g''1    
 }
 
 % notes:
@@ -175,8 +175,8 @@ verseAlternateChordLyrics =
 \score
 {
 	%keep only sections tagged BiscuitUkeFretboard
-    %\keepWithTag #'BiscuitUkeFretboard
-    \keepWithTag #'StandardGuitarFretboard
+    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
     %\removeWithTag #'StandardGuitarFretboard 
 <<
@@ -184,8 +184,8 @@ verseAlternateChordLyrics =
 	{
         \defineMyFretboard
 		{
-			\transpose g d
-		    \verseChords
+			%\transpose d a
+		    \verseNominalChords
 		}
 	}
 
@@ -193,8 +193,8 @@ verseAlternateChordLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			\transpose g d
-		    \verseChords
+			%\transpose d a
+		    \verseNominalChords
 		}	
 	}
   
@@ -218,8 +218,8 @@ verseAlternateChordLyrics =
 \score
 {
 	%keep only sections tagged BiscuitUkeFretboard
-    %\keepWithTag #'BiscuitUkeFretboard
-    \keepWithTag #'StandardGuitarFretboard
+    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
     %\removeWithTag #'StandardGuitarFretboard 
 <<
@@ -227,8 +227,8 @@ verseAlternateChordLyrics =
 	{
         \defineMyFretboard
 		{
-			\transpose g d
-		    \verseAlternateChords
+			%\transpose d a
+		    \verseNominalChords
 		}
 	}
 
@@ -236,8 +236,8 @@ verseAlternateChordLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			\transpose g d
-		    \verseAlternateChords
+			%\transpose d a
+		    \verseNominalChords
 		}	
 	}
   
