@@ -8,9 +8,11 @@
   <meta name="CREATED" content="20091007;21365193">
   <meta name="CHANGED" content="20091007;21485367">
   <meta content="return from Glacier Lake" name="description">
-  <style type="text/css">img {border: 1px solid ;"}
-  						div {clear:left;}
+  <style type="text/css">img {border: 1px solid ;}
+  						div {}
   </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script src="http://biscuit.nfshost.com/Biscuit/galleria/galleria-1.2.6.min.js"></script>
 </head>
 <body background="../../04-seamless-grungy-green-textures-webtreats.jpg" dir="LTR" lang="en-US">
 <p align="CENTER"><font size="4">Hiking Out : Off-Trail<br>
@@ -23,16 +25,18 @@ Ridge<br>
 </p>
 
 <hr><br>
+
+<div id="gallery"; align="center">
 <a href="DSC_0133_big.JPG">
-<img 
- alt="pond below glacier lake" 
- src="DSC_0133.JPG"><br></a>
-<br>
+<img src="DSC_0133.JPG"
+ title="pond below glacier lake"
+ alt="between black buttes and lower trail"></a>
+
 <a href="DSC_0134_big.JPG">
-<img 
- alt="pond below glacier lake" 
- src="DSC_0134.JPG"><br></a>
-<br>
+<img src="DSC_0134.JPG"
+ title="pond"
+ alt="below glacier lake"></a>
+
 <a href="DSC_0135_big.JPG">
 <img alt="below sand ridge"
  src="DSC_0135.JPG"><br></a>
@@ -51,7 +55,7 @@ Ridge<br>
 <br>
 <a href="DSC_0139_big.JPG">
 <img alt="below sand ridge"
- src="DSC_0139_big.JPG"><br></a>
+ src="DSC_0139.JPG"><br></a>
 <br>
 <a href="DSC_0140_big.JPG">
 <img alt="below sand ridge"
@@ -100,6 +104,28 @@ Ridge<br>
 <a href="DSC_0151_big.JPG">
 <img alt="meadow"
  src="DSC_0151.JPG"><br></a>
+</div>
+
+<script>
+    Galleria.loadTheme('http://biscuit.nfshost.com/Biscuit/galleria/themes/twelve/galleria.twelve.min.js');
+    $("#gallery").galleria({
+        width: 752,
+        height: 500,
+        carousel: false,
+        transition: 'fadeslide',
+        lightbox: true
+    });
+</script>
+ 
+<br>
+<hr>
+<br>
+ 
+<a href="DSC_0139_big.JPG">
+<img alt="below sand ridge"
+ src="DSC_0139_big.JPG"><br></a>
+
+ 
 <br>
 </body>
 </html>
