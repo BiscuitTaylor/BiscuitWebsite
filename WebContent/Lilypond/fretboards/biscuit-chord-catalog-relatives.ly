@@ -45,23 +45,23 @@ aChords = \chordmode
 
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
-	a1 a1:maj7 a1:7 
+	a1 a1:maj7 a1:7 a1:aug
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
-	a''1 a''1:maj7 a''1:7 
+	a''1 a''1:maj7 a''1:7 a''1:aug
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
-	a'''1  a'''1:maj7  a'''1:7  
+	a'''1  a'''1:maj7  a'''1:7   a'''1:aug
 }
 aChordsOnStaff = \chordmode 
 {	
-	a1 | a1:maj7 | a1:7
+	a1 | a1:maj7 | a1:7 | a1:aug
 	\break
-	a/cis1 a/cis1:maj7 a/cis1:7 
+	a/cis1 a/cis1:maj7 a/cis1:7 a/cis1:aug
 	\break
-	a/e1 a/e1:maj7 a/e1:7 	
+	a/e1 a/e1:maj7 a/e1:7 a/f1:aug
 }
 %%%%%%%%%%%%%% A min %%%%%%%%%%%%%%%%%
 aMinChords = \chordmode 
@@ -96,28 +96,28 @@ bChords = \chordmode
 
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
-	b1 b1:maj7 b1:7 
+	b1 b1:maj7 b1:7  b1:aug
 	b1:min  b1:min7 
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
-	b''1 b''1:maj7 b''1:7 
+	b''1 b''1:maj7 b''1:7  b''1:aug
 	b''1:min  b''1:min7 
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
-	b'''1  b'''1:maj7  b'''1:7  
+	b'''1  b'''1:maj7  b'''1:7   b'''1:aug
 	b'''1:min  b'''1:min7
 }
 bChordsOnStaff = \chordmode 
 {	
-	b1 b1:maj7 b1:7 
+	b1 b1:maj7 b1:7 b1:aug
 	b1:min  b1:min7 
 	\break
-	b/dis1 b/dis1:maj7 b/dis1:7 
+	b/dis1 b/dis1:maj7 b/dis1:7 b/dis:aug
 	b/d1:min  b/d1:min7 
 	\break
-	b/fis1 b/fis1:maj7 b/fis1:7 
+	b/fis1 b/fis1:maj7 b/fis1:7 b/g:aug
 	b/fis1:min  b/fis1:min7 
 }
 
@@ -127,23 +127,23 @@ cChords = \chordmode
 	\bigChordNames	% for geezers;  from biscuit-fretboards.ly
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
-	c1 c1:maj7 c1:7 
+	c1 c1:maj7 c1:7  c1:aug
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
-	c''1 c''1:maj7 c''1:7 
+	c''1 c''1:maj7 c''1:7 c''1:aug
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
-	c'''1  c'''1:maj7  c'''1:7  
+	c'''1  c'''1:maj7  c'''1:7  c'''1:aug
 }
 cChordsOnStaff = \chordmode 
 {	
-	c1 c1:maj7 c1:7 
+	c1 c1:maj7 c1:7 c1:aug
 	\break
-	c/e1 c/e1:maj7 c/e1:7 
+	c/e1 c/e1:maj7 c/e1:7 c/e1:aug
 	\break
-	c/g1 c/g1:maj7 c/g1:7 
+	c/g1 c/g1:maj7 c/g1:7 c/gis1:aug
 }
 %%%%%%%%%%%%%% C min %%%%%%%%%%%%%%%%%
 cMinChords = \chordmode 
@@ -233,31 +233,31 @@ gChords = \chordmode
 	\bigChordNames	% for geezers;  from biscuit-fretboards.ly
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
-	g1 g1:maj7 g1:7 
+	g1 g1:maj7 g1:7 g1:aug
 	g1:min  g1:min7 
 	
 	%\break
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
-	g''1 g''1:maj7 g''1:7 
+	g''1 g''1:maj7 g''1:7 g''1:aug
 	g''1:min  g''1:min7 | 
 	
 	%\break
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
-	g'''1  g'''1:maj7  g'''1:7  g'''1:min  g'''1:min7
+	g'''1  g'''1:maj7  g'''1:7  g'''1:min  g'''1:min7 g'''1:aug
 }
 gChordsOnStaff = \chordmode 
 {	
-	g1 | g1:maj7 | g1:7
+	g1 | g1:maj7 | g1:7 | g1:aug
 	g1:min | g1:min7 |
 	\break
-	g/b1 g/b1:maj7 g/b1:7 
+	g/b1 g/b1:maj7 g/b1:7 g/b1:aug
 	g/bes1:min  g/bes1:min7 
 	\break
-	g/d1 g/d1:maj7 g/d1:7 
+	g/d1 g/d1:maj7 g/d1:7 g/dis:aug
 	g/d1:min  g/d:min7 
 }
 

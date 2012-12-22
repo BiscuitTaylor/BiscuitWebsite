@@ -39,6 +39,11 @@
 \storePredefinedDiagram #default-fret-table \chordmode {g:7}
                         #biscuitTuning
                         #"10-1;12-3;12-3;12-3;"
+\storePredefinedDiagram #default-fret-table \chordmode { g:aug }
+                        #biscuitTuning
+                        #(offset-fret 9 (chord-shape 'rootAugChordShape biscuitTuning))
+
+
 \storePredefinedDiagram #default-fret-table \chordmode {g:min}
                         #biscuitTuning
                         #"12-2;11-1;12-3;12-3;"
@@ -58,6 +63,9 @@
 						\chordmode {g'':maj7}
                         #biscuitTuning
                         #"4-3;x-x;4-4;o-o;"
+\storePredefinedDiagram #default-fret-table \chordmode { g'':aug }
+                        #biscuitTuning
+                        #(offset-fret 1 (chord-shape 'firstAugChordShape biscuitTuning))
 
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {g'':min}
@@ -88,6 +96,9 @@
 						\chordmode {g''':9}
                         #biscuitTuning
                         #"9-3;8-2;10-4;7-1;"
+\storePredefinedDiagram #default-fret-table \chordmode { g''':aug }
+                        #biscuitTuning
+                        #(offset-fret 3 (chord-shape 'secondAugChordShape biscuitTuning))
                        
                                             
 \storePredefinedDiagram #default-fret-table 
