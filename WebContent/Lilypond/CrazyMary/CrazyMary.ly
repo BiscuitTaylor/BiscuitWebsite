@@ -67,7 +67,7 @@ crazyChords = \chordmode
 
 crowdChords = \chordmode 
 {	
-	f'''1 |f'''1 |
+	a''2:min g'''2 |f'''1 |
 }
 
 chorusChords = \chordmode 
@@ -108,22 +108,6 @@ outroChords = \chordmode
 }
 
 
-ahLyrics = 
-<<
-  \new Lyrics  \with {
-    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
-	% Note - this override only makes a difference when Fret Diagrams are present!
-  }
-  %\lyricsto vocalHarmony 
-  {
-  \lyricmode {
-	"Ah... Ah..."1
-	"Ah..."1
-	\repeat unfold 6 { \skip 1 }	
-		  }
-  }
->>
-
 verseLyrics = 
 <<
   %\new Lyrics  \lyricsto verseVocal 
@@ -154,7 +138,7 @@ verseLyrics =
   { \lyricmode
   {\set stanza = "2. "
 	"Down a long dirt road"1
-	"Past the Parson's place."1
+	"Past the parson's place."1
 	"Their old blue car"1
 	"We used to race."1
 	"Little"2 "country store with a"2
@@ -165,7 +149,7 @@ verseLyrics =
 	\break
 	% alternate endings
 	\repeat unfold 6 { \skip 1 }	% skip previous ending
-	"Underneath that sign always congregated"1	
+	"Underneath that"2 "sign always congregated"2	
 	"quite a crowd."1 
   }
   }
@@ -190,6 +174,22 @@ dreamLyrics =
   }
   }
   
+ahLyrics = 
+<<
+  \new Lyrics  \with {
+    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
+	% Note - this override only makes a difference when Fret Diagrams are present!
+  }
+  %\lyricsto vocalHarmony 
+  {
+  \lyricmode {
+	"Ah... Ah..."1
+	"Ah..."1
+	\repeat unfold 6 { \skip 1 }	
+		  }
+  }
+>>
+
 
 skidMarksLyrics = 
 <<
@@ -222,7 +222,7 @@ chorusLyrics =
 	"Take a bottle"2 "drink it down."2
 	"Pass it... Pass it around. Pass ita..."1
 	"Take a bottle"2 "drink it down."2 
-	"Pass it... Pass it a... Pass itaround."1
+	"Pass it... Pass it a... Pass it around."1
 	}
   }
 >>
@@ -283,14 +283,17 @@ outroLyrics =
 			    \skidMarksChords
 				\bridgeChords
 		    	\chorusChords
+
+				\break
+				\outroChords
 		    }
 	}
 
 	\new ChordNames 
-	  \with {
-	  \override BarLine #'bar-size = #4
-	  \consists "Bar_engraver"
-	  }
+%	  \with {
+%	  \override BarLine #'bar-size = #4
+%	  \consists "Bar_engraver"
+%	  }
 %	  \with {
 %	    \override VerticalAxisGroup #'padding = #'(-10.2 . 20)
 %	  }
@@ -302,7 +305,7 @@ outroLyrics =
 		%\with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 	    	%\introChords
-		    \repeat volta 3
+		    \repeat volta 2
 		    {
 		    	\verseChords
 		    }
@@ -326,9 +329,10 @@ outroLyrics =
 	{
 		%\introLyrics
 		<<
-	    {
-	    	\verseLyrics
-	    }
+	    %{
+	    %	\verseLyrics
+	    %}
+	    \verseLyrics
 %		\alternative {
 %			{ \crazyLyrics }
 %			{ \crowdLyrics }
@@ -373,6 +377,21 @@ outroLyrics =
 
   \layout {
   	indent = 0.0\cm  	
+  	
+%  		\context {
+%	    \ChordNames
+%	    \consists Bar_engraver
+%	    %% need procedure, since ChordNames doesn't have a staff_sym engraver.
+%	    \override BarLine #'bar-size-procedure = #(lambda (x) 3.0)
+%		}
+%  	
+%  		\context {
+%	    \Lyrics
+%	    \consists Bar_engraver
+%	    %% need procedure, since Lyrics doesn't have a staff_sym engraver.
+%	    \override BarLine #'bar-size-procedure = #(lambda (x) 3.0)
+%		}
+  	
   }
   %\midi {}
 } 
