@@ -19,7 +19,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 \paper {
   between-system-space = 3.5\cm
   indent = 0\mm
-  line-width = 160\mm
+  line-width = 180\mm
   force-assignment = #""
   line-width = #(- line-width (* mm  3.000000))
   %ragged-last-bottom = ##t
@@ -50,7 +50,7 @@ defineMyFretboard =
 }
 >>
 
-introChords = \chordmode { g | g | g | g }
+introChords = \chordmode { a''1:min | f'''1 | a''1:min | f'''1 }
 
 verseChords = \chordmode 
 {	
@@ -62,7 +62,7 @@ verseChords = \chordmode
 crazyChords = \chordmode 
 {	
 	% f'''1 | g''2  a''2:min |
-	f'''1 | f'''1 | g''1 | g''1 |  a''1:min | f'''1
+	f'''1 | g'''1 |  a''1:min | f'''1
 }
 
 crowdChords = \chordmode 
@@ -72,15 +72,17 @@ crowdChords = \chordmode
 
 chorusChords = \chordmode 
 {	
-	a''2:min  g'''2 | f'''2 ~ f'''4. g''8 |
-	a''2:min  g'''2 | f'''2 ~ f'''4. g''8 |
-	a''2:min  g'''2 | f'''2 ~ f'''4. g''8 |
+	% Note - double-dotted half note represents 3.5 beats - a dotted half tied to an eighth-note 
+	a''2:min  g'''2 | f'''2.. g'''8 |
+	a''2:min  g'''2 | f'''2.. g'''8 |
+	a''2:min  g'''2 | f'''2.. g'''8 |
 }
 
 dreamChords = \chordmode 
 {	
+	g1 | 
 	a1 | a1 | d'''1 | d'''1 |
-	a1 | a1 | e'''1:min | d'''1 |
+	a1 | a1 | e''1:min | d'''1 |
 	a1 | a1
 }
 
@@ -98,8 +100,8 @@ skidMarksChords = \chordmode
 
 bridgeChords = \chordmode 
 {	
-	a''1:min | g'''1 | f'''1 |
-	f'''1 | g'''1 | f'''2 ~ f'''4. g'''8 |
+	g'''1 | f'''1 |
+	g'''1 | f'''2.. g'''8 |
 }
 
 outroChords = \chordmode 
@@ -123,13 +125,12 @@ verseLyrics =
 	"wrong side of the tracks."1
 	"Sometimes on the"2 "way into town We'd say,"2
 	"Mama can we stop and give her a ride?"1
-	"Sometimes we"2 "did, but she shook her head and her"2
-	"hands flew from her side."1
+	"Sometimes we"2 "did, but she shook her head and her hands"2
+	"flew from her side. "1
 	
 	\break
 	% alternate endings
-	\skip 1 "Wild eyed"1
-	\skip 1 "Crazy"1 "Mary."1 \skip 1	
+	"Wild eyed"1 "Crazy"1 "Mary."1 \skip 1	
 	\repeat unfold 2 { \skip 1 }	% skip following ending
   }
   }
@@ -139,16 +140,18 @@ verseLyrics =
   {\set stanza = "2. "
 	"Down a long dirt road"1
 	"Past the parson's place."1
-	"Their old blue car"1
-	"We used to race."1
-	"Little"2 "country store with a"2
+	\break
+	"The old blue car"1
+	"We used to race"1
+	\break
+	"to a little"2 "country store with a"2
 	"sign tacked to the side - said No"1
 	"L-O-I-T-E-R-I-N-G A-"1 
 	"llowed."1
 	
 	\break
 	% alternate endings
-	\repeat unfold 6 { \skip 1 }	% skip previous ending
+	\repeat unfold 4 { \skip 1 }	% skip previous ending
 	"Underneath that"2 "sign always congregated"2	
 	"quite a crowd."1 
   }
@@ -160,6 +163,7 @@ dreamLyrics =
   \new Lyrics 
   { \lyricmode
   {
+	\skip 1
 	"One night thunder cracked"1
 	"Mercy backed outside my windowsill."1
 	"Dreamed I was flying high"1
@@ -175,9 +179,8 @@ dreamLyrics =
   }
   
 ahLyrics = 
-<<
   \new Lyrics  \with {
-    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
+    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
 	% Note - this override only makes a difference when Fret Diagrams are present!
   }
   %\lyricsto vocalHarmony 
@@ -188,7 +191,6 @@ ahLyrics =
 	\repeat unfold 6 { \skip 1 }	
 		  }
   }
->>
 
 
 skidMarksLyrics = 
@@ -202,7 +204,7 @@ skidMarksLyrics =
 	"We saw some skid marks and followed them around."1
 	"Over the curb; Through the field;"1
 	"Into the house of"1 
-	"Mary."1
+	"Mary.     That what you"1
   }
   }
   
@@ -211,7 +213,7 @@ skidMarksLyrics =
 chorusLyrics = 
 <<
   \new Lyrics  \with {
-    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
+    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
 	% Note - this override only makes a difference when Fret Diagrams are present!
   }
   %\lyricsto vocalHarmony 
@@ -231,14 +233,14 @@ chorusLyrics =
 bridgeLyrics = 
 <<
   \new Lyrics  \with {
-    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
+    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
 	% Note - this override only makes a difference when Fret Diagrams are present!
   }
   %\lyricsto vocalHarmony 
   {
   \lyricmode {
-	"That what you"1 "fear the most, could meet you"1 "halfway,"1
-	"That what you"1 "fear the most, could meet you"1 "halfway,"1
+	"fear the most, could meet you"1 "halfway.    That what you" 1
+	"fear the most, could meet you"1 "halfway."1
 	  }
   }
 >>
@@ -246,7 +248,7 @@ bridgeLyrics =
 outroLyrics = 
 <<
   \new Lyrics  \with {
-    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
+    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
 	% Note - this override only makes a difference when Fret Diagrams are present!
   }
   %\lyricsto vocalHarmony 
@@ -284,7 +286,7 @@ outroLyrics =
 				\bridgeChords
 		    	\chorusChords
 
-				\break
+				\pageBreak
 				\outroChords
 		    }
 	}
@@ -328,10 +330,7 @@ outroLyrics =
 	%Lyrics
 	{
 		%\introLyrics
-		<<
-	    %{
-	    %	\verseLyrics
-	    %}
+	
 	    \verseLyrics
 %		\alternative {
 %			{ \crazyLyrics }
@@ -339,7 +338,7 @@ outroLyrics =
 %			{ \risingUpLyrics }
 %		}
 		
-		>>
+		
 		
 		\pageBreak
 %		\new Staff
@@ -349,13 +348,16 @@ outroLyrics =
 		<<
 		%\chorusHarmony
 		\chorusLyrics
-		>>
+		>>    	
+		\break
 		\dreamLyrics
 		\ahLyrics
+		
 		\pageBreak
 		\skidMarksLyrics
 		\break
 		\bridgeLyrics
+		\break
 		\chorusLyrics
 	}
 
@@ -376,7 +378,11 @@ outroLyrics =
 >>
 
   \layout {
-  	indent = 0.0\cm  	
+  	indent = 0.0\cm  
+  	
+  	% See line-width, above
+  	%left-margin = 5\mm	% shrinking the margins to try to fit 2 measures of lyrics on one line
+  	%right-margin = 5\mm	% The margin Default is: 10\mm
   	
 %  		\context {
 %	    \ChordNames
