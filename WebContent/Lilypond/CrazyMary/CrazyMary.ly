@@ -59,12 +59,12 @@ verseChords = \chordmode
 	a''2:min g'''2 | f'''1 |
 }
 
+% verse 1st ending
 crazyChords = \chordmode 
 {	
-	% f'''1 | g''2  a''2:min |
 	f'''1 | g'''1 |  a''1:min | f'''1
 }
-
+%verse 2nd ending
 crowdChords = \chordmode 
 {	
 	a''2:min g'''2 |f'''1 |
@@ -125,8 +125,8 @@ verseLyrics =
 	"wrong side of the tracks."1
 	"Sometimes on the"2 "way into town We'd say,"2
 	"Mama can we stop and give her a ride?"1
-	"Sometimes we"2 "did, but she shook her head and her hands"2
-	"flew from her side. "1
+	"Sometimes we"2 "did, but she shook her head and her"2
+	"hands flew from her side. "1
 	
 	\break
 	% alternate endings
@@ -179,10 +179,11 @@ dreamLyrics =
   }
   
 ahLyrics = 
-  \new Lyrics  \with {
-    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
-	% Note - this override only makes a difference when Fret Diagrams are present!
-  }
+  \new Lyrics
+%  \with {
+%    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2))
+%	% Note - this override only makes a difference when Fret Diagrams are present!
+%  }
   %\lyricsto vocalHarmony 
   {
   \lyricmode {
@@ -194,9 +195,7 @@ ahLyrics =
 
 
 skidMarksLyrics = 
-<<
   %\new Lyrics  \lyricsto verseVocal 
-  \new Lyrics    %\context Lyrics \lyricmode  \with { alignBelowContext = "melodyStaff" }
   \new Lyrics 
   { \lyricmode
   {
@@ -207,15 +206,13 @@ skidMarksLyrics =
 	"Mary.     That what you"1
   }
   }
-  
->>	
 
 chorusLyrics = 
-<<
-  \new Lyrics  \with {
-    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
-	% Note - this override only makes a difference when Fret Diagrams are present!
-  }
+  \new Lyrics
+%  \with {
+%    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
+%	% Note - this override only makes a difference when Fret Diagrams are present!
+%  }
   %\lyricsto vocalHarmony 
   {
   \lyricmode {
@@ -227,15 +224,14 @@ chorusLyrics =
 	"Pass it... Pass it a... Pass it around."1
 	}
   }
->>
   
 
 bridgeLyrics = 
-<<
-  \new Lyrics  \with {
-    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
-	% Note - this override only makes a difference when Fret Diagrams are present!
-  }
+  \new Lyrics  
+%	  \with {
+%	    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
+%		% Note - this override only makes a difference when Fret Diagrams are present!
+%	  }
   %\lyricsto vocalHarmony 
   {
   \lyricmode {
@@ -243,22 +239,25 @@ bridgeLyrics =
 	"fear the most, could meet you"1 "halfway."1
 	  }
   }
->>
 
+%Note: The existence of these lyrics causes an empty staff to be added.  Why?
+%It only happens when a verse with multiple stanzas exists above.
+%Apparently, multiple stanzas of lyrics causes all subsequent bars with lyrics to have the empty staff added! 
 outroLyrics = 
-<<
-  \new Lyrics  \with {
-    %\override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
-	% Note - this override only makes a difference when Fret Diagrams are present!
-  }
+  \new Lyrics
+%  \with {
+%    \override VerticalAxisGroup #'nonstaff-relatedstaff-spacing = #'((basic-distance . 2)) 	% move lyrics up
+%	% Note - this override only makes a difference when Fret Diagrams are present!
+%  }
   %\lyricsto vocalHarmony 
   {
   \lyricmode {
 	"Oh, pass it a... Pass it around. Pass it a... Pass it a... Passit a..."1
 	"Oh yeah."1
-	  }
+	\repeat unfold 6 { \skip 1 }
+	\repeat unfold 8 { \skip 1 }
+  	}
   }
->>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -311,6 +310,10 @@ outroLyrics =
 		    {
 		    	\verseChords
 		    }
+			% The alternative endings below have an amazing side-effect:
+			%  it suppresses automatic generation of an empty staff,
+            % For all of the other sections of the score, 
+			% EXCEPT THIS ONE!  Or does it?
 		    \alternative {
 							{ \crazyChords }
 							{ \crowdChords }
@@ -332,6 +335,7 @@ outroLyrics =
 		%\introLyrics
 	
 	    \verseLyrics
+	    %alternative lyrics don't work.  Add skips to verseLyrics instead.
 %		\alternative {
 %			{ \crazyLyrics }
 %			{ \crowdLyrics }
@@ -345,10 +349,9 @@ outroLyrics =
 %		\with {
 %    		\override VerticalAxisGroup #'staff-nonstaff-spacing = #'((basic-distance . 10))
 %  		}
-		<<
-		%\chorusHarmony
+
 		\chorusLyrics
-		>>    	
+
 		\break
 		\dreamLyrics
 		\ahLyrics
@@ -359,6 +362,9 @@ outroLyrics =
 		\bridgeLyrics
 		\break
 		\chorusLyrics
+		
+		%Note: The existence of these lyrics causes an empty staff to be added.  Why?
+		\outroLyrics
 	}
 
 	% Enable this to write the notes of each chord on a new staff below the melody staff
