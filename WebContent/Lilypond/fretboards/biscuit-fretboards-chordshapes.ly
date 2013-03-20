@@ -21,7 +21,8 @@
 
 \addChordShape #'rootMinorChordShape #biscuitTuning #"3-2;2-1;3-3-(;3-3-);"	% Bes:min
 \addChordShape #'rootMin7ChordShape #biscuitTuning #"1-1;2-2;3-3-(;3-3-);"	% Bes:min7
-\addChordShape #'rootDimChordShape #biscuitTuning #"3-4;2-1-(;2-1-);3-5;"	% Bes:dim
+\addChordShape #'rootDimChordShape #biscuitTuning #"3-3;2-1-(;2-1-);3-4;"	% Bes:dim
+\addChordShape #'rootDim7ChordShape #biscuitTuning #"1-1;2-2-(;2-2-);3-4;"	% Bes:dim7
 
 %First Inversion Major chord shape
 \addChordShape #'firstMajorChordShape #biscuitTuning #"3-3;2-2;4-4;x-x;"	% fis'
@@ -37,8 +38,9 @@
 
 %First Inversion Minor chord shape
 \addChordShape #'firstMinorChordShape #biscuitTuning #"2-1-(;2-1;4-4;2-1-);"% fis':min
-\addChordShape #'firstMin7ChordShape #biscuitTuning #"2-1;5-1;4-4;x-x;"		% fis':min7
-\addChordShape #'firstDimChordShape #biscuitTuning #"2-2-(;1-1;4-5;x-x;"	% fis':dim
+\addChordShape #'firstMin7ChordShape #biscuitTuning #"2-1;5-4;4-3;x-x;"		% fis':min7
+\addChordShape #'firstDimChordShape #biscuitTuning #"2-2-(;1-1;4-4;x-x;"	% fis':dim
+\addChordShape #'firstDim7ChordShape #biscuitTuning #"2-1-(;5-3;4-2;5-4;"	% fis':dim7
 
 %Second Inversion Major chord shape
 \addChordShape #'secondMajorChordShape #biscuitTuning #"4-1-(;5-2;6-3;4-1-);"	% e'''
@@ -56,6 +58,7 @@
 \addChordShape #'secondMinorChordShape #biscuitTuning #"4-1-(;5-3;5-4;4-1-);"	% e''':min
 \addChordShape #'secondMin7ChordShape #biscuitTuning #"4-1;5-2-(;5-2-);7-4;"	% e''':min7
 \addChordShape #'secondDimChordShape #biscuitTuning #"3-1-(;5-3;5-4;3-1-);"		% e''':dim
+\addChordShape #'secondDim7ChordShape #biscuitTuning #"3-1-(;5-3;5-3-);7-4;"	% e''':dim7
 
 
 % end of include file /biscuit-fretboards-chordshapes.ly
