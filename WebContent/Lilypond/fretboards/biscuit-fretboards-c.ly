@@ -8,58 +8,60 @@
 \include "biscuit-fretboards-chordshapes.ly"
 
                         
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c}
+\storePredefinedDiagram #default-fret-table \chordmode {c}
                         #biscuitTuning
                         #"5-1-(;5-1;5-1;5-1-);"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c:7}
+\storePredefinedDiagram #default-fret-table \chordmode {c:7}
                         #biscuitTuning
                         #"3-1;5-3-(;5-3;5-3-);"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c:7}
+\storePredefinedDiagram #default-fret-table \chordmode {c:7}
                         #biscuitTuning
                         #"5-1-(;5-1;8-3;5-1-);"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c:maj7}
+\storePredefinedDiagram #default-fret-table \chordmode {c:maj7}
                         #biscuitTuning
                         #"5-2;5-3;5-4;4-1;"
-                        %#"2-1;5-3-(;5-3;5-3-);"
 \storePredefinedDiagram #default-fret-table \chordmode { c:aug }
                         #biscuitTuning
                         #(offset-fret 2 (chord-shape 'rootAugChordShape biscuitTuning))
-                        
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c:min7}
+\storePredefinedDiagram #default-fret-table \chordmode { c:sus4 }
                         #biscuitTuning
-                        #"3-1;4-2;5-3;5-3;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c:min}
+                        #(offset-fret 2 (chord-shape 'rootSus4ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c:sus2 }
+                        #biscuitTuning
+                        #(offset-fret 2 (chord-shape 'rootSus2ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c:6 }
+                        #biscuitTuning
+                        #(offset-fret 2 (chord-shape 'root6ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c:9 }
+                        #biscuitTuning
+                        #(offset-fret 2 (chord-shape 'root9ChordShape biscuitTuning))
+                        
+\storePredefinedDiagram #default-fret-table \chordmode {c:min}
                         #biscuitTuning
                         #"5-2;4-1;5-3;5-3;"
+\storePredefinedDiagram #default-fret-table \chordmode {c:min7}
+                        #biscuitTuning
+                        #"3-1;4-2;5-3;5-3;"
+\storePredefinedDiagram #default-fret-table \chordmode {c:dim}
+                        #biscuitTuning
+                        #"5-3;4-1;4-2;5-4;"
 
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c''}
+\storePredefinedDiagram #default-fret-table \chordmode {c''}
                         #biscuitTuning
                         #"9-3;8-2;10-4;x-x;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c'':7}
+\storePredefinedDiagram #default-fret-table \chordmode {c'':7}
                         #biscuitTuning
                         #"5-1;8-3-(;8-3-);9-4;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c'':9}
+\storePredefinedDiagram #default-fret-table \chordmode {c'':9}
                         #biscuitTuning
                         #"9-3;8-2;10-4;7-1;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c''/e}
+\storePredefinedDiagram #default-fret-table \chordmode {c''/e}
                         #biscuitTuning
                         #"9-3;8-2;10-4;x-x;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c''/g}
+\storePredefinedDiagram #default-fret-table \chordmode {c''/g}
                         #biscuitTuning
                         #"x-x;8-2;10-4;9-3;"
-\storePredefinedDiagram #default-fret-table 
-						\chordmode {c''/d}
+\storePredefinedDiagram #default-fret-table \chordmode {c''/d}
                         #biscuitTuning
                         #"9-3;8-2;10-4;7-1;"
 \storePredefinedDiagram #default-fret-table 
@@ -73,6 +75,18 @@
 \storePredefinedDiagram #default-fret-table \chordmode { c'':aug }
                         #biscuitTuning
                         #(offset-fret 6 (chord-shape 'firstAugChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c'':sus4 }
+                        #biscuitTuning
+                        #(offset-fret 6 (chord-shape 'firstSus4ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c'':sus2 }
+                        #biscuitTuning
+                        #(offset-fret 6 (chord-shape 'firstSus2ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c'':6 }
+                        #biscuitTuning
+                        #(offset-fret 6 (chord-shape 'first6ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { c'':9 }
+                        #biscuitTuning
+                        #(offset-fret 6 (chord-shape 'first9ChordShape biscuitTuning))
          
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {c'':min}
@@ -82,6 +96,10 @@
 						\chordmode {c'':min7}
                         #biscuitTuning
                         #"5-1;8-3-(;8-3;8-3-);"    
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {c'':dim}
+                        #biscuitTuning
+                        #"8-2;7-1;10-4;x-x;"
                
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {c'''}
@@ -95,9 +113,22 @@
 						\chordmode {c''':maj7}
                         #biscuitTuning
                         #"o-o;1-2;2-3;4-4;"
+%TODO: define these explicitly at fret 0, instead of using chord-shape
 \storePredefinedDiagram #default-fret-table \chordmode { c''':aug }
                         #biscuitTuning
-                        #(offset-fret 8 (chord-shape 'secondAugChordShape biscuitTuning))
+                        #"o;1-2-(;2-3;1-2-);"
+\storePredefinedDiagram #default-fret-table \chordmode { c''':sus4 }
+                        #biscuitTuning
+                        #"o;1-2;3-4;o;"
+\storePredefinedDiagram #default-fret-table \chordmode { c''':sus2 }
+                        #biscuitTuning
+                        #"o-o;1-2;o;o;"
+\storePredefinedDiagram #default-fret-table \chordmode { c''':6 }
+                        #biscuitTuning
+                        #"o;1-2;2-3;2-3;"
+\storePredefinedDiagram #default-fret-table \chordmode { c''':9 }
+                        #biscuitTuning
+                        #"o;3-4;2-3;o;"
 
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {c''':min}
@@ -107,6 +138,10 @@
 						\chordmode {c''':min7}
                         #biscuitTuning
                         #"o-o;1-2-(;1-2-);3-4;"    
+\storePredefinedDiagram #default-fret-table 
+						\chordmode {c''':dim}
+                        #biscuitTuning
+                        #"11-1;13-2;13-2;x-x;"                        
 
 
 \storePredefinedDiagram #default-fret-table \chordmode {a:min}
