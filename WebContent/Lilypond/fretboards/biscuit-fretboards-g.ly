@@ -1,7 +1,7 @@
 % add FretBoards for the Biscuit
 %   Note: 'Biscuit' tuning for tenor ukulele
 %         Open G; low g in the bass
-\version "2.16.0"
+\version "2.16.1"
 
 \include "biscuit-fretboards-style.ly"
 \include "biscuit-fretboards-chordshapes.ly"
@@ -42,6 +42,10 @@
                         #"o;3-3-(;3-3;3-3-);"                      
 \storePredefinedDiagram #default-fret-table \chordmode { g:dim } 
                         #biscuitTuning
+                        %#"o;2-2;x;3-3;"                      
+                        #"o;2-1;5-4;3-2;"                      
+\storePredefinedDiagram #default-fret-table \chordmode { g:dim7 } 
+                        #biscuitTuning
                         #"o;2-2;3-3-(;3-3-);"                      
 
 % G - first inversion
@@ -81,6 +85,9 @@
 \storePredefinedDiagram #default-fret-table \chordmode { g'':dim }
                         #biscuitTuning
                         #(offset-fret 0 (chord-shape 'firstDimChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { g'':dim7 }
+                        #biscuitTuning
+                        #(offset-fret 0 (chord-shape 'firstDim7ChordShape biscuitTuning))
 
 % G - second inversion
 \storePredefinedDiagram #default-fret-table \chordmode { g''' } 
@@ -121,6 +128,9 @@
                         #biscuitTuning
                         #(offset-fret 3 (chord-shape 'secondDimChordShape biscuitTuning))
                         %#"1-1;2-2;3-3;1-1;"
+\storePredefinedDiagram #default-fret-table \chordmode { g''':dim7 } 
+                        #biscuitTuning
+                        #(offset-fret 3 (chord-shape 'secondDim7ChordShape biscuitTuning))
 
 % Octave above Root                      
 \storePredefinedDiagram #default-fret-table 

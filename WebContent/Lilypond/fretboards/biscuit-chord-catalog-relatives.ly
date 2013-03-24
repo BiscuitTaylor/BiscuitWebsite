@@ -151,23 +151,23 @@ cMinChords = \chordmode
 	\bigChordNames	% for geezers;  from biscuit-fretboards.ly
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
-	c1:min  c1:min7 c1:dim
+	c1:min  c1:min7 c1:dim c1:dim7
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
-	c''1:min  c''1:min7 c''1:dim
+	c''1:min  c''1:min7 c''1:dim c''1:dim7
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
-	c'''1:min  c'''1:min7 c'''1:dim
+	c'''1:min  c'''1:min7 c'''1:dim c'''1:dim7
 }
 cMinChordsOnStaff = \chordmode 
 {	
-	c1:min  c1:min7  c1:dim
+	c1:min  c1:min7  c1:dim c1:dim7
 	\break
-	c/ees1:min  c/ees1:min7 c/ees1:dim
+	c/ees1:min  c/ees1:min7 c/ees1:dim c/ees1:dim7
 	\break
-	c/g1:min  c/g1:min7 c/ges1:dim
+	c/g1:min  c/g1:min7 c/ges1:dim c/ges1:dim7
 }
 
 %%%%%%%%%%%%%% D %%%%%%%%%%%%%%%%%

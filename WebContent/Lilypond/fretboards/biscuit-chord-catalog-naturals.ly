@@ -45,23 +45,23 @@ aChords = \chordmode
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
 	a1 a1:7 a1:maj7 a1:aug a1:sus4 a1:sus2 a1:6 a1:9
-	a1:min  a1:min7 a1:dim
+	a1:min  a1:min7 a1:dim a1:dim7
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
 	a''1 a''1:7 a''1:maj7 a''1:aug a''1:sus4 a''1:sus2 a''1:6 a''1:9
-	a''1:min  a''1:min7 a''1:dim
+	a''1:min  a''1:min7 a''1:dim a''1:dim7
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
 	a'''1  a'''1:7 a'''1:maj7  a'''1:aug  a'''1:sus4 a'''1:sus2 a'''1:6 a'''1:9
-	a'''1:min  a'''1:min7 a'''1:dim
+	a'''1:min  a'''1:min7 a'''1:dim a'''1:dim7
 }
 aChordsOnStaff = \chordmode 
 {	
 	a1 | a1:7 | a1:maj7 | a1:aug | a1:sus4 | a1:sus2 | a1:6 | a1:9
 	\break
-	a1:min | a1:min7 | a1:dim
+	a1:min | a1:min7 | a1:dim | a1:dim7
 	\break
 	%<cis e a>1 | a/cis1:maj7 | a/cis1:7 | a/cis1:aug | a/d1:sus4 | a/b1:sus2 | a/cis1:6 | a/cis1:9
 	a/cis1 | a/cis1:7 | a/cis1:maj7 | a/cis1:aug | a/d1:sus4 | a/b1:sus2 | a/cis1:6 | a/cis1:9
@@ -70,11 +70,11 @@ aChordsOnStaff = \chordmode
     % is there a way to circumvent this behavior?
 % Yes - use explicit chord-building, like <c e g>2
 % No - that's apparently incompatibile with chordmode
-	a/c1:min | a/c1:min7 | a/c1:dim
+	a/c1:min | a/c1:min7 | a/c1:dim | a/c1:dim7
 	\break
 	a/e1 | a/e1:7 | a/e1:maj7 | a/f1:aug | a/e1:sus4 | a/d1:sus2 | a/fis1:6 | a/e1:9
 	\break
-	a/e1:min | a/e1:min7 | a/dis1:dim
+	a/e1:min | a/e1:min7 | a/dis1:dim | a/dis1:dim7
 	\break
 }
 
@@ -86,34 +86,34 @@ bChords = \chordmode
 	\set Staff.instrumentName = #"Root position "
 	\set Staff.shortInstrumentName = #"Root "
 	b1 b1:7 b1:maj7 b1:aug b1:sus4 b1:sus2 b1:6 b1:9
-	b1:min  b1:min7 b1:dim
+	b1:min  b1:min7 b1:dim b1:dim7
 	
 	\set Staff.instrumentName = #"First Inversion "
 	\set Staff.shortInstrumentName = #"First "
 	b''1 b''1:7  b''1:maj7 b''1:aug b''1:sus4 b''1:sus2 b''1:6 b''1:9
-	b''1:min  b''1:min7 b''1:dim
+	b''1:min  b''1:min7 b''1:dim b''1:dim7
 	
 	\set Staff.instrumentName = #"Second Inversion "
 	\set Staff.shortInstrumentName = #"Second "
 	b'''1  b'''1:7  b'''1:maj7  b'''1:aug b'''1:sus4 b'''1:sus2 b'''1:6 b'''1:9
-	b'''1:min  b'''1:min7 b'''1:dim
+	b'''1:min  b'''1:min7 b'''1:dim b'''1:dim7
 }
 bChordsOnStaff = \chordmode 
 {	
 	% Root
 	b1 | b1:7  | b1:maj7 | b1:aug | b1:sus4 | b1:sus2 | b1:6 | b1:9 
 	\break
-	b1:min  b1:min7 b1:dim
+	b1:min  b1:min7 b1:dim b1:dim7
 	\break
 	% First inversion
 	b/dis1 | b/dis1:7 | b/dis1:maj7 | b/dis1:aug | b/e1:sus4 | b/cis1:sus2 | b/dis1:6 | b/dis1:9 
 	\break
-	b/d1:min  b/d1:min7 b/d1:dim
+	b/d1:min  b/d1:min7 b/d1:dim b/d1:dim7
 	\break
 	% Second Inversion
 	b/fis1 | b/fis1:7 | b/fis1:maj7 | b/g1:aug | b/fis:sus4 | b/fis1:sus2 | b/gis1:6 | b/fis1:9 
 	\break
-	b/fis1:min  b/fis1:min7 b/f:dim
+	b/fis1:min  b/fis1:min7 b/f:dim b/f:dim7
 	\break
 }
 

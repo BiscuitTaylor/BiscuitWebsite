@@ -1,7 +1,7 @@
 % add FretBoards for the Biscuit
 %   Note: 'Biscuit' tuning for tenor ukulele
 %         Open G; low g in the bass
-\version "2.14.0"
+\version "2.16.1"
 
                         
 %Declare predefined chord-shape
@@ -33,7 +33,7 @@
 
 \addChordShape #'firstSus4ChordShape #biscuitTuning #"4-3;2-1;4-4;x-x;" 	% fis':sus4
 \addChordShape #'firstSus2ChordShape #biscuitTuning #"1-1-(;2-2;4-4;1-1-);" % fis':sus2
-\addChordShape #'first6ChordShape #biscuitTuning #"3-3;4-4;4-4;x-x;" 		% fis':6
+\addChordShape #'first6ChordShape #biscuitTuning #"4-1-(;5-3;5-4;x-x;" 		% fis':6
 \addChordShape #'first9ChordShape #biscuitTuning #"3-2;4-3;4-4;1-1;" 		% fis':9
 
 %First Inversion Minor chord shape
@@ -58,7 +58,7 @@
 \addChordShape #'secondMinorChordShape #biscuitTuning #"4-1-(;5-3;5-4;4-1-);"	% e''':min
 \addChordShape #'secondMin7ChordShape #biscuitTuning #"4-1;5-2-(;5-2-);7-4;"	% e''':min7
 \addChordShape #'secondDimChordShape #biscuitTuning #"3-1-(;5-3;5-4;3-1-);"		% e''':dim
-\addChordShape #'secondDim7ChordShape #biscuitTuning #"3-1-(;5-3;5-3-);7-4;"	% e''':dim7
+\addChordShape #'secondDim7ChordShape #biscuitTuning #"3-1;5-3-(;5-3-);7-4;"	% e''':dim7
 
 
 % end of include file /biscuit-fretboards-chordshapes.ly
