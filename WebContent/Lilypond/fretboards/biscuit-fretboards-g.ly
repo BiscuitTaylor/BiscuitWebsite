@@ -51,43 +51,43 @@
 % G - first inversion
 \storePredefinedDiagram #default-fret-table \chordmode { g'' }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstMajorChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstMajorChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':7 } 
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstDom7ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstDom7ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':maj7 } 
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstMaj7ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstMaj7ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':aug }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstAugChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstAugChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':sus4 }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstSus4ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstSus4ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':sus2 }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstSus2ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstSus2ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':6 }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'first6ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'first6ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':9 }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'first9ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'first9ChordShape biscuitTuning))
  
 % G minor - first inversion
 \storePredefinedDiagram #default-fret-table \chordmode { g'':min }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstMinorChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstMinorChordShape biscuitTuning))
                         %#"7-1;7-1;9-3;7-1;"
 \storePredefinedDiagram #default-fret-table \chordmode { g'':min7 } 
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstMin7ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstMin7ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':dim }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstDimChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstDimChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { g'':dim7 }
                         #biscuitTuning
-                        #(offset-fret 0 (chord-shape 'firstDim7ChordShape biscuitTuning))
+                        #(offset-fret 1 (chord-shape 'firstDim7ChordShape biscuitTuning))
 
 % G - second inversion
 \storePredefinedDiagram #default-fret-table \chordmode { g''' } 
