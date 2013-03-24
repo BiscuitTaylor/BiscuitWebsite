@@ -73,7 +73,10 @@
 						#"2-2;3-3;3-4;x;"
 \storePredefinedDiagram #default-fret-table \chordmode { f'':9 }
                         #biscuitTuning
-						#"2-2;1-1;3-3;o;"
+						#"2-1;4-3;3-2;o;"
+%\storePredefinedDiagram #default-fret-table \chordmode { f'':add9 }
+%                        #biscuitTuning
+%						#"2-2;1-1;3-3;o;"
 
 % F minor - first inversion
 \storePredefinedDiagram #default-fret-table \chordmode { f'':min }

@@ -34,7 +34,7 @@
 \addChordShape #'firstSus4ChordShape #biscuitTuning #"4-3;2-1;4-4;x-x;" 	% fis':sus4
 \addChordShape #'firstSus2ChordShape #biscuitTuning #"1-1-(;2-2;4-4;1-1-);" % fis':sus2
 \addChordShape #'first6ChordShape #biscuitTuning #"4-1-(;5-3;5-4;x-x;" 		% fis':6
-\addChordShape #'first9ChordShape #biscuitTuning #"3-2;4-3;4-4;1-1;" 		% fis':9
+\addChordShape #'first9ChordShape #biscuitTuning #"3-2;5-4;4-3;1-1;" 		% fis':9
 
 %First Inversion Minor chord shape
 \addChordShape #'firstMinorChordShape #biscuitTuning #"2-1-(;2-1;4-4;2-1-);"% fis':min
