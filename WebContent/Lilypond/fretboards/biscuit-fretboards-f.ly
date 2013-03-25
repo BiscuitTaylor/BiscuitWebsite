@@ -90,7 +90,7 @@
 						"1-1;o;3-3;x;"
 \storePredefinedDiagram #default-fret-table \chordmode { f'':dim7 }
                         #biscuitTuning
-						"1-1-(;4-3;3-2;4-4;"
+						"1-1;3-2-(;3-2-);4-4;"
 
 % F - second inversion
 \storePredefinedDiagram #default-fret-table \chordmode { f''' } 

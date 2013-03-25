@@ -47,7 +47,7 @@
                         #"5-3;4-1;4-2;5-4;"
 \storePredefinedDiagram #default-fret-table \chordmode {c:dim7}
                         #biscuitTuning
-                        #"3-1;4-2-(;4-2-);5-3;"
+                        #"5-1;7-2-(;7-2-);8-3;"
 
 \storePredefinedDiagram #default-fret-table \chordmode {c''}
                         #biscuitTuning
@@ -106,7 +106,7 @@
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {c'':dim7}
                         #biscuitTuning
-                        #"5-1;7-3;8-4-(;8-4-);"
+                        #"8-1;10-3-(;10-3-);11-4;"
                
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {c'''}
@@ -152,7 +152,7 @@
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {c''':dim7}
                         #biscuitTuning
-                        #"11-1;13-2-(;13-2-);15-3;"                        
+                        #"11-1;13-2-(;13-2-);14-3;"                        
 
 %These don't belong here!
 \storePredefinedDiagram #default-fret-table \chordmode {a:min}

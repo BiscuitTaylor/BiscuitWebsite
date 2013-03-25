@@ -86,7 +86,7 @@
 						#"o-o;x-x;2-2;3-3;"
 \storePredefinedDiagram #default-fret-table \chordmode { e'':dim7 }
                         #biscuitTuning
-						#"o-o;3-3;2-2;3-4;"
+						#"o-o;2-2-(;2-2-);3-4;"
 
 % E - second inversion
 \storePredefinedDiagram #default-fret-table \chordmode { e''' } 

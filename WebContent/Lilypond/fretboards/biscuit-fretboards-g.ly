@@ -46,7 +46,7 @@
                         #"o;2-1;5-4;3-2;"                      
 \storePredefinedDiagram #default-fret-table \chordmode { g:dim7 } 
                         #biscuitTuning
-                        #"o;2-2;3-3-(;3-3-);"                      
+                        #"o;2-2-(;2-2-);3-3;"                      
 
 % G - first inversion
 \storePredefinedDiagram #default-fret-table \chordmode { g'' }

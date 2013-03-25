@@ -110,7 +110,7 @@
                         #"2-1-(;3-2;2-1;2-1-);"
 \storePredefinedDiagram #default-fret-table \chordmode { d''':6 }
                         #biscuitTuning
-                        #"2-1-(;3-2;4-3-(;4-3-);"
+                        #"2-1;3-2;4-3-(;4-3-);"
 \storePredefinedDiagram #default-fret-table \chordmode { d''':9 }
                         #biscuitTuning
                         #"2-1-(;6-4;4-3;2-1-);"
@@ -127,7 +127,7 @@
                         #"1-1-(;3-3;3-4;1-1-);"
 \storePredefinedDiagram #default-fret-table \chordmode { d''':dim7 } 
                         #biscuitTuning
-                        #"1-1;3-2-(;3-2-);5-4;"
+                        #"1-1;3-2-(;3-2-);4-4;"
 
 % end of include file /biscuit-fretboard-d.ly
 

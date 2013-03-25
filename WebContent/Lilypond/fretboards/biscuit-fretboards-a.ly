@@ -50,7 +50,7 @@
 \storePredefinedDiagram #default-fret-table 
 						\chordmode {a:dim7}
                         #biscuitTuning
-                        #"o;1-1-(;1-1-)-(;2-4;"
+                        #"2-1;4-2-(;4-2-)-(;5-4;"
 
 % A - first inversion
 \storePredefinedDiagram #default-fret-table \chordmode { a'' }
