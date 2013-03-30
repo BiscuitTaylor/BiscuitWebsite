@@ -3,7 +3,7 @@
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
-  title = "Each Day"
+  title = "Each Day (chorus)"
   composer = "Mandalyn May"
   tagline = \markup 
   {
@@ -40,17 +40,26 @@ chorusChords = \chordmode
 chorusMelody =
 \new Voice = "chorusVocal"
 {
-  e4 c4 g'4 e8 d8 ~ | d8 c8 d8 c8 f4 e4 |
+  e4 d8 c8 d4 e8 c8 ~ | c8  a8 c8 a8 f'4 e4 |
   \break
-  r4 d8 c8 d4 e8 c8 ~ | c8  a8 c8 a8 f'4 e4 |
+  e4 c4 g'4 e8 d8 ~ | d8 c8 d8 c8 f4 e4 |
+  \repeat volta 2
+	{
+	  r4 d8 c8 d4 e8 c8 ~ | c8  a8 c8 a8 f'4 e4 |
+	  \break
+	  e4 c4 g'4 e8 d8 ~ | d8 c8 d8 c8 f4 e4 |
+	}
 }
 
 
 chorusLyrics = 
   \new Lyrics  \lyricsto chorusVocal 
   {
+  I'm gon -- na change the world | one step at a time 
   Each day of my life | I know that I am |
-  gon -- na change the world | I know that I am 
+  
+  gon -- na change the world | one step at a time 
+  Each day of my life | I know that I am |
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,7 +77,6 @@ chorusLyrics =
 
 	\new Voice = "vocal"
 	{
-		\tempo "Allegro  " 4 = 120
 		\relative c''
 		{
 			\numericTimeSignature
