@@ -40,12 +40,12 @@ chorusChords = \chordmode
 chorusMelody =
 \new Voice = "chorusVocal"
 {
-  e4 d8 c8 d4 e8 c8 ~ | c8  a8 c8 a8 f'4 e4 |
+  e4 d8 c8 d4 e8 c8 ~ | c4  a8 g8 f'8 e8 e4 |
   \break
   e4 c4 g'4 e8 d8 ~ | d8 c8 d8 c8 f4 e4 |
   \repeat volta 2
 	{
-	  r4 d8 c8 d4 e8 c8 ~ | c8  a8 c8 a8 f'4 e4 |
+	  r4 d8 c8 d4 e8 c8 ~ | c4  a8 g8 f'8 e8 e4 |
 	  \break
 	  e4 c4 g'4 e8 d8 ~ | d8 c8 d8 c8 f4 e4 |
 	}
