@@ -45,9 +45,25 @@ FretMapChords = \chordmode
 	\set Staff.shortInstrumentName = #"Open G"
 	d'''1:min7 d'''1:min d1:min7 d1:min d''1:min d''1:min7
 }
-FretMapChordsOnStaff = \chordmode 
+%FretMapChordsOnStaff = \chordmode 
+%{	
+%	% TODO: abandon chordmode; use "chorded notes"
+%	d/a1:min7 d/a1:min d1:min7 d1:min d/f1:min d/f1:min7
+%}
+FretMapChordsOnStaff = 
 {	
-	d'''1:min7 d'''1:min d1:min7 d1:min d''1:min d''1:min7
+	% "chorded notes" (absolute pitch (octave)
+    <a d' f' c'>1 <a d' f' a'>1
+    <c' f' a' d''>1 <d' f' a' d''>1   
+    <f' a' d'' f''>1 <f' c'' d'' f''>1
+}
+
+TabChordsOnStaff = 
+{	
+	% "chorded notes" (absolute pitch (octave)
+    <a,\4 d\3 f\2 c'\1>1 <a,\4 d\3 f\2 a\1>1
+    <c\4 f\3 a\2 d'\1>1 <d\4 f\3 a\2 d'\1>1   
+    <f a d' f'>1 <f c' d' f'>1
 }
 
 
@@ -81,7 +97,10 @@ FretMapChordsOnStaff = \chordmode
 		\FretMapChordsOnStaff
 	}
 	>>
-	\new TabStaff { \FretMapChordsOnStaff }
+	\new TabStaff {
+		\set TabStaff.stringTunings = #biscuitTuning
+		\TabChordsOnStaff
+		}
 	
 >>
   \layout
@@ -89,6 +108,8 @@ FretMapChordsOnStaff = \chordmode
     indent = 0.0\cm 
   }
 } 
+\markup {"Traversing the neck with a pentatonic scale - chord by chord"}
+
 \paper
 {
     top-margin = 0.5\in
