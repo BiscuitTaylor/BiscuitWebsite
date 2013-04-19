@@ -1,10 +1,11 @@
 % add FretBoards for the Biscuit
 %   Note: 'Biscuit' tuning for tenor ukulele
 %         Open G; low g in the bass
-\version "2.16.0"
+\version "2.16.1"
 
 
-biscuitTuning = \stringTuning <g'' d'' b' g'>  
+%biscuitTuning = \stringTuning <g d b, g,>  
+biscuitTuning = \stringTuning <g, b, d g>  
 
 biscuitCustomFretboards =
 {
