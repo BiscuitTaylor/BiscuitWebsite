@@ -43,12 +43,18 @@ FretMapChords = \chordmode
 
 	\set Staff.instrumentName = #"Open G Tuning"
 	\set Staff.shortInstrumentName = #"Open G"
-	d'''1:min d'''1:min7 d1:min7 d1:min d''1:min d''1:min7
+	d'''1:min d'''1:min7 
+	d1:min7 d1:min
+	d1:sus4 
+	d''1:min d''1:min7
 }
 FretMapChordsOnStaff = \chordmode 
 {	
 	% TODO: abandon chordmode; use "chorded notes"
-	d/a1:min7 d/a1:min d1:min7 d1:min d/f1:min d/f1:min7
+	d/a1:min7 d/a1:min 
+	d1:min7 d1:min
+	d1:sus4
+	d/f1:min d/f1:min7
 }
 %FretMapChordsOnStaff = 
 %{	
@@ -62,7 +68,8 @@ TabChordsOnStaff =
 {	
 	% "chorded notes" (absolute pitch (octave)
     <a\4 d'\3 f'\2 a'\1>1 <a\4 d'\3 f'\2 c''\1>1
-    <c'\4 f'\3 a'\2 d''\1>1 <d'\4 f'\3 a'\2 d''\1>1   
+    <c'\4 f'\3 a'\2 d''\1>1 <d'\4 f'\3 a'\2 d''\1>1 
+    <d'\4 g'\3 a'\2 d''\1>1  
     <f' a' d'' f''>1 <f' c'' d'' f''>1
 }
 
@@ -123,12 +130,12 @@ TabMap =
 
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 	\new Staff
-	<<
-	\new voice	
-	{
-		\FretMapChordsOnStaff
-	}
-	>>
+%	<<
+%	\new voice	
+%	{
+%		\FretMapChordsOnStaff
+%	}
+%	>>
 	<<
 	\new voice	
 	{
