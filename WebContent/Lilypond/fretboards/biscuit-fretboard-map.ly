@@ -80,12 +80,14 @@ TabMap =
 	\time 1/4
 	% "scale" (absolute pitch (octave) 
 	% unadorned pitch names = the octave (c3 to b3) immediately below middle c
+    <d'\2>4
+    <c'\3>4
     <a\4 a'\1>4
     <d'\3 f'\2>4 
     r4 
-    <c'\4 c''\1>4 
+    <c'\4 g'\2 c''\1>4 
     f'4\3 
-    <a'\2 d''\1>4
+    <d'\4 a'\2 d''\1>4
     r4 
     r4
     <f'\4 a'\3 f''\1>4 
@@ -96,7 +98,8 @@ TabMap =
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\score
+% Part 1 - chords
+\score 
 {
 <<
     \new FretBoards 
@@ -121,6 +124,7 @@ TabMap =
 	<<
 	\new voice	
 	{
+		%\markup {"Traversing the neck with a pentatonic scale - chord by chord"}
 		\FretMapChordsOnStaff
 	}
 	>>
@@ -135,8 +139,16 @@ TabMap =
 		\TabChordsOnStaff
 		}
 	
+>>
+}
+
+% Part 2 - scales
+\score	
+{
+<<	
 	\new voice	
 	{
+		%\markup {"stationary arpeggios"}
 		\TabScale
 	}
 
@@ -146,29 +158,30 @@ TabMap =
 	}
 >>
 }
+ 
+% Part 3 - fretboard map
 \score
-{
-
-% Part 2 - fretboard map
+{	
 <<	
 	\new voice	
 	{
+		%\markup {"fretboard model with pentatonic scale"}
 		\TabMap
 	}
 
-	
-	\new TabStaff {
+	\new TabStaff 
+	{
 		\override TabStaff.Clef #'transparent = ##t	
 		\set TabStaff.stringTunings = #biscuitTuning
 		\TabMap
 	}
 >>
-  \layout
-  {
-    indent = 0.0\cm 
-  }
+	\layout
+	{
+	  indent = 0.0\cm 
+	}
 } 
-\markup {"Traversing the neck with a pentatonic scale - chord by chord"}
+\markup {"D minor pentatonic scale;  useful for pieces in the key of D major, or F major"}
 
 \paper
 {
