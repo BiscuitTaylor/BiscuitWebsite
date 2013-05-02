@@ -80,7 +80,7 @@ TabMap =
 	\time 1/4
 	% "scale" (absolute pitch (octave) 
 	% unadorned pitch names = the octave (c3 to b3) immediately below middle c
-    <d'\2>4
+    <g\4 d'\2 g'\1>4
     <c'\3>4
     <a\4 a'\1>4
     <d'\3 f'\2>4 
@@ -90,8 +90,9 @@ TabMap =
     <d'\4 a'\2 d''\1>4
     g'4\3 
     r4
-    <f'\4 a'\3 f''\1>4 
-    r4 d''4\2 
+    <f'\4 a'\3 c''\2 f''\1>4 
+    r4 
+    <g'\4 d''\2 g''\1>4
     <c''\3>4
 }
 
@@ -181,7 +182,7 @@ TabMap =
 	  indent = 0.0\cm 
 	}
 } 
-\markup {"D minor pentatonic scale;  useful for pieces in the key of D major, or F major"}
+\markup {"D minor pentatonic scale;  useful for pieces in the key of D major (B minor), or F major (D minor)"}
 
 \paper
 {
