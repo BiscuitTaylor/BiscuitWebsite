@@ -88,7 +88,7 @@ TabMap =
     <c'\4 g'\2 c''\1>4 
     f'4\3 
     <d'\4 a'\2 d''\1>4
-    r4 
+    g'4\3 
     r4
     <f'\4 a'\3 f''\1>4 
     r4 d''4\2 
@@ -99,6 +99,7 @@ TabMap =
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Part 1 - chords
+\markup {"Traversing the neck with a pentatonic scale - chord by chord"}
 \score 
 {
 <<
@@ -124,7 +125,6 @@ TabMap =
 	<<
 	\new voice	
 	{
-		%\markup {"Traversing the neck with a pentatonic scale - chord by chord"}
 		\FretMapChordsOnStaff
 	}
 	>>
@@ -143,12 +143,12 @@ TabMap =
 }
 
 % Part 2 - scales
+\markup {"stationary arpeggios"}
 \score	
 {
 <<	
 	\new voice	
 	{
-		%\markup {"stationary arpeggios"}
 		\TabScale
 	}
 
@@ -160,12 +160,12 @@ TabMap =
 }
  
 % Part 3 - fretboard map
+\markup {"fretboard model with pentatonic scale"}
 \score
 {	
 <<	
 	\new voice	
 	{
-		%\markup {"fretboard model with pentatonic scale"}
 		\TabMap
 	}
 
