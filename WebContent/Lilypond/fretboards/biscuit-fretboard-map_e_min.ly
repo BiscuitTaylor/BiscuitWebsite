@@ -3,7 +3,7 @@
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
-  title = "Biscuit Fretboard Map"
+  title = "Biscuit Fretboard Map - E minor"
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
@@ -40,7 +40,6 @@ defineMyFretboard =
 FretMapChords = \chordmode 
 {	
 	\bigChordNames	% for geezers;  from biscuit-fretboards.ly
-
 	\set Staff.instrumentName = #"Open G Tuning"
 	\set Staff.shortInstrumentName = #"Open G"
 	f''1
@@ -73,7 +72,6 @@ FretMapChordsOnStaff = \chordmode
 TabChordsOnStaff = 
 {	
 	% "chorded notes" (absolute pitch (octave)
-    <a\4 c'\3 f'\2>1    
     <a\4 d'\3 f'\2 a'\1>1 <a\4 d'\3 f'\2 c''\1>1
     <c'\4 f'\3 a'\2 c''\1>1 
     <c'\4 f'\3 a'\2 d''\1>1 <d'\4 f'\3 a'\2 d''\1>1 
@@ -86,12 +84,8 @@ TabScale =
 {	
 	% "scale" (absolute pitch (octave) 
 	% unadorned pitch names = the octave (c3 to b3) immediately below middle c
-    a4\4 c'4\3 f'2\2  
     a4\4 d'4\3 f'4\2 a'4\1      a4\4 d'4\3 f'4\2 c''4\1
-    c'4\4 f'4\3 a'4\2 c''4\1
     c'4\4 f'4\3 a'4\2 d''4\1    d'4\4 f'4\3 a'4\2 d''4\1  
-    d'4\4 g'4\3 a'4\2 d''4\1
-    f'4\4 a'4\3 c''4\2 f''4 \1
     f'4\4 a'4\3 d''4\2 f''4\1   f'4\4 c''4\3 d''4\2 f''4\1
 }
 
@@ -125,6 +119,7 @@ TabMap =
 \markup {"Traversing the neck with a pentatonic scale - chord by chord"}
 \score 
 {
+\transpose d e	
 <<
     \new FretBoards 
 	{
@@ -169,6 +164,7 @@ TabMap =
 \markup {"stationary arpeggios"}
 \score	
 {
+\transpose d e	
 <<	
 	\new voice	
 	{
@@ -186,6 +182,7 @@ TabMap =
 \markup {"fretboard model with pentatonic scale"}
 \score
 {	
+\transpose d e
 <<	
 	\new voice	
 	{
@@ -204,7 +201,7 @@ TabMap =
 	  indent = 0.0\cm 
 	}
 } 
-\markup {"D minor pentatonic scale;  useful for pieces in the key of D major (B minor), or F major (D minor)"}
+\markup {"A minor pentatonic scale;  useful for pieces in the key of A major (F# minor), or C major (A minor)"}
 
 \paper
 {
