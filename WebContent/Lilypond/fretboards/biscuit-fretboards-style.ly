@@ -4,8 +4,9 @@
 \version "2.16.1"
 
 
-%biscuitTuning = \stringTuning <g d b, g,>  
-biscuitTuning = \stringTuning <g, b, d g>  
+%biscuitTuning = \stringTuning <g d b, g,>  % backwards
+%biscuitTuning = \stringTuning <g, b, d g>  % too low
+biscuitTuning = \stringTuning <g b d' g'>  
 
 biscuitCustomFretboards =
 {
