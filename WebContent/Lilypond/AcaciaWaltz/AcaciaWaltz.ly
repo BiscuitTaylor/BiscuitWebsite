@@ -27,34 +27,65 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % ****************************************************************
 % ly snippet:
 % ****************************************************************
-\include "../fretboards/biscuit-fretboards.ly"
+%\include "../fretboards/biscuit-fretboards.ly"
 \include "predefined-guitar-fretboards.ly"
 
 verseChords = \chordmode 
 {	
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-              d1 |d1 | a1:7 |a1:7 | d1 | a1:7 %| \break
-              d1 |d1 | e1:min |e1:min | g2 c4 | d1  %| 
+
+              d2. | d2. | a2.:7 | a2.:7 | \break
+              d2. | d2. | g2. | a2. | \break
+              
+              d2. |d2. | a2.:7 | a2.:7 | \break
+              d2. | g2. | d2.:7 | d2.:7 | \break
+              
+              d2. | d2. | g2. | g2. | \break
+              %d2. | d2. | a2.:sus4 | a2. | \break
+              d2. | d2. | g2. | a2. | \break
+              
+              d2. |d2. | a2.:7 | a2.:7 |
+              d2. | e2.:m | d2. | d2. %| 
+
+
 }
 
 chorusChords = \chordmode 
 {
-	d1 | e1:min1 | a1:min | a1:min | 
-	f1 | f1 | g1 | g1 %| 
+	d2. | e2.:min | a2.:min | a2.:min | 
+	f2. | f2. | g2. | g2. %| 
 }
 
 verseMelody =
 \new Voice = "verseVocal"
 {
-  a4 <d fis>4 <d fis>4 | a4 <d fis>4 <d fis>4 | g,4 <cis e>4 <cis e>4 | g1 %| \break
-  <d fis a>2 fis4 |<d fis a>2 fis4 | g4 e4 d4 | cis1 | \break
+  a4 <d fis>4 <d fis>4 | a4 <d fis>4 <d fis>4 | g,4 <cis e>4 <cis e>4 | g2 r4 | \break
+  a4 <d fis>4 <d fis>4 | a4 <d fis>4 <d fis>4 | g2 e4                 | d2 cis4 | \break
+
+  a4 <d fis>4 <d fis>4 | a4 <d fis>4 <d fis>4 | g,4 <cis e>4 <cis e>4 | g2 r4 | \break
+  a4 <d fis>4 <d fis>4 |  g2 e4                 | d2. | r2. \break
+
+  <d fis a>2 fis4      | <d fis a>2 fis4      | <b, d g>2 e4          | <b d g>2 e4  | \break
+  <d fis a>2 fis4      | <d fis a>2 fis4      | g4 e4 d4              | cis2. | \break
+
+  a4 <d fis>4 <d fis>4 | a4 <d fis>4 <d fis>4 | g,4 <cis e>4 <cis e>4 | g2 r4 | \break
+  a4 <d fis>4 <d fis>4 | g2 e4                | d2.~                  | d4 r2 \break
+}
+
+verseLeftovers =
+\new Voice = "verseLeftovers"
+{
+
+  <d fis a>2 fis4 | <d fis a>2 fis4 | <cis e g>2 e4  | <cis e g>2 e4 | \break
+  <d fis a>2 fis4 | <d fis a>2 fis4 | <b f g>4 g4 f4 | <a, cis e a>2. | \break
+  <d fis a>2 fis4 | <d fis a>2 fis4 | g4 e4 d4       | cis2. | \break
 }
 
 chorusMelody =
 \new Voice = "chorusVocal"
 {
-  < d fis a>2 fis4 |<d fis a>2 fis4 | <b e g>2  e4 | <b e g>2  e4 | %\break
-  < d fis a>2 fis4 |<d fis a>2 fis4 | g4 e4 d4 | cis1 | \break
+  < d fis a>2 fis4 | <d fis a>2 fis4 | <b e g>2  e4 | <b e g>2  e4 | %\break
+  < d fis a>2 fis4 | <d fis a>2 fis4 | g4 e4 d4 | cis2. | \break
 }
 
 
@@ -65,14 +96,19 @@ verseLyrics =
   %\context Lyrics \lyricmode  \with { alignBelowContext = "melodyStaff" }
   %\lyricsto verseMelody 
   {
-  And the | way that she | moves on the | dance floor \skip 2
-  as | her hair | gathers the | light
+  % And the |
+   way that she | moves2 on8 the8 | dance4 floor2 | \skip 1
+   as  her hair | gathers the | light | \skip 1
   }
 
   \new Lyrics \lyricsto verseVocal 
   { \set stanza = "2. "
-  And the | way that she | moved on the | dance floor \skip 2
-  the way she | moved through the | light
+  % And the |
+  way that she | floats2 cross8 the8 | dance4 floor2 | \skip 1
+  % the
+  r8 "the way"4.  she4 | moved2 through8 -- the8 | light1 | \skip 1
+
+  \skip 4
   }
 
 >>
@@ -93,32 +129,34 @@ chorusLyrics =
 {
 <<
 	
-    \keepWithTag #'BiscuitUkeFretboard \new FretBoards 
-    %\removeWithTag #'BiscuitUkeFretboard \new FretBoards 
-	{
-		\tag #'BiscuitUkeFretboard
-		{
-    	\set Staff.stringTunings = #biscuitTuning
-    	\override FretBoard
-        	#'(fret-diagram-details string-count) = #'4
-    	\override FretBoard
-        	#'(fret-diagram-details finger-code) = #'in-dot
-		}
-	  	
-	}
+%    \keepWithTag #'BiscuitUkeFretboard \new FretBoards 
+%    %\removeWithTag #'BiscuitUkeFretboard \new FretBoards 
+%	{
+%		\tag #'BiscuitUkeFretboard
+%		{
+%    	\set Staff.stringTunings = #biscuitTuning
+%    	\override FretBoard
+%        	#'(fret-diagram-details string-count) = #'4
+%    	\override FretBoard
+%        	#'(fret-diagram-details finger-code) = #'in-dot
+%		}
+%	  	
+%	}
 	\new ChordNames 
 	{
 		%\with { midiInstrument = #"acoustic guitar (nylon)" }
+		\time 3/4
 		{
 		    \verseChords
+		    \pageBreak
 		    \chorusChords
 		}	
 	}
 
 	\new Voice = "vocal"
 	{
-		\tempo "Andante - 1.53 Hz " 4 = 92
-		%\tempo "Andante " 4 = 92
+		\tempo "Allegro" 4 = 116
+		%\tempo "Moderato" 4 = 92
 		%\markup { (1.53 Hz) }
 		\relative c'
 		{
@@ -137,7 +175,7 @@ chorusLyrics =
 						    \verseMelody
 						    	% Third time, D.S.!
 						  	\bar "||"
-							\chorusMelody
+							%\chorusMelody
 						}
 					}
 				}
@@ -150,8 +188,8 @@ chorusLyrics =
 	%Lyrics
 	{
 		%\introLyrics
-		\verseLyrics
-		\chorusLyrics
+		%\verseLyrics
+		%\chorusLyrics
 	}
 
 	% Enable this to write the notes of each chord on a new staff below the melody staff
