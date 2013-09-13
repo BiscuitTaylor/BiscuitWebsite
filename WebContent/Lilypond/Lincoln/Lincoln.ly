@@ -35,49 +35,39 @@ verseChords = \chordmode
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
 
               c2. | c2.:maj7 | c2.:7 | f2. | \break
-              f2. | r2. | g2. | c2. | \break
+              f2. | g2.:7 | g2. | c2. | \break
               
               c2. |c2. | g2. | g2. | \break
               a2.:min | c2.:7 | g2. | c2. | \break
               c2. a2.:min | c2.:7 | f2. | \break
-              f2. | r2. | g2. | c2.
+              f2. | g2.:7 | g2. | c2.
 }
 
-chorusChords = \chordmode 
-{
-	d2. | e2.:min | a2.:min | a2.:min | 
-	f2. | f2. | g2. | g2. %| 
-}
 
 
 verseMelody =
-\new Voice = "verseVocal"
+\new Voice = "Ukulele 1"
 {
  
-  c'4-\markup { \italic "Lincoln's cross-step" } <c, e>4 <c e>4 | b'4 <c, e>4 <c e>4 | bes'4 <c, e>4 <c e>4  | a'4 <a, f'>4 <a f'>4  | \break
+  c''4_\markup { \italic "Lincoln's cross-step" } <c' e'>4 <c' e'>4 | b'4 <c' e'>4 <c' e'>4 | bes'4 <c' e'>4 <c' e'>4  | a'4 <a f'>4 <a f'>4  | \break
 
-   <a f'>2. | d8 f8 b8 b4. | a4 g4 f8 e8~ | e4~<g, c e g>4 <g c g'>4\break
+   <a f'>2. | d'8 f'8 b'8 b'4. | a'4 g'4 f'8 e'8~ | e'4~<g c' e' g'>4 <g c' g'>4\break
 
   % Birdie's interlude
-  <c c'>4-\markup { \italic "Birdie's interlude" } <d d'>4 <e e'>4 | <d a e>8 <c g d>8 <c e c>8 <c g d>8 <b e c>8 r8 |
-  d4 e4 <b f>8 e8| <b f>8 e8 <b f>8 e8 <g d>4 |
+  <c' c''>4_\markup { \italic "Birdie's interlude" } <d'( d''>4 <e') e''>4-\markup { "h" } | <d' a' e''>8 <c' g' d''>8 <d' e' c''>8 <c' g' d''>8 <c' e' c''>8 r8 |
+  
+  d''4 e''4 <b' f''>8 e''8| <b' f''>8 e'8 <b'' f'>8 e'8 <g' d''>4 |
 
-%END
-  c4-\markup { \italic "Loping in the park" } d4 e4 | e8 d8 c8 d8 c8 r8 |
-  c4d4 e4 | e8 d8 c8 d8 c8 r8 |
 
-  c'4-\markup { \italic "cross-step reprise" } <c, e>4 <c e>4 | b'4 <c, e>4 <c e>4 | bes'4 <c, e>4 <c e>4  | a'4 <a, f'>4 <a f'>4  | \break
+  b'8_\markup { \italic "Loping in the park" } c''8 d''8 b'8 c''8 d''8  | <d' g'>4 <a e'>4 <d' g'>4 |
+%END of perfection
 
-   <a f'>2. | d'8 f8 b8 b4. | a4 g4 f8 e8~ | e4~<g, c e g'>4 <g c g'>4 \break
+  c'4 d'4 e'4 | e'8 d'8 c'8 d'8 c'8 r8 |
+
+  c''4_\markup { \italic "cross-step reprise" } <c' e'>4 <c' e'>4 | b'4 <c' e'>4 <c' e'>4 | bes'4 <c' e'>4 <c' e'>4  | a'4 <a f'>4 <a f'>4  | \break
+
+   <a f'>2. | d'8 f'8 b'8 b'4. | a'4 g'4 d''8 a'8~ | <a' c''>4 <g c' g'>4 <g c' g'>4 \break
 }
-
-chorusMelody =
-\new Voice = "chorusVocal"
-{
-  < d fis a>2 fis4 | <d fis a>2 fis4 | <b e g>2  e4 | <b e g>2  e4 | %\break
-  < d fis a>2 fis4 | <d fis a>2 fis4 | g4 e4 d4 | cis2. | \break
-}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,8 +82,6 @@ chorusMelody =
 		\time 3/4
 		{
 		    \verseChords
-		    \pageBreak
-		    \chorusChords
 		}	
 	}
 
@@ -102,7 +90,7 @@ chorusMelody =
 		\tempo "Allegro" 4 = 116
 		%\tempo "Moderato" 4 = 92
 		%\markup { (1.53 Hz) }
-		\relative c'
+		%NOT \relative c'
 		{
 			\numericTimeSignature
 			\time 3/4
