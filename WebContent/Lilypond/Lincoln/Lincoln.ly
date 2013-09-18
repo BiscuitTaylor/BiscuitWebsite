@@ -65,8 +65,13 @@ verseMelody =
   <b' f''>8 e''8 <b' f''>8 e''8 <g' d''>4 |
 
 
-  %b'8^\markup { \italic "Loping in the park" } c''8 d''8 b'8 c''8 d''8  | <d' g'>4 <a e'>4 <d' g'>4 |
-  b'8^\markup { \italic "Loping in the park" } c''8 d''8 b'8 c''8 d''8  | <d' g'>4 e'4 <d' g'>4 |
+  b'8^\markup { \italic "Loping in the park" } c''8 d''8 b'8 c''8 d''8  | <d' g'>4 
+  %\override NoteHead #'color = #(x11-color 'grey) 
+  <\tweak #'color #grey a 
+  %\override NoteHead #'color = #black 
+  e'>4 
+  <d' g'>4 |
+  %b'8^\markup { \italic "Loping in the park" } c''8 d''8 b'8 c''8 d''8  | <d' g'>4 e'4 <d' g'>4 |
 
   %c'4 d'4 e'4 | e'8 d'8 c'8 d'8 c'8 r8 |
   b'2 <d' g'>4 | b'4 <g' c''>4  r4 |
@@ -82,14 +87,6 @@ verseMelody =
 \score {
 <<
 	
-	\new ChordNames 
-	{
-		%\with { midiInstrument = #"acoustic guitar (nylon)" }
-		\time 3/4
-		{
-		    \verseChords
-		}	
-	}
 
 	\new Voice = "Ukulele I"
 	{
@@ -121,6 +118,16 @@ verseMelody =
 
 		}
 	}
+
+	\new ChordNames 
+	{
+		%\with { midiInstrument = #"acoustic guitar (nylon)" }
+		\time 3/4
+		{
+		    \verseChords
+		}	
+	}
+
 	\new Voice = "Ukulele II"
 	{
 		\tempo "Adagio"
