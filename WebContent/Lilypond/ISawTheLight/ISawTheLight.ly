@@ -1,4 +1,4 @@
-\version "2.16.1"
+\version "2.16.2"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -28,25 +28,72 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 
 
 % ****************************************************************
-\include "predefined-guitar-fretboards.ly"
-\include "../fretboards/biscuit-guitar-fretboards.ly"
-% If using standard guitar fretboards,
+% Fingerboard diagrams:
+% ****************************************************************
+% If using standard predefined fretboards,
 % (see \keepWithTag at the start of the \score section)
 % you can comment-out the biscuit-fretboards include. 
 \include "../fretboards/biscuit-fretboards.ly"
+\include "../fretboards/lowg-fretboards.ly"
+\include "predefined-guitar-fretboards.ly"
+\include "predefined-ukulele-fretboards.ly"
 
 defineMyFretboard =
 <<
 \tag #'StandardGuitarFretboard
 {
   %Nothing to define... defaults work just fine
+  %\set predefinedDiagramTable = #default-fret-table
 }
 \tag #'BiscuitUkeFretboard
 {
   %define fretboard diagrams for open-g tenor ukulele
   \biscuitCustomFretboards
+  %\set predefinedDiagramTable = #custom-fretboard-table-uptheneck
 }
+\tag #'LowGUkeFretboard
+{
+  %define fretboard diagrams for c6 tenor ukulele (low-g)
+  \lowGCustomFretboards
+}
+
 >>
+
+biscuitCustomFretboards =
+{
+  \set stringTunings = #biscuitTuning
+}
+lowGCustomFretboards =
+{
+  \set stringTunings = #lowGUkeTuning
+}
+
+biscuitUkeFingering =
+{
+	\tag #'BiscuitUkeFretboard
+	{
+	\set stringTunings = #biscuitTuning
+	\override FretBoard
+    	#'(fret-diagram-details string-count) = #'4
+	\override FretBoard
+    	#'(fret-diagram-details finger-code) = #'in-dot
+	}
+}
+
+%lowGUkeTuning = \stringTuning <g c' e' a'>  
+
+lowGUkeFingering =
+{
+	\tag #'LowGUkeFretboard
+	{
+	\set stringTunings = #lowGUkeTuning
+	\override FretBoard
+    	#'(fret-diagram-details string-count) = #'4
+	\override FretBoard
+    	#'(fret-diagram-details finger-code) = #'in-dot
+	}
+}
+
 
 verseChords = \chordmode 
 {	
@@ -55,15 +102,15 @@ verseChords = \chordmode
 	%Bold chord names, so old geezers can grok them			
 	\override ChordName #'font-series = #'bold
     \set predefinedDiagramTable = #default-fret-table
-  g''1     d1    g''1            
-  d1     g''1    d1  
-  a''1     g''1    a''1    
-  b'1:min c1    g''1     c1      
-  d1     a''1    c1     g''1    
-  d1     a''1    c1     g''1    
+    c1
+	d1:min7 g1 d1:min7 g1
+	d1:min7 g1 c1:maj7 e1:min
+	
+	d1:min7 g1 d1:min7 g1
+	d1:min7 g1 c1:maj7 c1:7
 }
 
-verseAlternateChords = \chordmode 
+lameChorusChords = \chordmode 
 {	
 	%Super-Big chord names, because we have room			
 	\override ChordName #'font-size = #4 
@@ -71,15 +118,29 @@ verseAlternateChords = \chordmode
 	\override ChordName #'font-series = #'bold
     %\set predefinedDiagramTable = #custom-fretboard-table-open-e
     \set predefinedDiagramTable = #default-fret-table
-  g''1     d   g''1            
-  d1     g''1    d1  
-  a''1     g''1    a''1    
-  b'1:min c,,,,1    g1     c1      
-  d1     a''1    c1     g1    
-  d1     a''1    c1     g''1    
+
+	c1:7
+	f1:maj7 e1:min7  a1:min  d1:7
+	d1:min7 g1       c1:maj7 d:min7   c1:maj7 d:min7
+
+}
+chorusChords = 
+{	
+	%Super-Big chord names, because we have room			
+	\override ChordName #'font-size = #4 
+	%Bold chord names, so old geezers can grok them			
+	\override ChordName #'font-series = #'bold
+    \set predefinedDiagramTable = #default-fret-table
+
+	%c:7
+	<bes e' g' c''>1
+	%f:maj7  e:min7    a:min         d:7
+	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
+	%d1:min7 g1       c1:maj7 d:min7   c1:maj7 d:min7
+
 }
 
-verseNominalChords = \chordmode 
+verseIntroChords = \chordmode 
 {	
 	%Super-Big chord names, because we have room			
 	\override ChordName #'font-size = #4 
@@ -87,12 +148,9 @@ verseNominalChords = \chordmode
 	\override ChordName #'font-series = #'bold
     %\set predefinedDiagramTable = #custom-fretboard-table-open-e
     \set predefinedDiagramTable = #default-fret-table
-  g''1     d   g''1            
-  d1     g''1    d1  
-  a''1     g''1    a''1    
-  b'1:min c1    g''1     c1      
-  d1     a''1    c1     g''1    
-  d1     a''1    c1     g''1    
+    
+    \partial 4 g4 |
+
 }
 
 % notes:
@@ -106,115 +164,116 @@ verseLyrics =
   \new Lyrics 
   {
 	\lyricmode {
-  "It was" 
-  "late last" "night I was"
-  "feeling something wasn't" "right; There was" 
-  "not another soul in" "sight, Only" 
-  "you"
+  "It was"1 
+  "late last"1 "night I was"1
+  "feeling something wasn't"1 "right; There was"1 
+  "not another soul in"1 "sight, Only"1 
+  "you"1
 
+  "So we"1 
+  "walked a-"1 "long, Though I"1 
+  "knew that there was something"1 "wrong, And a"1
+  "feeling hit me, so"1 "strong   About"1 
+  you1
   }
   }
-
+  
   \new Lyrics 
   { \lyricmode
   {\set stanza = "2. "
-  "So we" 
-  "walked a-" "long, Though I" 
-  "knew that there was something" "wrong, And a"
-  "feeling hit me, so" "strong   About" 
-  you
+  "Though we"1
+  "had   our"1 "fling,   I just"1
+  "never did suspect a"1 "thing ... Till that"1 
+  "little bell began to"1 "ring - In my"1
+  head
+
+ "But I"1
+  "tried to"1 "run,  Though I"1 
+  "knew it wouldn't help me"1 "none,  cause I"1
+  "couldn't ever"1 "love no"1 
+  "one -  or so I"1 "said"1
   }
   }
   
   \new Lyrics 
   { \lyricmode
   {\set stanza = "3. "
-  "Though we"
-  "had   our" "fling,   I just"
-  "never did suspect a" "thing ... Till that" 
-  "little bell began to" "ring - In my"
-  head
+  "Baby I"1
+  "love you"1 "best;   It' not"1
+  "something that I say in"1 "jest ... Cause you're"1 
+  "different from all the "1 "rest - In my"1
+  eyes1 \skip1
+
+ "But I"1
+  "tried to"1 "run,  Though I"1 
+  "knew it wouldn't help me"1 "none,  cause I"1
+  "couldn't ever"1 "love no"1
+  "one -  or so I"1 "said"1
+  }
+  }
+  
+>> 
+
+guitarSolo = 
+<<
+	\repeat unfold 6 { \skip 1 }	% guitar solo
+>> 
+
+chorusLyrics = 
+<<
+  \new Lyrics 
+  {
+	\lyricmode {
+"Then you "1
+"gazed up at"1 "me ... And the"1
+"answer was plain to"1 "see, Cause I"1 \break
+"saw the"1 "light In your"1
+"eyes"1 "In your "1 "eyes"1 "."1        
+
   }
   }
   
   \new Lyrics 
   { \lyricmode
-  {\set stanza = "4. "
-  "But I"
-  "tried to" "run,  Though I" 
-  "knew it wouldn't help me" "none,  cause I"
-  "couldn't ever" "love no" 
-  "one -  or so I" "said"
+  {\set stanza = "2. "
+"But my"1
+"feelings for"1 "you Were just"1
+"something I never"1 "knew Til I"1
+"saw the"1 "light In your"1
+"eyes"1 "In your"1  "eyes"1  "."1      
   }
   }
+
+  \new Lyrics 
+  { \lyricmode
+  {\set stanza = "3. "
+"And I"1
+"ran out"1 "before, But I"1
+"won't do it any"1 "more Can't you"1 
+"see the"1 "light In my"1 "eyes in my"1 "eyes"1
+  }
+  }
+
 >> 
-
-  
-
-
-%It was [Dm7]late last [G]night, 
-%I was [Dm7]feeling something wasn't [G]right,
-%There was [Dm7]not another soul in [G]sight, 
-%Only [Cmaj7]you, only you[Em]
-%
-%So we [Dm7]walked [G]along, 
-%Though I [Dm7]knew that there was something [G]wrong, 
-%And a [Dm7]feeling hit me, oh, so [G]strong 
-%About [Cmaj7]you        [C7] 
-%
-%Then you [Fmaj7]gazed up at [Em7]me 
-%And the [Am]answer was plain to [D7]see, 
-%Cause I [Dm7]saw the [G]light 
-%In your [Cmaj7]eyes     [Dm7]        
-%In your [Cmaj7]eyes     [Dm7]         
-%
-%Though we [Dm7]had our [G]fling, 
-%I just [Dm7]never would suspect a [G]thing 
-%Till that [Dm7]little bell began to [G]ring 
-%In my [Cmaj7]head, in my [Em]head
-%
-%But I [Dm7]tried to [G]run, 
-%Though I [Dm7]knew it wouldn't help me[G]none,
-%[Dm7]cause I couldn't ever [G]love no one, 
-%or so I [Cmaj7]said       [C7] 
-%
-%But my [Fmaj7]feelings for [Em7]you 
-%Were just [Am]something I never [D7]knew 
-%Til I [Dm7]saw the [G]light 
-%In your  [Cmaj7]eyes   [Dm7]    
-%In your  [Cmaj7]eyes   [Dm7]        
-%
-%Guitar solo over verse chords:
-%[Dm7]  [G]    [Dm7]   [G]    [Dm7]      [G]     [C]        [Em]          
-%
-%Baby, I [Dm7]love you [G]best, 
-%It's not [Dm7]something that I say in [G]jest,
-%Cause you're [Dm7]different from all the [G]rest 
-%In my [Cmaj7]eyes       [C7]
-%
-%And I [Fmaj7]ran out [Em7]before, 
-%But I [Am]won't do it any[D7]more
-%Can't you [Dm7]see the [G]light 
-%
-%In my [Cmaj7]eyes
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \score
 {
+    \keepWithTag #'LowGUkeFretboard
 	%keep only sections tagged BiscuitUkeFretboard
-    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'BiscuitUkeFretboard
     %\keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
-    %\removeWithTag #'StandardGuitarFretboard 
+    \removeWithTag #'StandardGuitarFretboard 
+    \removeWithTag #'BiscuitUkeFretboard 
 <<
     \new FretBoards 
 	{
         \defineMyFretboard
 		{
 			%\transpose d a
-		    \verseNominalChords
+		    \verseChords
 		}
 	}
 
@@ -223,7 +282,7 @@ verseLyrics =
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 			%\transpose d a
-		    \verseNominalChords
+		    \verseChords
 		}	
 	}
   
@@ -246,18 +305,20 @@ verseLyrics =
 \pageBreak
 \score
 {
+    \keepWithTag #'LowGUkeFretboard
 	%keep only sections tagged BiscuitUkeFretboard
-    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'BiscuitUkeFretboard
     %\keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
-    %\removeWithTag #'StandardGuitarFretboard 
+    \removeWithTag #'StandardGuitarFretboard 
+    \removeWithTag #'BiscuitUkeFretboard 
 <<
     \new FretBoards 
 	{
         \defineMyFretboard
 		{
 			%\transpose d a
-		    \verseNominalChords
+		    \chorusChords
 		}
 	}
 
@@ -266,21 +327,20 @@ verseLyrics =
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 			%\transpose d a
-		    \verseNominalChords
+		    \lameChorusChords
 		}	
 	}
   
-	%Lyrics
-	\new Lyrics 
-	{
-        \verseAlternateChordLyrics
-	}
-
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 	\new Staff
 	{
-		\verseNominalChords
+		\chorusChords
 	 }
+	%Lyrics
+	\new Lyrics 
+	{
+		\chorusLyrics
+	}
 >>
 
   \layout { indent = 0.0\cm }
