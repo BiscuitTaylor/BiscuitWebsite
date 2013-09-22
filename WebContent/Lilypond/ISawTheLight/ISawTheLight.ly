@@ -33,24 +33,24 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % If using standard predefined fretboards,
 % (see \keepWithTag at the start of the \score section)
 % you can comment-out the biscuit-fretboards include. 
-\include "../fretboards/biscuit-fretboards.ly"
+%\include "../fretboards/biscuit-fretboards.ly"
 \include "../fretboards/lowg-fretboards.ly"
-\include "predefined-guitar-fretboards.ly"
+%\include "predefined-guitar-fretboards.ly"
 \include "predefined-ukulele-fretboards.ly"
 
 defineMyFretboard =
 <<
-\tag #'StandardGuitarFretboard
-{
-  %Nothing to define... defaults work just fine
-  %\set predefinedDiagramTable = #default-fret-table
-}
-\tag #'BiscuitUkeFretboard
-{
-  %define fretboard diagrams for open-g tenor ukulele
-  \biscuitCustomFretboards
-  %\set predefinedDiagramTable = #custom-fretboard-table-uptheneck
-}
+%\tag #'StandardGuitarFretboard
+%{
+%  %Nothing to define... defaults work just fine
+%  %\set predefinedDiagramTable = #default-fret-table
+%}
+%\tag #'BiscuitUkeFretboard
+%{
+%  %define fretboard diagrams for open-g tenor ukulele
+%  \biscuitCustomFretboards
+%  %\set predefinedDiagramTable = #custom-fretboard-table-uptheneck
+%}
 \tag #'LowGUkeFretboard
 {
   %define fretboard diagrams for c6 tenor ukulele (low-g)
@@ -59,28 +59,26 @@ defineMyFretboard =
 
 >>
 
-biscuitCustomFretboards =
-{
-  \set stringTunings = #biscuitTuning
-}
+%biscuitCustomFretboards =
+%{
+%  \set stringTunings = #biscuitTuning
+%}
 lowGCustomFretboards =
 {
   \set stringTunings = #lowGUkeTuning
 }
 
-biscuitUkeFingering =
-{
-	\tag #'BiscuitUkeFretboard
-	{
-	\set stringTunings = #biscuitTuning
-	\override FretBoard
-    	#'(fret-diagram-details string-count) = #'4
-	\override FretBoard
-    	#'(fret-diagram-details finger-code) = #'in-dot
-	}
-}
-
-%lowGUkeTuning = \stringTuning <g c' e' a'>  
+%biscuitUkeFingering =
+%{
+%	\tag #'BiscuitUkeFretboard
+%	{
+%	\set stringTunings = #biscuitTuning
+%	\override FretBoard
+%    	#'(fret-diagram-details string-count) = #'4
+%	\override FretBoard
+%    	#'(fret-diagram-details finger-code) = #'in-dot
+%	}
+%}
 
 lowGUkeFingering =
 {
@@ -265,8 +263,8 @@ chorusLyrics =
     %\keepWithTag #'BiscuitUkeFretboard
     %\keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
-    \removeWithTag #'StandardGuitarFretboard 
-    \removeWithTag #'BiscuitUkeFretboard 
+%    \removeWithTag #'StandardGuitarFretboard 
+%    \removeWithTag #'BiscuitUkeFretboard 
 <<
     \new FretBoards 
 	{
@@ -310,8 +308,8 @@ chorusLyrics =
     %\keepWithTag #'BiscuitUkeFretboard
     %\keepWithTag #'StandardGuitarFretboard
 	%ignore all sections tagged StandardGuitarFretboard
-    \removeWithTag #'StandardGuitarFretboard 
-    \removeWithTag #'BiscuitUkeFretboard 
+%    \removeWithTag #'StandardGuitarFretboard 
+%    \removeWithTag #'BiscuitUkeFretboard 
 <<
     \new FretBoards 
 	{
