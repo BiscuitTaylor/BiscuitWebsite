@@ -8,7 +8,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
-  	"; engraved by LilyPond" $(lilypond-version)
+  	"; engraved with LilyPond" $(lilypond-version)
   }
 }
 
@@ -92,69 +92,64 @@ lowGUkeFingering =
 	}
 }
 
-
-verseChords = \chordmode 
+% instead of using chordmode, explicitly specify each note in the chord.
+% This way, we can get whatever inversion/chordshape we want.
+verseChords =
 {	
-	%Super-Big chord names, because we have room			
-	\override ChordName #'font-size = #4 
-	%Bold chord names, so old geezers can grok them			
-	\override ChordName #'font-series = #'bold
-    \set predefinedDiagramTable = #default-fret-table
-    c1
-	d1:min7 g1 d1:min7 g1
-	d1:min7 g1 c1:maj7 e1:min
+    <c' e' g' c''>1^\markup { \italic "C6 low-g uke tuning" }
+    
+	%d1:min7 		g1              d1:min7          g1
+    <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
+	%d1:min7          g1               c1:maj7        e1:min
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 \mark "D.C. al Fine" <b e' g' b'>2 
+	\break
 	
-	d1:min7 g1 d1:min7 g1
-	d1:min7 g1 c1:maj7 c1:7
+	
+	%d1:min7 		g1              d1:min7          g1
+    <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
+	%d1:min7          g1               c1:maj7        c1:7
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2 <bes e' g' c''>2 \bar ""
 }
-
-lameChorusChords = \chordmode 
+verseChordNames = \chordmode
 {	
-	%Super-Big chord names, because we have room			
-	\override ChordName #'font-size = #4 
-	%Bold chord names, so old geezers can grok them			
-	\override ChordName #'font-series = #'bold
-    %\set predefinedDiagramTable = #custom-fretboard-table-open-e
-    \set predefinedDiagramTable = #default-fret-table
-
-	c1:7
-	f1:maj7 e1:min7  a1:min  d1:7
-	d1:min7 g1       c1:maj7 d:min7   c1:maj7 d:min7
-
+	\bigChordNames
+    c1
+    
+	d1:min7 		g1              d1:min7          g1
+	d1:min7          g1               c1:maj7        e1:min
+	d1:min7 		g1              d1:min7          g1
+	d1:min7          g1               c1:maj7        \partial 2 c2:7 \bar ""
 }
+
+
 chorusChords = 
 {	
-	%Super-Big chord names, because we have room			
-	\override ChordName #'font-size = #4 
-	%Bold chord names, so old geezers can grok them			
-	\override ChordName #'font-series = #'bold
-    \set predefinedDiagramTable = #default-fret-table
-
 	%c:7
-	<bes e' g' c''>1
-	%f:maj7  e:min7    a:min         d:7
+	\partial 2 <bes e' g' c''>2
+	
+	%f:maj7          e:min7           a:min             d:7
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
-	%d1:min7 g1       c1:maj7 d:min7   c1:maj7 d:min7
+
+	%d1:min7         g1               c1:maj7          c1:maj7         
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <c' e' g' b'>1  
+    %d:min7            c1:maj7         d:min7	       c
+	<c' f' a' d''>1   <c' e' g' b'>1  <c' f' a' d''>1  <c' e' g' c''>1
+}
+chorusChordNames = \chordmode 
+{	
+	\bigChordNames
+	\partial 2 c2:7 |
+	f1:maj7 e1:min7  a1:min  d1:7
+	d1:min7 g1       c1:maj7 c1:maj7
+	d:min7   c1:maj7 d:min7  c1
 
 }
 
 verseIntroChords = \chordmode 
 {	
-	%Super-Big chord names, because we have room			
-	\override ChordName #'font-size = #4 
-	%Bold chord names, so old geezers can grok them			
-	\override ChordName #'font-series = #'bold
-    %\set predefinedDiagramTable = #custom-fretboard-table-open-e
-    \set predefinedDiagramTable = #default-fret-table
-    
+	\bigChordNames
     \partial 4 g4 |
-
 }
-
-% notes:
-%                  
-% Intro: DaddE -> D
-% In other words hammer-on the first string as you hit the opening D. 
 
 
 verseLyrics = 
@@ -162,15 +157,15 @@ verseLyrics =
   \new Lyrics 
   {
 	\lyricmode {
-  "It was"1 
-  "late last"1 "night I was"1
+  " "2 "It was"2 
+  "late last"1 "night - I was"1
   "feeling something wasn't"1 "right; There was"1 
   "not another soul in"1 "sight, Only"1 
   "you"1
 
-  "So we"1 
+  " "2 "So we"2
   "walked a-"1 "long, Though I"1 
-  "knew that there was something"1 "wrong, And a"1
+  "knew that there was something"1 "wrong, Then a"1
   "feeling hit me, so"1 "strong   About"1 
   you1
   }
@@ -179,16 +174,18 @@ verseLyrics =
   \new Lyrics 
   { \lyricmode
   {\set stanza = "2. "
-  "Though we"1
+  " "2 
+  "Though we"2
   "had   our"1 "fling,   I just"1
   "never did suspect a"1 "thing ... Till that"1 
   "little bell began to"1 "ring - In my"1
-  head
+  head1
 
- "But I"1
-  "tried to"1 "run,  Though I"1 
-  "knew it wouldn't help me"1 "none,  cause I"1
-  "couldn't ever"1 "love no"1 
+  " "2
+   "And I"2
+  "tried to"1 "run,  but it"1 
+  "didn't seem to help me"1 "none,  cause I"1
+  "couldn't have"1 "loved no"1 
   "one -  or so I"1 "said"1
   }
   }
@@ -196,17 +193,17 @@ verseLyrics =
   \new Lyrics 
   { \lyricmode
   {\set stanza = "3. "
-  "Baby I"1
-  "love you"1 "best;   It' not"1
-  "something that I say in"1 "jest ... Cause you're"1 
+  %\repeat unfold 8 {\skip1}
+  \repeat unfold 8 {"Doo da-duh doo"1}
+  
+  " "2 
+  "Baby I"2
+  "love you"1 "best;   that's not"1
+  "something that I say in"1 "jest ... you're"1 
   "different from all the "1 "rest - In my"1
   eyes1 \skip1
 
- "But I"1
-  "tried to"1 "run,  Though I"1 
-  "knew it wouldn't help me"1 "none,  cause I"1
-  "couldn't ever"1 "love no"1
-  "one -  or so I"1 "said"1
+
   }
   }
   
@@ -222,11 +219,12 @@ chorusLyrics =
   \new Lyrics 
   {
 	\lyricmode {
-"Then you "1
+%" "2
+ "Then you "2
 "gazed up at"1 "me ... And the"1
 "answer was plain to"1 "see, Cause I"1 \break
-"saw the"1 "light In your"1
-"eyes"1 "In your "1 "eyes"1 "."1        
+"saw the"1 "light  -  In your"1
+"eyes"1  " "2. "I"4 "saw the"1 "light In your "1 "eyes"1 "."1        
 
   }
   }
@@ -234,21 +232,23 @@ chorusLyrics =
   \new Lyrics 
   { \lyricmode
   {\set stanza = "2. "
-"But my"1
+%" "2 
+"But my"2
 "feelings for"1 "you Were just"1
 "something I never"1 "knew Til I"1
-"saw the"1 "light In your"1
-"eyes"1 "In your"1  "eyes"1  "."1      
+"saw the"1 "light  -  In your"1
+"eyes..."1 " "2. "Til I"4 "saw the"1 "light In your"1  "eyes"1  "."1      
   }
   }
 
   \new Lyrics 
   { \lyricmode
   {\set stanza = "3. "
-"And I"1
+%" "2
+ "And I"2
 "ran out"1 "before, But I"1
-"won't do it any"1 "more Can't you"1 
-"see the"1 "light In my"1 "eyes in my"1 "eyes"1
+"won't do it any"1 "more  -  Can't you"1 
+"see...  the"1 "light In my"1 "eyes  "1 " "2.  "in my"4 "eyes"1 " in my"1 "eyes"1
   }
   }
 
@@ -280,21 +280,19 @@ chorusLyrics =
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 			%\transpose d a
-		    \verseChords
+		    \verseChordNames
 		}	
 	}
   
+	\new Staff
+	{
+		\verseChords
+	 }
 	%Lyrics
 	\new Lyrics 
 	{
 		\verseLyrics
 	}
-
-	% Enable this to write the notes of each chord on a new staff below the melody staff
-%	\new Staff
-%	{
-%		\verseChords
-%	 }
 >>
 
   \layout { indent = 0.0\cm }
@@ -325,7 +323,7 @@ chorusLyrics =
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 			%\transpose d a
-		    \lameChorusChords
+		    \chorusChordNames
 		}	
 	}
   
