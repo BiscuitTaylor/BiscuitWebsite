@@ -26,6 +26,14 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   between-system-padding = #5	% has no effect
 }
 
+#TODO: exclude staff from color-change
+#(define (override-color-for-all-grobs color)
+  (lambda (context)
+   (let loop ((x all-grob-descriptions))
+    (if (not (null? x))
+     (let ((grob-name (caar x)))
+      (ly:context-pushpop-property context grob-name 'color color)
+      (loop (cdr x)))))))
 
 % ****************************************************************
 % Fingerboard diagrams:
@@ -35,16 +43,21 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % you can comment-out the biscuit-fretboards include. 
 %\include "../fretboards/biscuit-fretboards.ly"
 \include "../fretboards/lowg-fretboards.ly"
-%\include "predefined-guitar-fretboards.ly"
 \include "predefined-ukulele-fretboards.ly"
 
 defineMyFretboard =
 <<
-%\tag #'StandardGuitarFretboard
-%{
-%  %Nothing to define... defaults work just fine
-%  %\set predefinedDiagramTable = #default-fret-table
-%}
+\tag #'StandardUkeFretboard
+{
+  %Nothing to define... defaults work just fine
+
+
+  %"Not so fast, Dave, maybe there IS something needed, for %lele"
+  %\set predefinedDiagramTable = #default-fret-table
+  %\set stringTunings = #lowGUkeTuning
+  \makeDefaultStringTuning #'ukulele-tuning \stringTuning<g c' e' a'>
+  
+}
 %\tag #'BiscuitUkeFretboard
 %{
 %  %define fretboard diagrams for open-g tenor ukulele
@@ -96,7 +109,7 @@ lowGUkeFingering =
 % This way, we can get whatever inversion/chordshape we want.
 verseChords =
 {	
-    <c' e' g' c''>1^\markup { \italic "C6 low-g uke tuning" }
+    <c' e' g' c''>1
     
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
@@ -124,8 +137,20 @@ verseChordNames = \chordmode
 
 chorusChords = 
 {	
+	%TODO: Explicitly declare a staff, so that we can control the colors
+	\partial 2
 	%c:7
-	\partial 2 <bes e' g' c''>2
+%	\override NoteHead #'color = #grey
+%	\override Accidental #'color = #grey
+%	\override Stem #'color = #grey
+%	\override Beam #'color = #grey
+	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+	<bes e' g' c''>2
+	\applyContext #(override-color-for-all-grobs (x11-color 'black))
+%	\override NoteHead #'color = #black
+%	\override Accidental #'color = #black
+%	\override Stem #'color = #black
+%	\override Beam #'color = #black
 	
 	%f:maj7          e:min7           a:min             d:7
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
@@ -138,7 +163,11 @@ chorusChords =
 chorusChordNames = \chordmode 
 {	
 	\bigChordNames
-	\partial 2 c2:7 |
+	%\override ChordName #'color = #grey 
+	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+	\partial 2 	c2:7 |
+	\applyContext #(override-color-for-all-grobs (x11-color 'black))
+	%\override ChordName #'color = #black 
 	f1:maj7 e1:min7  a1:min  d1:7
 	d1:min7 g1       c1:maj7 c1:maj7
 	d:min7   c1:maj7 d:min7  c1
@@ -258,36 +287,40 @@ chorusLyrics =
 
 \score
 {
+	%\markup "Tenor Ukulele (low-g)"
+
     \keepWithTag #'LowGUkeFretboard
 	%keep only sections tagged BiscuitUkeFretboard
     %\keepWithTag #'BiscuitUkeFretboard
-    %\keepWithTag #'StandardGuitarFretboard
+    %\keepWithTag #'StandardUkeFretboard
 	%ignore all sections tagged StandardGuitarFretboard
 %    \removeWithTag #'StandardGuitarFretboard 
 %    \removeWithTag #'BiscuitUkeFretboard 
+
+
 <<
     \new FretBoards 
 	{
         \defineMyFretboard
 		{
-			%\transpose d a
+			%\transpose c e
 		    \verseChords
 		}
 	}
 
-	\new ChordNames 
+	\new ChordNames
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			%\transpose d a
+			%\transpose c e
 		    \verseChordNames
 		}	
 	}
   
-	\new Staff
+	\new Staff \with {instrumentName = #"Uke"}
 	{
 		\verseChords
-	 }
+	}
 	%Lyrics
 	\new Lyrics 
 	{
@@ -304,7 +337,7 @@ chorusLyrics =
     \keepWithTag #'LowGUkeFretboard
 	%keep only sections tagged BiscuitUkeFretboard
     %\keepWithTag #'BiscuitUkeFretboard
-    %\keepWithTag #'StandardGuitarFretboard
+    %\keepWithTag #'StandardUkeFretboard
 	%ignore all sections tagged StandardGuitarFretboard
 %    \removeWithTag #'StandardGuitarFretboard 
 %    \removeWithTag #'BiscuitUkeFretboard 
@@ -313,8 +346,9 @@ chorusLyrics =
 	{
         \defineMyFretboard
 		{
-			%\transpose d a
+			%\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
 		    \chorusChords
+		    %\chorusChordNames	% Compute the default fretboard diagrams for the chord names
 		}
 	}
 
@@ -322,7 +356,7 @@ chorusLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			%\transpose d a
+			%\transpose c e
 		    \chorusChordNames
 		}	
 	}
@@ -330,7 +364,8 @@ chorusLyrics =
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 	\new Staff
 	{
-		\chorusChords
+		    \chorusChords
+		    %\chorusChordNames	% Compute the default notes for the chord names
 	 }
 	%Lyrics
 	\new Lyrics 
