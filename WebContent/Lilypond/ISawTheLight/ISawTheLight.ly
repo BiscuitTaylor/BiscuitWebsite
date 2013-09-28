@@ -5,6 +5,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
   title = "I Saw The Light"
   composer = "Todd Rundgren"
+  
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
@@ -41,6 +42,9 @@ color_grey = {
 	\override Stem #'color = #grey
 	\override Beam #'color = #grey
 	\override ChordName #'color = #grey 
+	
+	%doesn't really belong
+	\override ChordName #'font-series = #'regular
 }
 
 color_black = {
@@ -49,6 +53,9 @@ color_black = {
 	\override Stem #'color = #black
 	\override Beam #'color = #black
 	\override ChordName #'color = #black 
+	
+	%doesn't really belong
+	\override ChordName #'font-series = #'bold
 }
 
 % ****************************************************************
@@ -137,7 +144,7 @@ verseChords =
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        c1:7
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2 <bes e' g' c''>2 \bar ""
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \bar ""
 }
 verseChordNames = \chordmode
 {	
@@ -147,17 +154,17 @@ verseChordNames = \chordmode
 	d1:min7 		g1              d1:min7          g1
 	d1:min7          g1               c1:maj7        e1:min
 	d1:min7 		g1              d1:min7          g1
-	d1:min7          g1               c1:maj7        \partial 2 c2:7 \bar ""
+	d1:min7          g1               c1:maj7        \partial 2. c2.:7 \bar ""
 }
 
 
 chorusChords = 
 {	
-	\partial 2
+	\partial 4
 	%c:7
 %	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
 	\color_grey
-	<bes e' g' c''>2
+	<bes e' g' c''>4
 	\color_black
 %	\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	
@@ -172,11 +179,11 @@ chorusChords =
 chorusFretboardChords = 
 {	
 	%Same as chorusChords, excep for color trick
-	\partial 2
+	\partial 4
 	%c:7
 	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
 %	\color_grey
-	<bes e' g' c''>2
+	<bes e' g' c''>4
 %	\color_black
 	\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	
@@ -193,7 +200,7 @@ chorusChordNames = \chordmode
 	\bigChordNames
 	%\applyContext #(override-color-for-all-grobs (x11-color 'grey))
 	\color_grey
-	\partial 2 	c2:7 |
+	\partial 4 	c4:7 |
 	\color_black
 	%\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	f1:maj7 e1:min7  a1:min  d1:7
@@ -312,19 +319,14 @@ chorusLyrics =
 >> 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+  \markup {
+  \left-align { \line { Tenor Ukulele (low-g) } }
+  }
+  
 \score
 {
-	%\markup "Tenor Ukulele (low-g)"
-
     \keepWithTag #'LowGUkeFretboard
 	%keep only sections tagged BiscuitUkeFretboard
-    %\keepWithTag #'BiscuitUkeFretboard
-    %\keepWithTag #'StandardUkeFretboard
-	%ignore all sections tagged StandardGuitarFretboard
-%    \removeWithTag #'StandardGuitarFretboard 
-%    \removeWithTag #'BiscuitUkeFretboard 
-
 
 <<
     \new FretBoards 
@@ -364,11 +366,6 @@ chorusLyrics =
 {
     \keepWithTag #'LowGUkeFretboard
 	%keep only sections tagged BiscuitUkeFretboard
-    %\keepWithTag #'BiscuitUkeFretboard
-    %\keepWithTag #'StandardUkeFretboard
-	%ignore all sections tagged StandardGuitarFretboard
-%    \removeWithTag #'StandardGuitarFretboard 
-%    \removeWithTag #'BiscuitUkeFretboard 
 <<
     \new FretBoards 
 	{
@@ -382,11 +379,8 @@ chorusLyrics =
 
 	\new ChordNames 
 	{
-		% \with { midiInstrument = #"acoustic guitar (nylon)" }
-		{
-			%\transpose c e
-		    \chorusChordNames
-		}	
+		%\transpose c e
+	    \chorusChordNames
 	}
   
 	% Enable this to write the notes of each chord on a new staff below the melody staff

@@ -33,7 +33,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 
 verseChords = \chordmode 
 {	
-	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
+	\set Staff.midiInstrument = #"ukulele"
 
       c2. | c2.:maj7 | c2.:7 | f2. | \break
       f2. | g2.:7 | g2. | c2. | \break
@@ -84,6 +84,8 @@ verseMelody =
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\markup { \left-align { \line { Tenor Ukulele (low-g) } } }
+  
 \score {
 <<
 	
@@ -102,7 +104,7 @@ verseMelody =
 				{
 					{
 						\key c \major	
-					    \set Staff.midiInstrument = #"ocarina"
+					    \set Staff.midiInstrument = #"ukulele"
 						{
 						    \verseMelody
 						}
