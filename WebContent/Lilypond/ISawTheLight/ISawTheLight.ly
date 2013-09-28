@@ -26,7 +26,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   between-system-padding = #5	% has no effect
 }
 
-#TODO: exclude staff from color-change
+%TODO: exclude staff from color-change
 #(define (override-color-for-all-grobs color)
   (lambda (context)
    (let loop ((x all-grob-descriptions))
@@ -34,6 +34,22 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
      (let ((grob-name (caar x)))
       (ly:context-pushpop-property context grob-name 'color color)
       (loop (cdr x)))))))
+
+color_grey = {
+	\override NoteHead #'color = #grey
+	\override Accidental #'color = #grey
+	\override Stem #'color = #grey
+	\override Beam #'color = #grey
+	\override ChordName #'color = #grey 
+}
+
+color_black = {
+	\override NoteHead #'color = #black
+	\override Accidental #'color = #black
+	\override Stem #'color = #black
+	\override Beam #'color = #black
+	\override ChordName #'color = #black 
+}
 
 % ****************************************************************
 % Fingerboard diagrams:
@@ -137,20 +153,32 @@ verseChordNames = \chordmode
 
 chorusChords = 
 {	
-	%TODO: Explicitly declare a staff, so that we can control the colors
 	\partial 2
 	%c:7
-%	\override NoteHead #'color = #grey
-%	\override Accidental #'color = #grey
-%	\override Stem #'color = #grey
-%	\override Beam #'color = #grey
-	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+%	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+	\color_grey
 	<bes e' g' c''>2
+	\color_black
+%	\applyContext #(override-color-for-all-grobs (x11-color 'black))
+	
+	%f:maj7          e:min7           a:min             d:7
+	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
+
+	%d1:min7         g1               c1:maj7          c1:maj7         
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <c' e' g' b'>1  
+    %d:min7            c1:maj7         d:min7	       c
+	<c' f' a' d''>1   <c' e' g' b'>1  <c' f' a' d''>1  <c' e' g' c''>1
+}
+chorusFretboardChords = 
+{	
+	%Same as chorusChords, excep for color trick
+	\partial 2
+	%c:7
+	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+%	\color_grey
+	<bes e' g' c''>2
+%	\color_black
 	\applyContext #(override-color-for-all-grobs (x11-color 'black))
-%	\override NoteHead #'color = #black
-%	\override Accidental #'color = #black
-%	\override Stem #'color = #black
-%	\override Beam #'color = #black
 	
 	%f:maj7          e:min7           a:min             d:7
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
@@ -163,11 +191,11 @@ chorusChords =
 chorusChordNames = \chordmode 
 {	
 	\bigChordNames
-	%\override ChordName #'color = #grey 
-	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+	%\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+	\color_grey
 	\partial 2 	c2:7 |
-	\applyContext #(override-color-for-all-grobs (x11-color 'black))
-	%\override ChordName #'color = #black 
+	\color_black
+	%\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	f1:maj7 e1:min7  a1:min  d1:7
 	d1:min7 g1       c1:maj7 c1:maj7
 	d:min7   c1:maj7 d:min7  c1
@@ -347,7 +375,7 @@ chorusLyrics =
         \defineMyFretboard
 		{
 			%\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
-		    \chorusChords
+		    \chorusFretboardChords
 		    %\chorusChordNames	% Compute the default fretboard diagrams for the chord names
 		}
 	}
