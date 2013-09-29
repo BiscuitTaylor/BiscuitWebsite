@@ -64,7 +64,6 @@ color_black = {
 % If using standard predefined fretboards,
 % (see \keepWithTag at the start of the \score section)
 % you can comment-out the biscuit-fretboards include. 
-%\include "../fretboards/biscuit-fretboards.ly"
 \include "../fretboards/lowg-fretboards.ly"
 \include "predefined-ukulele-fretboards.ly"
 
@@ -72,21 +71,9 @@ defineMyFretboard =
 <<
 \tag #'StandardUkeFretboard
 {
-  %Nothing to define... defaults work just fine
-
-
-  %"Not so fast, Dave, maybe there IS something needed, for %lele"
-  %\set predefinedDiagramTable = #default-fret-table
-  %\set stringTunings = #lowGUkeTuning
-  \makeDefaultStringTuning #'ukulele-tuning \stringTuning<g c' e' a'>
-  
+  \makeDefaultStringTuning #'ukulele-tuning \stringTuning<g c' e' a'>  
 }
-%\tag #'BiscuitUkeFretboard
-%{
-%  %define fretboard diagrams for open-g tenor ukulele
-%  \biscuitCustomFretboards
-%  %\set predefinedDiagramTable = #custom-fretboard-table-uptheneck
-%}
+
 \tag #'LowGUkeFretboard
 {
   %define fretboard diagrams for c6 tenor ukulele (low-g)
@@ -95,26 +82,10 @@ defineMyFretboard =
 
 >>
 
-%biscuitCustomFretboards =
-%{
-%  \set stringTunings = #biscuitTuning
-%}
 lowGCustomFretboards =
 {
   \set stringTunings = #lowGUkeTuning
 }
-
-%biscuitUkeFingering =
-%{
-%	\tag #'BiscuitUkeFretboard
-%	{
-%	\set stringTunings = #biscuitTuning
-%	\override FretBoard
-%    	#'(fret-diagram-details string-count) = #'4
-%	\override FretBoard
-%    	#'(fret-diagram-details finger-code) = #'in-dot
-%	}
-%}
 
 lowGUkeFingering =
 {
@@ -132,7 +103,27 @@ lowGUkeFingering =
 % This way, we can get whatever inversion/chordshape we want.
 verseChords =
 {	
-    <c' e' g' c''>1
+	\color_grey
+    \partial 4. <c' e' g' c''>4.
+	\color_black
+    
+	%d1:min7 		g1              d1:min7          g1
+    <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
+	%d1:min7          g1               c1:maj7        e1:min
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 \mark "D.C. al Fine" <b e' g' b'>2  \break
+	
+	
+	%d1:min7 		g1              d1:min7          g1
+    <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
+	%d1:min7          g1               c1:maj7        c1:7
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \bar ""
+}
+verseFretboardChords =
+{	
+	%Same as verseChords, except for color trick
+	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
+    \partial 4. <c' e' g' c''>4.
+	\applyContext #(override-color-for-all-grobs (x11-color 'black))
     
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
@@ -149,7 +140,9 @@ verseChords =
 verseChordNames = \chordmode
 {	
 	\bigChordNames
-    c1
+	\color_grey
+    \partial 4. c4.
+	\color_black
     
 	d1:min7 		g1              d1:min7          g1
 	d1:min7          g1               c1:maj7        e1:min
@@ -169,21 +162,20 @@ chorusChords =
 %	\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	
 	%f:maj7          e:min7           a:min             d:7
-	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
+	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1 \break
 
 	%d1:min7         g1               c1:maj7          e1:min         
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <b e' g' b'>1  
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <b e' g' b'>1  \break
     %d:min7            g1            c1:maj7 	       c
 	<c' f' a' d''>1   <b d' g' b'>1  <c' e' g' b'>1   <c' e' g' c''>1
 }
 chorusFretboardChords = 
 {	
-	%Same as chorusChords, excep for color trick
-	\partial 4
+	%Same as chorusChords, except for color trick
 	%c:7
 	\applyContext #(override-color-for-all-grobs (x11-color 'grey))
 %	\color_grey
-	<bes e' g' c''>4
+	\partial 4 <bes e' g' c''>4
 %	\color_black
 	\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	
@@ -212,7 +204,7 @@ chorusChordNames = \chordmode
 verseIntroChords = \chordmode 
 {	
 	\bigChordNames
-    \partial 4 g4 |
+    \partial 4. g4. |
 }
 
 
@@ -221,13 +213,14 @@ verseLyrics =
   \new Lyrics 
   {
 	\lyricmode {
-  " "2 "It was"2 
+  \partial 4. "It was"4.
   "late last"1 "night - I was"1
   "feeling something wasn't"1 "right; There was"1 
   "not another soul in"1 "sight, Only"1 
   "you"1
 
   " "2 "So we"2
+  
   "walked a-"1 "long, Though I"1 
   "knew that there was something"1 "wrong, Then a"1
   "feeling hit me, so"1 "strong   About"1 
@@ -238,8 +231,7 @@ verseLyrics =
   \new Lyrics 
   { \lyricmode
   {\set stanza = "2. "
-  " "2 
-  "Though we"2
+  \partial 4. "Though we"4.
   "had   our"1 "fling,   I just"1
   "never did suspect a"1 "thing ... Till that"1 
   "little bell began to"1 "ring - In my"1
@@ -247,21 +239,22 @@ verseLyrics =
 
   " "2
    "And I"2
+   
   "tried to"1 "run,  but it"1 
   "didn't seem to help me"1 "none,  cause I"1
-  "couldn't have"1 "loved no"1 
-  "one -  or so I"1 "said"1
+  "couldn't have loved no"1 "one -  or so I"1 
+  "said"1
   }
   }
   
   \new Lyrics 
   { \lyricmode
   {\set stanza = "3. "
-  %\repeat unfold 8 {\skip1}
-  \repeat unfold 8 {"Doo da-duh doo"1}
+  \partial 4. \skip4.
+  \repeat unfold 7 {"Doo da-duh doo"1}
   
-  " "2 
-  "Baby I"2
+  " "2 "Baby I"2
+  
   "love you"1 "best;   that's not"1
   "something that I say in"1 "jest ... you're"1 
   "different from all the "1 "rest - In my"1
@@ -319,9 +312,7 @@ chorusLyrics =
 >> 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \markup {
-  \left-align { \line { Tenor Ukulele (low-g) } }
-  }
+\markup { \left-align { \line { Tenor Ukulele (low-g) } } }
   
 \score
 {
@@ -334,7 +325,7 @@ chorusLyrics =
         \defineMyFretboard
 		{
 			%\transpose c e
-		    \verseChords
+		    \verseFretboardChords
 		}
 	}
 
