@@ -161,13 +161,26 @@ chorusChords =
 	\color_black
 %	\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	
-	%f:maj7          e:min7           a:min             d:7
+  \repeat volta 3
+  {
+		%f:maj7          e:min7           a:min             d:7
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1 \break
 
 	%d1:min7         g1               c1:maj7          e1:min         
 	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <b e' g' b'>1  \break
-    %d:min7            g1            c1:maj7 	       c
-	<c' f' a' d''>1   <b d' g' b'>1  <c' e' g' b'>1   <c' e' g' c''>1
+  }
+ 
+  \alternative
+  {
+ 	{
+	    %d:min7            g1            c1:maj7 	       c
+		<c' f' a' d''>1   <b d' g' b'>1  <c' e' g' b'>1   <c' e' g' c''>1
+	}
+ 	{
+	    %c1:maj7 	     e1:min  		c1:maj7          c1:5            c1:maj7          c1:5
+		<c' e' g' b'>1   <b e' g' b'>1  <c' e' g' b'>1   <g c' g' c''>1  <c' e' g' b'>1   <c' c' g' c''>1 
+	}
+  }
 }
 chorusFretboardChords = 
 {	
@@ -179,13 +192,25 @@ chorusFretboardChords =
 %	\color_black
 	\applyContext #(override-color-for-all-grobs (x11-color 'black))
 	
+  \repeat volta 3
+  {
 	%f:maj7          e:min7           a:min             d:7
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1
 
 	%d1:min7         g1               c1:maj7          e1:min         
 	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <b e' g' b'>1  
-    %d:min7            g1            c1:maj7 	       c
-	<c' f' a' d''>1   <b d' g' b'>1  <c' e' g' b'>1   <c' e' g' c''>1
+  }
+  \alternative 
+  {
+ 	{
+	    %d:min7            g1            c1:maj7 	       c
+		<c' f' a' d''>1   <b d' g' b'>1  <c' e' g' b'>1   <c' e' g' c''>1
+	}
+ 	{
+	    %c1:maj7 	     e1:min  		c1:maj7          c1:5            c1:maj7          c1:5
+		<c' e' g' b'>1   <b e' g' b'>1  <c' e' g' b'>1   <g c' g' c''>1  <c' e' g' b'>1   <c' c' g' c''>1 
+	}
+  }
 }
 chorusChordNames = \chordmode 
 {	
@@ -195,10 +220,21 @@ chorusChordNames = \chordmode
 	\partial 4 	c4:7 |
 	\color_black
 	%\applyContext #(override-color-for-all-grobs (x11-color 'black))
+
+  \repeat volta 3
+  {
 	f1:maj7 e1:min7  a1:min  d1:7
 	d1:min7 g1       c1:maj7 e1:min
-	d:min7   g1      c1:maj7  c1
-
+  }
+    \alternative 
+  {
+ 	{
+		d:min7   g1      c1:maj7  c1
+	}
+ 	{
+	    c1:maj7  e1:min  c1:maj7  c1:5   c1:maj7   c1:5
+	}
+  }
 }
 
 verseIntroChords = \chordmode 
