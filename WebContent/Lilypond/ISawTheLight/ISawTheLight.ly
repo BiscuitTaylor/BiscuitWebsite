@@ -38,6 +38,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 
 color_grey = {
 	\override NoteHead #'color = #grey
+	\override Dots #'color = #grey
 	\override Accidental #'color = #grey
 	\override Stem #'color = #grey
 	\override Beam #'color = #grey
@@ -49,6 +50,7 @@ color_grey = {
 
 color_black = {
 	\override NoteHead #'color = #black
+	\override Dots #'color = #black
 	\override Accidental #'color = #black
 	\override Stem #'color = #black
 	\override Beam #'color = #black
@@ -151,6 +153,38 @@ verseChordNames = \chordmode
 }
 
 
+bridgeChords =
+{	
+	\color_grey
+    \partial 4. <c' e' g' c''>4.
+	\color_black
+    
+	%f       		 g1             f1                g1
+    <f' a' c'' f''>1 <b d' g' b'>1	<f' a' c'' f''>1  <b d' g' b'>1 \break
+	%f1              g1              f1                e1:min
+	<f' a' c'' f''>1 <b d' g' b'>1   <f' a' c'' f''>1  <g e' g' b'>2 \mark "D.C. al Fine" <b e' g' b'>2  \break
+	
+	
+	%d1:min7 		g1              d1:min7          g1
+    <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
+	%d1:min7          g1               c1:maj7        c1:7
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \bar ""
+}
+bridgeChordNames = \chordmode
+{	
+	\bigChordNames
+	\color_grey
+    \partial 4. c4.
+	\color_black
+    
+	f1       		 g1             f1                g1
+	f1              g1              f1               
+	 e1:min
+	d1:min7 		g1              d1:min7           g1
+	d1:min7         g1              c1:maj7           c1:7
+}
+
+
 chorusChords = 
 {	
 	\partial 4
@@ -163,7 +197,7 @@ chorusChords =
 	
   \repeat volta 3
   {
-		%f:maj7          e:min7           a:min             d:7
+	%f:maj7          e:min7           a:min             d:7
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1 \break
 
 	%d1:min7         g1               c1:maj7          e1:min         
@@ -232,7 +266,7 @@ chorusChordNames = \chordmode
 		d:min7   g1      c1:maj7  c1
 	}
  	{
-	    c1:maj7  e1:min  c1:maj7  c1:5   c1:maj7   c1:5
+	    c1:maj7  e1:min  c1:maj7  c1:1.5   c1:maj7   c1:1.5
 	}
   }
 }
@@ -297,6 +331,20 @@ verseLyrics =
   eyes1 \skip1
 
 
+  }
+  }
+  
+>> 
+
+bridgeLyrics = 
+<<
+  
+  \new Lyrics 
+  { \lyricmode
+  {
+  \partial 4. \skip4.
+  \repeat unfold 16 {"Doo da-duh doo"1}
+  
   }
   }
   
@@ -388,6 +436,42 @@ chorusLyrics =
   \layout { indent = 0.0\cm }
   \midi {}
 } 
+
+\pageBreak
+\score
+{
+<<
+    \new FretBoards 
+	{
+        \defineMyFretboard
+		{
+			%\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
+		    \bridgeChords
+		}
+	}
+
+	\new ChordNames 
+	{
+		%\transpose c e
+	    \bridgeChordNames
+	}
+  
+	% Enable this to write the notes of each chord on a new staff below the melody staff
+	\new Staff
+	{
+		    \bridgeChords
+		    %\chorusChordNames	% Compute the default notes for the chord names
+	 }
+	%Lyrics
+	\new Lyrics 
+	{
+		\bridgeLyrics
+	}
+>>
+
+  \layout { indent = 0.0\cm }
+}
+
 \pageBreak
 \score
 {
