@@ -112,13 +112,13 @@ verseChords =
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        e1:min
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2\segno <b e' g' b'>2 \break
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 <b e' g' b'>2\segno  \break
 	
 	
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        c1:7
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \mark "Fine" \bar ""
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \bar ""
 }
 verseFretboardChords =
 {	
@@ -130,7 +130,7 @@ verseFretboardChords =
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        e1:min
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 <b e' g' b'>2 
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 <b e' g' b'>2
 	\break
 	
 	
@@ -201,7 +201,7 @@ chorusChords =
 	<c' f' a' e''>1  <d' g' b' e''>1  <e' a' c'' e''>1  <c' fis' a' d''>1 \break
 
 	%d1:min7         g1               c1:maj7          e1:min         
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <b e' g' b'>1  \break
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1    <b e' g' b'>1 \break
   }
  
   \alternative
@@ -212,7 +212,7 @@ chorusChords =
 	}
  	{
 	    %c1:maj7 	     e1:min  		c1:maj7          c1:5            c1:maj7          c1:5
-		<c' e' g' b'>1   <b e' g' b'>1  <c' e' g' b'>1   <g c' g' c''>1  <c' e' g' b'>1   <c' c' g' c''>1 
+		<c' e' g' b'>1   <b e' g' b'>1  <c' e' g' b'>1   <g c' g' c''>1  <c' e' g' b'>1   <c' c' g' c''>1\mark "Fine"  
 	}
   }
 }
