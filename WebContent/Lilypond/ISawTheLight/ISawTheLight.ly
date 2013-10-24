@@ -4,7 +4,7 @@ date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
   title = "I Saw The Light"
-  composer = "Todd Rundgren"
+  composer = "Todd Rundgren \n (Lori Carson version)"
   
   tagline = \markup 
   {
