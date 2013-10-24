@@ -112,13 +112,13 @@ verseChords =
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        e1:min
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 \mark "D.C. al Fine" <b e' g' b'>2  \break
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2\segno <b e' g' b'>2 \break
 	
 	
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        c1:7
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \bar ""
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \mark "Fine" \bar ""
 }
 verseFretboardChords =
 {	
@@ -130,7 +130,7 @@ verseFretboardChords =
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        e1:min
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 \mark "D.C. al Fine" <b e' g' b'>2 
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  <g e' g' b'>2 <b e' g' b'>2 
 	\break
 	
 	
@@ -162,13 +162,13 @@ bridgeChords =
 	%f       		 g1             f1                g1
     <f' a' c'' f''>1 <b d' g' b'>1	<f' a' c'' f''>1  <b d' g' b'>1 \break
 	%f1              g1              f1                e1:min
-	<f' a' c'' f''>1 <b d' g' b'>1   <f' a' c'' f''>1  <g e' g' b'>2 \mark "D.C. al Fine" <b e' g' b'>2  \break
+	<f' a' c'' f''>1 <b d' g' b'>1   <f' a' c'' f''>1  <g e' g' b'>2 <b e' g' b'>2  \break
 	
 	
 	%d1:min7 		g1              d1:min7          g1
     <c' f' a' d''>1 <b d' g' b'>1	<c' f' a' d''>1  <b d' g' b'>1 \break
 	%d1:min7          g1               c1:maj7        c1:7
-	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \bar ""
+	<c' f' a' d''>1  <b d' g' b'>1   <c' e' g' b'>1  \partial 2. <bes e' g' c''>2. \mark "D.S. al Fine"\bar ""
 }
 bridgeChordNames = \chordmode
 {	
@@ -321,7 +321,8 @@ verseLyrics =
   { \lyricmode
   {\set stanza = "3. "
   \partial 4. \skip4.
-  \repeat unfold 7 {"Doo da-duh doo"1}
+  \repeat unfold 7 {\skip1}
+%  \repeat unfold 7 {"Doo da-duh doo"1}
   
   " "2 "Baby I"2
   
@@ -408,7 +409,7 @@ chorusLyrics =
 	{
         \defineMyFretboard
 		{
-			%\transpose c e
+			\transpose g b
 		    \verseFretboardChords
 		}
 	}
@@ -417,7 +418,7 @@ chorusLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			%\transpose c e
+			\transpose g b
 		    \verseChordNames
 		}	
 	}
@@ -440,19 +441,57 @@ chorusLyrics =
 \pageBreak
 \score
 {
+    \keepWithTag #'LowGUkeFretboard
+	%keep only sections tagged BiscuitUkeFretboard
 <<
     \new FretBoards 
 	{
         \defineMyFretboard
 		{
-			%\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
+			\transpose g b		% Todd wrote it in C.  Lori Carson did it in E.
+		    \chorusFretboardChords
+		    %\chorusChordNames	% Compute the default fretboard diagrams for the chord names
+		}
+	}
+
+	\new ChordNames 
+	{
+		\transpose g b
+	    \chorusChordNames
+	}
+  
+	% Enable this to write the notes of each chord on a new staff below the melody staff
+	\new Staff
+	{
+		    \chorusChords
+		    %\chorusChordNames	% Compute the default notes for the chord names
+	 }
+	%Lyrics
+	\new Lyrics 
+	{
+		\chorusLyrics
+	}
+>>
+
+  \layout { indent = 0.0\cm }
+} 
+
+\pageBreak
+\score
+{
+<<
+    \new FretBoards 
+	{
+        \defineMyFretboard
+		{
+			\transpose g b		% Todd wrote it in C.  Lori Carson did it in E.
 		    \bridgeChords
 		}
 	}
 
 	\new ChordNames 
 	{
-		%\transpose c e
+		\transpose g b
 	    \bridgeChordNames
 	}
   
@@ -472,43 +511,6 @@ chorusLyrics =
   \layout { indent = 0.0\cm }
 }
 
-\pageBreak
-\score
-{
-    \keepWithTag #'LowGUkeFretboard
-	%keep only sections tagged BiscuitUkeFretboard
-<<
-    \new FretBoards 
-	{
-        \defineMyFretboard
-		{
-			%\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
-		    \chorusFretboardChords
-		    %\chorusChordNames	% Compute the default fretboard diagrams for the chord names
-		}
-	}
-
-	\new ChordNames 
-	{
-		%\transpose c e
-	    \chorusChordNames
-	}
-  
-	% Enable this to write the notes of each chord on a new staff below the melody staff
-	\new Staff
-	{
-		    \chorusChords
-		    %\chorusChordNames	% Compute the default notes for the chord names
-	 }
-	%Lyrics
-	\new Lyrics 
-	{
-		\chorusLyrics
-	}
->>
-
-  \layout { indent = 0.0\cm }
-} 
 
 % ****************************************************************
 % end ly snippet
