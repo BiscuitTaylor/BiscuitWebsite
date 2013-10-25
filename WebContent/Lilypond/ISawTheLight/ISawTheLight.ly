@@ -409,7 +409,7 @@ chorusLyrics =
 	{
         \defineMyFretboard
 		{
-			\transpose g b
+			\transpose c e
 		    \verseFretboardChords
 		}
 	}
@@ -418,13 +418,15 @@ chorusLyrics =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			\transpose g b
+			\transpose c e
 		    \verseChordNames
 		}	
 	}
   
 	\new Staff \with {instrumentName = #"Uke"}
 	{
+		\key e \major
+		\transpose c e
 		\verseChords
 	}
 	%Lyrics
@@ -448,7 +450,7 @@ chorusLyrics =
 	{
         \defineMyFretboard
 		{
-			\transpose g b		% Todd wrote it in C.  Lori Carson did it in E.
+			\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
 		    \chorusFretboardChords
 		    %\chorusChordNames	% Compute the default fretboard diagrams for the chord names
 		}
@@ -456,13 +458,15 @@ chorusLyrics =
 
 	\new ChordNames 
 	{
-		\transpose g b
+		\transpose c e
 	    \chorusChordNames
 	}
   
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 	\new Staff
 	{
+			\key e \major
+		    \transpose c e
 		    \chorusChords
 		    %\chorusChordNames	% Compute the default notes for the chord names
 	 }
@@ -484,20 +488,22 @@ chorusLyrics =
 	{
         \defineMyFretboard
 		{
-			\transpose g b		% Todd wrote it in C.  Lori Carson did it in E.
+			\transpose c e		% Todd wrote it in C.  Lori Carson did it in E.
 		    \bridgeChords
 		}
 	}
 
 	\new ChordNames 
 	{
-		\transpose g b
+		\transpose c e
 	    \bridgeChordNames
 	}
   
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 	\new Staff
 	{
+			\key e \major
+		    \transpose c e
 		    \bridgeChords
 		    %\chorusChordNames	% Compute the default notes for the chord names
 	 }
