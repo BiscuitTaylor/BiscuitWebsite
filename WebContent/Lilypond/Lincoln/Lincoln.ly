@@ -33,8 +33,6 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 
 verseChords = \chordmode 
 {	
-	\set Staff.midiInstrument = #"ukulele"
-
       c2. | c2.:maj7 | c2.:7 | f2. | \break
       f2. | g2.:7 | g2. | c2. | \break
       
@@ -51,11 +49,10 @@ verseChords = \chordmode
 firstUke =
 \new Voice = "Uke 1"
 {
- 
   c''4^\markup { \italic "Lincoln's cross-step" } <c' e'>4 <c' e'>4 | b'4 <c' e'>4 <c' e'>4 |
   bes'4 <c' e'>4 <c' e'>4  | a'4 <a f'>4 <a f'>4  | \break
 
-  <a f'>2. | d'8 f'8 b'8 b'4. | a'4 g'4 f'8 e'8~ | e'2. \break
+  <a f'>2. | d'8 f'8 b'8 b'8~ b'4 | a'4 g'4 f'8 e'8~ | e'2. \break
 
   % Birdie's interlude
   <c''>4^\markup { \italic "Birdie's interlude" } <d''>4( <e''>4) |
@@ -74,13 +71,12 @@ firstUke =
   c''4^\markup { \italic "cross-step reprise" } <c' e'>4 <c' e'>4 | b'4 <c' e'>4 <c' e'>4 |
   bes'4 <c' e'>4 <c' e'>4  | a'4 <a f'>4 <a f'>4  | \break
 
-   <a f'>2. | d'8 f'8 b'8 b'4. | a'4 g'4 d''8 a'8~ | <a' \tweak #'color #grey c''>4 <g c' g'>4 <g c' g'>4 \break
+  <a f'>2. | d'8 f'8 b'8 b'8~ b'4 | a'4 r4 r8 a'8~ | <a'>4 <g c' g'>4 <g c' g'>4 \break
 }
 
 secondUke =
 \new Voice = "Uke 2"
 {
- 
   r4 <c' e'>4 <c' e'>4 | r4 <c' e'>4 <c' e'>4 |
   r4 <c' e'>4 <c' e'>4  | r4 <a f'>4 <a f'>4  | \break
 
@@ -104,7 +100,7 @@ secondUke =
   r4 <c' e'>4 <c' e'>4 | r4 <c' e'>4 <c' e'>4 |
   r4 <c' e'>4 <c' e'>4  | r4 <a f'>4 <a f'>4  | \break
 
-   <a f'>2. | r2. | <d' g' b'>2. | <c''>4 <g c' g'>4 <g c' g'>4 \break
+   <a f'>2. | r2. | r4 g'4 d''4 | <c''>4 <g c' g'>4 <g c' g'>4 \break
 }
 
 
@@ -115,8 +111,7 @@ secondUke =
 <<
 	\new Voice = "Ukulele I"
 	{
-		%\tempo "Adagio" 4 = 76
-		\tempo "Adagio"
+		\tempo "Andante" 4 = 84
 
 		%NOT \relative c'
 		{
@@ -127,7 +122,10 @@ secondUke =
 				{
 					{
 						\key c \major	
-					    \set Staff.midiInstrument = #"ukulele"
+					    %\set Staff.midiInstrument = #"ukulele"
+					    \set Staff.midiInstrument = #"harpsichord"
+					    \set Staff.instrumentName = #"Uke I"
+					    
 						{
 						    \firstUke
 						}
@@ -159,6 +157,9 @@ secondUke =
 %				{
 %				    \repeat unfold 18 { s1 }		
 %				}
+				%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
+				\set Staff.midiInstrument = #"cello"
+				\set Staff.instrumentName = #"Uke II"
 				\secondUke
 			}
 			\break
@@ -177,6 +178,7 @@ secondUke =
   \midi {}
 } 
 
+
+
 % ****************************************************************
-% end ly snippet
 % ****************************************************************
