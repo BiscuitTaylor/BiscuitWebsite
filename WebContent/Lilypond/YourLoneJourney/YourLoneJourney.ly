@@ -41,7 +41,7 @@ verseMelody =
 {
   \partial 2 d4 g4   | g8 g8 ~ g4 e4 d4 | g2 g4 b4 |
    a2 a4 g4   | e8 d8 ~ d4 d4 g4 | g4 ~ g4 e2       | d1 \break
-  r2 d4 g4 ~  | g2 e4 d4         | g2 g4 b4         | a2. c4 | b4 a4 g2 |
+  r2 d4 g4    | g2 e4 d4         | g2 g4 b4         | a2. c4 | b4 a4 g2 |
   d'4 b4 a2 ~ | a4 g4 e8 d4.      | d4 g4 g2         | e2 d2    |
   r1          
   %| e8 d8 ~          | d4 d4 g4 g4 ~    | g4 e2 d4 ~ d1 \break
@@ -86,7 +86,24 @@ verseLyrics =
 	"Bu-"4 "t"4 we2. will4 "mee-"8 "t"4. "i-"4 "n"4 heaven2 "a-"4 "bove"2 \skip1
 	  }
   }
+  
+  \new Lyrics  
+  {
+  \lyricmode
+	  { \set stanza = "3. "
+	  \partial 2 "Fo-"4 "nd"4 mem'-2 ries4 "I'll"4 "keep"2 "of"4 the4 "hap-"2. "py"4 "wa-"8 "ys"4. "that"4
+	on4 earth2 we2 trod1
+    " "2 "A-"4 "nd"4 | when2 "I"2 "come"2 "we"4 "will"4 walk2 "ha-"4 "nd"4
+     "i-"4 "n"4 "hand"2
+	"A-"4 "s"4 one2. in4 "heav-"8 "en"4. "in"4 "the"4 family2 "of"4 "god"2 \skip1
+	  }
+  }
 >>
+Fond memories I'll keep of the happy days
+That on earth we trod
+And when I come we will walk hand in hand
+As one in heaven in the family of God
+
 \break
 chorusLyrics = 
 
