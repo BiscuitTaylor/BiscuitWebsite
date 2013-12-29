@@ -34,9 +34,9 @@ verseChords = \chordmode
 	\override ChordName #'font-series = #'bold
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	g1 | \skip1 | \skip1 | d1 |
-	g1             | c1 | g1 
-	\skip1         | \skip1 | \skip1 | d1 | \skip1 | g1 | d1 | \skip1 | g1 | c1 | g1
+	g1 | \skip1 | \skip1 |
+	d1 | g1     | c1 | g1 
+	\skip1      | \skip1 | \skip1 | d1 | d2 g2 | g2 d2 | d2 g2 | g2 c2 | c2 g2 | g1
 }
 chorusChords = \chordmode 
 {	
@@ -46,31 +46,30 @@ chorusChords = \chordmode
 	\override ChordName #'font-series = #'bold
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	g1 | d1 | \skip1| \skip1| \skip1 | g1 | \skip2
-	r2 g2 | d1 g1  | c1 | g1 
+	g1 | d1 | \skip1| \skip1 | g1 | \skip1
+	g1 | d1 | g1  | c1 | g1  | \skip1
 }
 
 % absolute pitch
 verseMelody =
 \new Voice = "verseVocal"
 {
-  r2 d4 g4   | g8 g8 ~ g4 e4 d4 | g2 g4 b4 |
-   a2 a4 g4   | e8 d8 ~ d4 d4 g4 | g4 ~ g4 e2       | d1 \break
-  r2 d4 g4    | g2 e4 d4         | g2 g4 b4         | a2. c4 | b4 a4 g2 |
+  r2 d'4 g'4   | g'8 g'8 ~ g'4 e'4 d'4 | g'2 g'4 b'4 |
+  a'2 a'4 g'4  | e'8 d'8 ~ d'4 d'4 g'4 | g'4 ~ g'4 e'2       | d'1 \break
+  r2 d'4 g'4   | g'2 e'4 d'4           | g'2 g'4 b'4         | a'2. c''4 | b'4 a'4 g'2 |
                                                       %Note - this a2. should be a1 ~a2 (for the first two verses only)?              
                                                       %3rd verse - this a2. should be a2 a4?              
-  d'4 b4 a2 ~ | a4 g4 e8 d4.      | d4 g4 g2         | e2 d2    |
+  d''4 b'4 a'2 ~ | a'4 g'4 e'8 d'4.      | d'4 g'4 g'2         | e'2 d'2    |
   r1          
-  %| e8 d8 ~          | d4 d4 g4 g4 ~    | g4 e2 d4 ~ d1 \break
-  
 }
 
 chorusMelody =
 \new Voice = "chorusVocal"
 {
-  r2 a'4 g4 | a4 d4 d2 ~ | d2 r2 | r1 | 
-           r2 a4 g4 | a4 d4 d2 ~ | d2 r2 | r1 |
-  r2 d4 b4 a2 | a4 g4  e8 d8 ~ d4 | d4 g4 g2 | e4 d4 d2 
+  r2 a'4 g'4 | a'4 d''4 d''2 ~ | d''1 |
+  r2 a'4 g'4 | a'4 d''4 d''2 ~ | d''1 | 
+  \break
+  r2 d''4 b'4 | a'2  a'4 g'4 | e'8 d'8 ~ d'4  d'4 g'4 | g'2  e'4 (d'4) | d'1 
   r1          
 }
 
@@ -123,8 +122,8 @@ chorusLyrics =
   \new Lyrics  
   {
   \lyricmode {
-	  		" "2  Oh4 my4 "da-"4 "r-"4 "ling"2 " "2 " "1 " "2 " "2 
-	  		        "m-"4 "y"4 "da-"4 "r-"4 "ling"2 " "2 " "1 " "2 " "2
+	  		" "2  Oh4 my4 "da-"4 "r-"4 "ling"2 " "2 " "2 " "2 
+	  		        "m-"4 "y"4 "da-"4 "r-"4 "ling"2 " "2 " "2 " "2
 			My4 heart4 breaks2 as4 you4 take2
 			"Yo-"4 "ur"4 "lone"2 "jou-"4 "r-"4 "ney"1
 	  		}
@@ -146,24 +145,29 @@ chorusLyrics =
 	\new ChordNames 
 	{
 		%\with { midiInstrument = #"acoustic guitar (nylon)" }
+		% show chordnames only when the chord changes, 
+		% or at the beginning of a line.
+		% This is the only way I know to get a chord change in the middle of a measure,
+		% without getting a "N.C." symbol at the start of the measure.
+		\set chordChanges = ##t
 		{
 	    	%\introChords
 			\transpose g e
 		    \verseChords
+			\transpose g e
 		    \chorusChords
 		}	
 	}
 
 	\new Voice = "vocal"
 	{
-		\tempo "Andante - 1.53 Hz " 4 = 92
+		\tempo "Andante" 2 = 72
 		%\tempo "Andante " 4 = 92
-		%\markup { (1.53 Hz) }
+		\numericTimeSignature
+		\time 2/2
 		%\absolute	% relative pitches don't always transpose so well.
-		\transpose g e'
+		\transpose g' e'
 		{
-			\numericTimeSignature
-			\time 4/4
 	  		%\introMelody
 			\repeat volta 3 
 			{
