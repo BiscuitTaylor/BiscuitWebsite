@@ -34,14 +34,31 @@ verseChords = \chordmode
 	\override ChordName #'font-series = #'bold
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	\partial 2  g2 | \skip1 | \skip1 | d1 | g1 | c1 | g1}
+	\partial 2  g2 | \skip1 | \skip1 | d1 |
+	g1             | c1 | g1 
+	\skip1         | \skip1 | \skip1 | d1 | \skip1 | g1 | d1 | \skip1 | g1 | c1 | g1
+}
+chorusChords = \chordmode 
+{	
+	%Big chord names, so old geezers can percieve them			
+	\override ChordName #'font-size = #2 
+	%Bold chord names, so old geezers can grok them			
+	\override ChordName #'font-series = #'bold
 
+	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
+	\partial 2  g2 | d1 | \skip1| \skip1| \skip1 | g1 | \skip2
+	r2 g2 | d1 g1  | c1 | g1 
+}
+
+% absolute pitch
 verseMelody =
 \new Voice = "verseVocal"
 {
   \partial 2 d4 g4   | g8 g8 ~ g4 e4 d4 | g2 g4 b4 |
    a2 a4 g4   | e8 d8 ~ d4 d4 g4 | g4 ~ g4 e2       | d1 \break
   r2 d4 g4    | g2 e4 d4         | g2 g4 b4         | a2. c4 | b4 a4 g2 |
+                                                      %Note - this a2. should be a1 ~a2 (for the first two verses only)?              
+                                                      %3rd verse - this a2. should be a2 a4?              
   d'4 b4 a2 ~ | a4 g4 e8 d4.      | d4 g4 g2         | e2 d2    |
   r1          
   %| e8 d8 ~          | d4 d4 g4 g4 ~    | g4 e2 d4 ~ d1 \break
@@ -51,9 +68,9 @@ verseMelody =
 chorusMelody =
 \new Voice = "chorusVocal"
 {
-  a'4 g4 a4 d4 | d1 |
-   r2 a4 g4   | a4 d4 d2 ~ | d2    d4 b4   |
-   a2 a4 g4 | e8 d8 ~ d4 d4 g4 | g2 e4 d4 | d1 
+  \partial 2 a'4 g4 | a4 d4 d2 ~ | d2 r2 | r1 | 
+           r2 a4 g4 | a4 d4 d2 ~ | d2 r2 | r1 |
+  r2 d4 b4 a2 | a4 g4  e8 d8 ~ d4 | d4 g4 g2 | e4 d4 d2 
   r1          
 }
 
@@ -99,10 +116,6 @@ verseLyrics =
 	  }
   }
 >>
-Fond memories I'll keep of the happy days
-That on earth we trod
-And when I come we will walk hand in hand
-As one in heaven in the family of God
 
 \break
 chorusLyrics = 
@@ -110,7 +123,8 @@ chorusLyrics =
   \new Lyrics  
   {
   \lyricmode {
-	  		Oh4 my4 "da-"4"r-"4 "ling"1 " "2 "m-"4 "y"4 "da-"4 "r-"4 "ling"1
+	  		\partial 2 Oh4 my4 "da-"4 "r-"4 "ling"2 " "2 " "1 " "2 " "2 
+	  		        "m-"4 "y"4 "da-"4 "r-"4 "ling"2 " "2 " "1 " "2 " "2
 			My4 heart4 breaks2 as4 you4 take2
 			"Yo-"4 "ur"4 "lone"2 "jou-"4 "r-"4 "ney"1
 	  		}
@@ -134,8 +148,9 @@ chorusLyrics =
 		%\with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
 	    	%\introChords
-			%\transpose g d
+			\transpose g e
 		    \verseChords
+		    \chorusChords
 		}	
 	}
 
@@ -145,6 +160,7 @@ chorusLyrics =
 		%\tempo "Andante " 4 = 92
 		%\markup { (1.53 Hz) }
 		\relative c'
+		\transpose g e'
 		{
 			\numericTimeSignature
 			\time 4/4
