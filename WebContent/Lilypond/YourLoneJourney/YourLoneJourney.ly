@@ -5,11 +5,14 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
   title = "Your Lone Journey"
   composer = "Rosa Lee Watson / Doc Watson"
-  tagline = \markup 
-  {
-  	"Transcribed by Biscuit on: " \date "at " \hour 
-  	"; engraved by LilyPond" $(lilypond-version)
-  }
+%  tagline = \markup 
+%  {
+%  	"Transcribed by Biscuit on: " \date "at " \hour 
+%  	"; engraved by LilyPond" $(lilypond-version)
+%  }
+% Can't figure out how to get spacing between last lyric and tagline...
+% So, fuckit - no tagline.
+  tagline = ##f
 }
 
 % ****************************************************************
@@ -21,6 +24,9 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   line-width = 160\mm
   force-assignment = #""
   line-width = #(- line-width (* mm  3.000000))
+  ragged-bottom=##f
+  ragged-last-bottom=##f
+  
 }
 
 
@@ -205,7 +211,13 @@ chorusLyrics =
 	%\new Staff \chorusChords
 >>
 
-  \layout { indent = 0.0\cm }
+  \layout { 
+  	indent = 0.0\cm
+  	\context {
+    	\Lyrics
+    	\override LyricText #'font-size = #+2
+  	}
+  }
   \midi {}
 } 
 
