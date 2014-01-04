@@ -61,13 +61,13 @@ chorusChords = \chordmode
 verseMelody =
 \new Voice = "verseVocal"
 {
-  r2 d'4 g'4   | g'8 g'8 ~ g'4 e'4 d'4   | g'2 g'4 b'4 |
-  a'2 a'4 g'4  | e'8 (d'8) ~ d'4 d'4 g'4 | g'2 e'2     | d'1 \break
-  r2 d'4 g'4   | g'2 e'4 (d'4)           | g'2 g'4 b'4        
-  											 \time 3/2 | a'2 r4 c''4  b'4 a'4 |  \time 2/2
+  r2 d'4 (g'4) | g'8 g'8 ~ g'4 e'4 d'4         | g'2 g'4 b'4   |
+  a'2 a'4 g'4  | e'8 (d'8) ~ d'4 d'8 (e'8 g'4) | g'2 e'4 (d'4) | d'1 \break
+  r2 d'4 (g'4) | g'2 e'4 (d'4)                 | g'2 g'4 (b'4) | 
+  											         \time 3/2  a'2 r4 c''4  b'4 a'4 |  \time 2/2
                                                       %Note - this a2 r4 should be a1 ~a2 (for the first two verses only)?              
                                                       %3rd verse - this a2 r4 should be a2 a4?              
-  g'4 r4 d''4 b'4 | a'2 ~ a'4 g'4 | e'8 (d'4.) d'4 g'4 | g'2 e'2 | d'2 r2
+  g'4 r4 d''4 (b'4) | a'2 ~ a'4 g'4     | e'8 (d'4.) d'4 (g'4) | g'2 e'2     | d'2 r2
 }
 
 chorusMelody =
@@ -89,8 +89,8 @@ verseLyrics =
   %\override LyricText #'font-size = #2	% increase font by two 'sizes'
   {
   \lyricmode {
-	  		" "2 " Go-"4 "d's"4 "given"2 "u-"4 "s"4 years2 "o-"4 "f"4 "hap-"2 "piness"2
-	  		"here;"2 "no-"4 "w"4 "we"2 "must"2 part1
+	  		" "2 " Go-"4 "d's"4 "given"2 "u-"4 "s"4 years2 "o-"4 "f"4
+	  		"hap-"2 "piness"2 "here;"2 "no-"8 "w"4. "we"2 "must"2 part1
 			" "2 "A-"4 "nd"4 as2 "th-"4 "e"4 "an-"2 "ge-"4 "ls"4 come2. and4 call4 for4 you2
 			"Th-"4 "e"4 pangs2 " "4 of4 "gri-"8 "ef"4. "tu-"4 "g"4 at2 my2 heart2  " "2
 	  		}
@@ -101,8 +101,8 @@ verseLyrics =
   {
   \lyricmode
 	  { \set stanza = "2. "
-	  " "2  Oh4 the4 days2 will4 be4 "emp-"2 "ty,"4 the4 nights2 "..."4 so4 "lo-"8 "ng"4. "with-"4
-	out4 you2 my2 love1
+	  " "2  Oh4 the4 days2 will4 be4 "emp-"2 "ty,"4 the4 
+	  nights2 "..."4 so4 "lo-"8 "ng"4. "with-"8 out4. you2 my2 love1
     " "2 "A-"4 "nd"4 | as2 "Go-"4 "d"4 "calls"2 " "4 "for"4 you2. 
     "I'm"4 left4 "a-"4 "lone"2
 	"Bu-"4 "t"4 we2. will4 "mee-"8 "t"4. "i-"4 "n"4 heaven2 "a-"4 "bove"2 " "2
@@ -113,8 +113,8 @@ verseLyrics =
   {
   \lyricmode
 	  { \set stanza = "3. "
-	  " "2  "Fo-"4 "nd"4 mem'-2 ries4 "I'll"4 "keep"2 "of"4 the4 "hap-"2. "py"4 "wa-"8 "ys"4. "that"4
-	on4 earth2 we2 trod1
+	  " "2  "Fo-"4 "nd"4 mem'-2 ries4 "I'll"4 "keep"2 "of"4 the4 
+	  "hap-"2. "py"4 "wa-"8 "ys"4. "that"8 on4. earth2 we2 trod1
     " "2 "A-"4 "nd"4 | when2 "I"2 "come"2 "we"4 "will"4 walk2 "ha-"4 "nd"4
      "i-"4 "n"4 "hand"2
 	"A-"4 "s"4 one2. in4 "heav-"8 "en"4. "in"4 "the"4 family2 "of"4 "god"2 " "2
@@ -173,9 +173,9 @@ chorusLyrics =
 		\set chordChanges = ##t
 		{
 	    	%\introChords
-			\transpose g e
+			%\transpose g e
 		    \verseChords
-			\transpose g e
+			%\transpose g e
 		    \chorusChords
 		}	
 	}
@@ -187,7 +187,7 @@ chorusLyrics =
 		\numericTimeSignature
 		\time 2/2
 		%\absolute	% relative pitches don't always transpose so well.
-		\transpose g' e'
+		%\transpose g' e'
 		{
 	  		%\introMelody
 			\repeat volta 3 
