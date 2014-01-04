@@ -39,8 +39,8 @@ verseChords = \chordmode
 	%Bold chord names, so old geezers can grok them			
 	\override ChordName #'font-series = #'bold
 
-	\set ChordNames.midiInstrument = "violin"
-	\set ChordNames.midiMaximumVolume = #0.2
+	\set ChordNames.midiInstrument = "ocarina"
+	\set ChordNames.midiMaximumVolume = #0.2	%There must be a dynamic mark on the first note of each instrument for this to work correctly.
 	g1 | \skip1 | \skip1 |
 	d1 | g1     | c1 | g1 
 	\skip1      | \skip1 | \skip1 | d1 | d2 g2 | g2 d2 | d2 g2 | g2 c2 | c2 g2 | g1
@@ -61,13 +61,13 @@ chorusChords = \chordmode
 verseMelody =
 \new Voice = "verseVocal"
 {
-  r2 d'4 g'4   | g'8 g'8 ~ g'4 e'4 d'4 | g'2 g'4 b'4 |
-  a'2 a'4 g'4  | e'8 d'8 ~ d'4 d'4 g'4 | g'4 ~ g'4 e'2       | d'1 \break
-  r2 d'4 g'4   | g'2 e'4 d'4           | g'2 g'4 b'4        
-  											\time 3/2 | a'2 r4 c''4  b'4 a'4 |  \time 2/2
+  r2 d'4 g'4   | g'8 g'8 ~ g'4 e'4 d'4   | g'2 g'4 b'4 |
+  a'2 a'4 g'4  | e'8 (d'8) ~ d'4 d'4 g'4 | g'2 e'2     | d'1 \break
+  r2 d'4 g'4   | g'2 e'4 (d'4)           | g'2 g'4 b'4        
+  											 \time 3/2 | a'2 r4 c''4  b'4 a'4 |  \time 2/2
                                                       %Note - this a2 r4 should be a1 ~a2 (for the first two verses only)?              
                                                       %3rd verse - this a2 r4 should be a2 a4?              
-  g'4 r4 d''4 b'4 | a'2 ~ a'4 g'4 | e'8 d'4. d'4 g'4 | g'2 e'2 | d'2 r2
+  g'4 r4 d''4 b'4 | a'2 ~ a'4 g'4 | e'8 (d'4.) d'4 g'4 | g'2 e'2 | d'2 r2
 }
 
 chorusMelody =
@@ -76,7 +76,7 @@ chorusMelody =
   r2 a'4 g'4 | a'4 d''4 d''2 ~ | d''1 |
   r2 a'4 g'4 | b'4 d''4 d''2 ~ | d''1 | 
   \break
-  r2 d''4 b'4 | a'2  a'4 g'4 | e'8 d'8 ~ d'4  d'4 g'4 | g'2  e'4 (d'4) | d'1           
+  r2 d''4 b'4 | a'2  a'4 g'4 | e'8 (d'8) ~ d'4  d'4 (g'4) | g'2  e'4 (d'4) | d'1           
 }
 
 
@@ -137,7 +137,20 @@ chorusLyrics =
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#(define my-instrument-equalizer-alist '())
 
+#(set! my-instrument-equalizer-alist
+  (append
+    '(
+      ("violin" . (0.7 . 0.9))
+      ("ocarina" . (0.1 . 0.3)))
+    my-instrument-equalizer-alist))
+
+#(define (my-instrument-equalizer s)
+  (let ((entry (assoc s my-instrument-equalizer-alist)))
+    (if entry
+      (cdr entry))))
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \score
 {
 <<
@@ -148,23 +161,24 @@ chorusLyrics =
 		\verseMelody
 	%}
 	
-%	\new ChordNames \with { midiInstrument = "acoustic guitar (nylon)" } 
-%	%\context ChordNames = "chords"
-%	{		
-%		%\with { midiInstrument = #"acoustic guitar (nylon)" }
-%		% show chordnames only when the chord changes, 
-%		% or at the beginning of a line.
-%		% This is the only way I know to get a chord change in the middle of a measure,
-%		% without getting a "N.C." symbol at the start of the measure.
-%		\set chordChanges = ##t
-%		{
-%	    	%\introChords
-%			\transpose g e
-%		    \verseChords
-%			\transpose g e
-%		    \chorusChords
-%		}	
-%	}
+	\new ChordNames \with { midiInstrument = "ocarina" } 
+	%\context ChordNames = "chords"
+	{		
+		\set Score.instrumentEqualizer = #my-instrument-equalizer		%\with { midiInstrument = #"acoustic guitar (nylon)" }
+
+		% show chordnames only when the chord changes, 
+		% or at the beginning of a line.
+		% This is the only way I know to get a chord change in the middle of a measure,
+		% without getting a "N.C." symbol at the start of the measure.
+		\set chordChanges = ##t
+		{
+	    	%\introChords
+			\transpose g e
+		    \verseChords
+			\transpose g e
+		    \chorusChords
+		}	
+	}
 
 	\new Voice = "vocal"
 	{
@@ -181,7 +195,7 @@ chorusLyrics =
 				%\new Staff = "melodyStaff"
 				{
 					\key g \major	
-				    \set Staff.midiInstrument = #"acoustic guitar"
+				    \set Staff.midiInstrument = #"violin"
 					%\numericTimeSignature
 					%\time 4/4
 					{
