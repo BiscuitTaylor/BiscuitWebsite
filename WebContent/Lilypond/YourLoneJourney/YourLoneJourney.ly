@@ -43,7 +43,7 @@ verseChords = \chordmode
 	\set ChordNames.midiMaximumVolume = #0.2	%There must be a dynamic mark on the first note of each instrument for this to work correctly.
 	g1 | \skip1 | \skip1 |
 	d1 | g1     | c1 | g1 
-	\skip1      | \skip1 | \skip1 | d1 | d2 g2 | g2 d2 | d2 g2 | g2 c2 | c2 g2 | g1
+	\skip1      | \skip1 | \skip1 | d1. | g1 | d1 | g1 | c1 | g1
 }
 chorusChords = \chordmode 
 {	
@@ -62,12 +62,12 @@ verseMelody =
 \new Voice = "verseVocal"
 {
   r2 d'4 (g'4) | g'8 g'8 ~ g'4 e'4 d'4         | g'2 g'4 b'4   |
-  a'2 a'4 g'4  | e'8 (d'8) ~ d'4 d'8 (e'8 g'4) | g'2 e'4 (d'4) | d'1 \break
+  a'2 a'4 g'4  | e'8 (d'8) ~ d'4 d'8 (e'8 g'4) | g'2 e'4 d'4 ~  | d'1 \break
   r2 d'4 (g'4) | g'2 e'4 (d'4)                 | g'2 g'4 (b'4) | 
   											         \time 3/2  a'2 r4 c''4  b'4 a'4 |  \time 2/2
                                                       %Note - this a2 r4 should be a1 ~a2 (for the first two verses only)?              
                                                       %3rd verse - this a2 r4 should be a2 a4?              
-  g'4 r4 d''4 (b'4) | a'2 ~ a'4 g'4     | e'8 (d'4.) d'4 (g'4) | g'2 e'2     | d'2 r2
+  g'4 r4 d''4 (b'4) | a'2 ~ a'4 g'4 | e'8 (d'4.) d'4 (g'4) | g'2 e'2 | d'2 r2
 }
 
 chorusMelody =
