@@ -5,14 +5,14 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
   title = "Your Lone Journey"
   composer = "Rosa Lee Watson / Doc Watson"
-%  tagline = \markup 
-%  {
-%  	"Transcribed by Biscuit on: " \date "at " \hour 
-%  	"; engraved by LilyPond" $(lilypond-version)
-%  }
+  tagline = \markup 
+  {
+  	"Transcribed by Biscuit on: " \date "at " \hour 
+  	"; engraved by LilyPond" $(lilypond-version)
+  }
 % Can't figure out how to get spacing between last lyric and tagline...
 % So, fuckit - no tagline.
-  tagline = ##f
+%  tagline = ##f
 }
 
 % ****************************************************************
@@ -54,20 +54,33 @@ chorusChords = \chordmode
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
 	g1 | d1 | \skip1| \skip1 | g1 | \skip1
-	g1 | d1 | g1  | c1 | g1  | \skip1
+	g1 | d1 | g1  | c1 | g1  |
 }
 
 % absolute pitch
 verseMelody =
 \new Voice = "verseVocal"
 {
-  r2 d'4 (g'4) | g'8 g'8 ~ g'4 e'4 d'4         | g'2 g'4 b'4   |
-  a'2 a'4 g'4  | e'8 (d'8) ~ d'4 d'8 (e'8 g'4) | g'2 e'4 d'4 ~  | d'1 \break
+  r2 d'4 (g'4) | g'8 g'8 ~ g'4 e'4 d'4         | g'2 g'4 b'4   | a'2 a'4 g'4  |
+  e'8 (d'8) ~ d'4 d'8 (e'8 g'4) | g'2 e'2      | c'4 d'2. \break
   r2 d'4 (g'4) | g'2 e'4 (d'4)                 | g'2 g'4 (b'4) | 
   											         \time 3/2  a'2 r4 c''4  b'4 a'4 |  \time 2/2
                                                       %Note - this a2 r4 should be a1 ~a2 (for the first two verses only)?              
                                                       %3rd verse - this a2 r4 should be a2 a4?              
-  g'4 r4 d''4 (b'4) | a'2 ~ a'4 g'4 | e'8 (d'4.) d'4 (g'4) | g'2 e'2 | d'2 r2
+  g'4 r4 d''4 (b'4) | a'2 ~ a'4 g'4 | e'8 (d'4.) d'4 (g'4) | g'2 e'4 d'4 | c'4 d'2.
+}
+
+verseHarmony =
+\new Voice = "verseVocalHarmony"
+{
+  r2 g'4 (b'4) | b'8 b'8 ~ b'4 a'4 g'4         | b'2 b'4 d''4 | d''2 <\tweak #'color #grey d''>8 a'4.  |
+  b'2 b'4 (e''4) | e''2 c''4 (a'4)  | a'8 b'8 ~ b'2. \break
+  r2 g'4 (b'4) | b'2 a'4 (g'4)                 | b'2 b'4 (d''4) | 
+  											         %\time 3/2  d''2 r4 e''4  d''4 c''4 |  \time 2/2
+%  											         \time 3/2  d''2 r4 a'4  a'4 e'4 |  \time 2/2
+                                                      \time 3/2  d''2 r4 d''4  d''4 a'4 |  \time 2/2            
+  b'4 r4 g''4 (d''4) | d''2 ~ d''4 a'4 | b'2 d''4 (e''4) | e''2 c''4 (a'4) | a'4 (b'4) r2
+%  fis'4 r4 g''4 (d''4) | d''2 ~ c''4 c''4 | b'8 (g'4.) d''4 (e''4) | e''2 c''2 | b'2 r2
 }
 
 chorusMelody =
@@ -79,6 +92,30 @@ chorusMelody =
   r2 d''4 b'4 | a'2  a'4 g'4 | e'8 (d'8) ~ d'4  d'4 (g'4) | g'2  e'4 (d'4) | d'1           
 }
 
+chorusHarmony =
+\new Voice = "chorusVocalHarmony"
+{
+  r2 d''4 b'4 | d''4 fis''4 fis''2 ~ | fis''1 |
+  r2 d''4 b'4 | d''4 g''4 g''2 ~ | g''1 | 
+  \break
+  r2 g''4 d''4 | d''2  d''4 a'4 | b'2  b'4 (e''4) | e''2  c''4 (a'4) | b'1           
+}
+
+bridgeMelody =
+\new Voice = "bridgeGuitar"
+{
+  r2 d''4 b'4 | a'2  a'4 g'4 | e'8 (d'8) ~ d'4  d'4 (g'4) | g'2  e'4 (d'4) | d'1           
+}
+bridgeChords = \chordmode 
+{	
+	%Big chord names, so old geezers can percieve them			
+	\override ChordName #'font-size = #2 
+	%Bold chord names, so old geezers can grok them			
+	\override ChordName #'font-series = #'bold
+
+	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
+	g1 | d1 | g1  | c1 | g1  | \skip1
+}
 
 verseLyrics = 
 <<
@@ -173,21 +210,57 @@ chorusLyrics =
 		\set chordChanges = ##t
 		{
 	    	%\introChords
-			%\transpose g e
+			%\transpose g e % Doc and Rosa Lee recorded it in E
+			%\transpose g d	% Sammy and Nadine recording is in D
 		    \verseChords
-			%\transpose g e
+			%\transpose g e % Doc and Rosa Lee recorded it in E
+			%\transpose g d	% Sammy and Nadine recording is in D
 		    \chorusChords
+		    
+			%\transpose g d	% Sammy and Nadine recording is in D
+		    \bridgeChords
 		}	
 	}
 
+	\new Voice = "vocal harmony"
+	{
+		\numericTimeSignature
+		\time 2/2
+		%\absolute	% relative pitches don't always transpose so well.
+		%\transpose g' e' % Doc and Rosa Lee recorded it in E
+		%\transpose g d	% Sammy and Nadine recording is in D
+		{
+	  		%\introMelody
+			%\repeat volta 3 
+			{
+				%\new Staff = "melodyStaff"
+				{
+					\key g \major	
+				    \set Staff.midiInstrument = #"cello"
+					\set Staff.instrumentName = #"harmony"
+					{
+					    \verseHarmony
+					}
+				}
+				\break
+				{
+					{
+					    \chorusHarmony
+					}
+				}
+			}
+
+		}
+	}
+  
 	\new Voice = "vocal"
 	{
 		\tempo "Andante" 2 = 72
-		%\tempo "Andante " 4 = 92
 		\numericTimeSignature
 		\time 2/2
 		%\absolute	% relative pitches don't always transpose so well.
 		%\transpose g' e'
+		%\transpose g d	% Sammy and Nadine recording is in D
 		{
 	  		%\introMelody
 			\repeat volta 3 
@@ -196,23 +269,28 @@ chorusLyrics =
 				{
 					\key g \major	
 				    \set Staff.midiInstrument = #"violin"
-					%\numericTimeSignature
-					%\time 4/4
+					\set Staff.instrumentName = #"lead\nvocal"
 					{
 					    \verseMelody
+					}
+				}
+				\pageBreak
+				{
+					{
+					    \chorusMelody
 					}
 				}
 				\break
 				{
 					{
-					    \chorusMelody
+					    \bridgeMelody
 					}
 				}
 			}
 
 		}
 	}
-  
+
 	%Lyrics
 	{
 		%\introLyrics
@@ -222,8 +300,8 @@ chorusLyrics =
 
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 	%\new Staff \chorusChords
+	
 >>
-
   \layout { 
   	indent = 0.0\cm
   	\context {
