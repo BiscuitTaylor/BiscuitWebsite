@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.2"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -8,7 +8,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
-  	"; engraved by LilyPond" #(ly:export (lilypond-version))
+  	"; engraved by LilyPond" $(lilypond-version)
   }
 }
 
@@ -54,15 +54,16 @@ verseChords = \chordmode
 	d2:min | d2:min/e | d2:min/f | f2:maj7  | bes2 | bes2 | r2 | r2 
 	f2 | f2 | a2:min | a2:min  | d2:min | d2:min | r2 | r2 
 	d2:min | d2:min/e | d2:min/f | f2:maj7  | bes2 | bes2 
-	g2 | a2:min | f2 | c2  | f2 | a2:min | r2 | r2
+	bes2 | bes2 | f2 | f2  | a2:min | a2:7 | d2:min |d2:min | r2 | r2
 }
 
 chorusChords = \chordmode 
 {
-	d2:min | f2:maj7 | g2:7 | e2:min7 | d2:min
-	f2 | f2 | g2 | g2 |
-	d2:min | f2:maj7 | g2:7 | e2:min7 | d2:min
-	f2 | f2 | g2 | g2 |
+	d2:min | f2:maj7 | f2     | e2:min7 | bes2 | bes2 |
+	bes2   | bes2    | f2     | a2:min |
+	a2:min | c2      | d2:min | d2:min  | d2:min | d2:min 
+	d2:min | f2:maj7 | d2:min | e2:min7 | bes2 | bes2 |
+	bes2   | bes2    | f2     | f2      | a2:min | a2:min | d2:min | d2:min 
 }
 
 introMelody =
@@ -89,7 +90,7 @@ chorusMelody =
 \new Voice = "chorusVocal"
 {
   d8 d4. | e4 e8  f8 ~ | f4 f8 f8 | e4 e4 | f4 d4 | r4. c8 \break
-  f4 f8 f8 ~ | f8 e8 ~ e8 f8 ~ | f8 e8 c4 |r4. c8 | \break
+  f4 f8 f8 ~ | f8 e8 ~ e8 f8 ~ | f8 e8 ~ e8 c8 ~ | c4 r8 c8 | \break
   des4 des4 | e4 e8 e8 ~ | e8 f8 d4 ~ | d2 | r2 | r4. c8 | \break
   d4 d4 | e4 e8  f8 ~ | f4 f8 e8 ~ | e4. e8 | f8 d8 ~ d4 ~ | d4 d4 | d2 | r4. c8 \break
   d8 c8 ~ c8 a8 ~| a4 a4 | des8 a8 ~ a8  a8 | a4 g8 a8 ~ | a2 |r2 | \break
@@ -136,8 +137,8 @@ chorusLyrics =
 		\verseMelody
 		\chorusMelody
 	%}
-    %\keepWithTag #'BiscuitUkeFretboard
-    \keepWithTag #'StandardGuitarFretboard 
+    \keepWithTag #'BiscuitUkeFretboard
+    %\keepWithTag #'StandardGuitarFretboard 
     \new FretBoards 
 	{
 		\defineMyFretboard
@@ -158,7 +159,7 @@ chorusLyrics =
 
 	\new Voice = "vocal"
 	{
-		\tempo "Allegro moderato " 4 = 120
+		\tempo "Larghetto " 4 = 120
 		
 		\relative c''
 		{
@@ -167,12 +168,13 @@ chorusLyrics =
 	  		%\introMelody
 			%\repeat volta 2 
 			{
-				\key c \major	
+				\key d \minor	
 			    %\set Staff.midiInstrument = #"ocarina"
 				\set Staff.midiInstrument = #"flute"
 				{
 				    \verseMelody
 				  	\bar "||"
+				  	\pageBreak
 					\chorusMelody
 				}
 			}
@@ -186,19 +188,20 @@ chorusLyrics =
 		\chorusLyrics
 	}
 
-	% Enable this to write the notes of each chord on a new staff below the melody staff
-	% (Also allows for using a separate midi instrument for the chords)
-	\new Staff 	
-	{
-				%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-				\set Staff.midiInstrument = #"drawbar organ"
-				
-		{
-			%\introChords
-		    \verseChords
-		    \chorusChords
-		}	
-	}
+%	% Enable this to write the notes of each chord on a new staff below the melody staff
+%	% (Also allows for using a separate midi instrument for the chords)
+%	\new Staff 	
+%	{
+%			\key d \minor
+%			%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
+%			\set Staff.midiInstrument = #"drawbar organ"
+%				
+%		{
+%			%\introChords
+%		    \verseChords
+%		    \chorusChords
+%		}	
+%	}
 
 >>
 
