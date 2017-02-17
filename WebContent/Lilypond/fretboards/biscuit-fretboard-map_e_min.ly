@@ -50,17 +50,19 @@ FretMapChords = \chordmode
 	f1
 	d''1:min d''1:min7
 }
-FretMapChordsOnStaff = \chordmode 
-{	
-	% TODO: abandon chordmode; use "chorded notes"
-	f
-	d/a1:min d/a1:min7 
-	f
-	d1:min7 d1:min
-	d1:sus4
-	f
-	d/f1:min d/f1:min7
-}
+% FretMapChordsOnStaff not used
+%FretMapChordsOnStaff = \chordmode 
+%{	
+%	% DONE: abandoned chordmode; use "chorded notes"
+%   % chordmode produces weird shit.
+%	f
+%	d/a1:min d/a1:min7 
+%	f
+%	d1:min7 d1:min
+%	d1:sus4
+%	f
+%	d/f1:min d/f1:min7
+%}
 %FretMapChordsOnStaff = 
 %{	
 %	% "chorded notes" (absolute pitch (octave)
@@ -72,6 +74,7 @@ FretMapChordsOnStaff = \chordmode
 TabChordsOnStaff = 
 {	
 	% "chorded notes" (absolute pitch (octave)
+    <a\4 c'\3 f'\2 g'\1>1 <a\4 c'\3 f'\2>1
     <a\4 d'\3 f'\2 a'\1>1 <a\4 d'\3 f'\2 c''\1>1
     <c'\4 f'\3 a'\2 c''\1>1 
     <c'\4 f'\3 a'\2 d''\1>1 <d'\4 f'\3 a'\2 d''\1>1 
@@ -84,6 +87,7 @@ TabScale =
 {	
 	% "scale" (absolute pitch (octave) 
 	% unadorned pitch names = the octave (c3 to b3) immediately below middle c
+    a4\4 c'4\3 f'4\2 g'4\1      a4\4 c'4\3 f'4\2
     a4\4 d'4\3 f'4\2 a'4\1      a4\4 d'4\3 f'4\2 c''4\1
     c'4\4 f'4\3 a'4\2 d''4\1    d'4\4 f'4\3 a'4\2 d''4\1  
     f'4\4 a'4\3 d''4\2 f''4\1   f'4\4 c''4\3 d''4\2 f''4\1
@@ -119,7 +123,7 @@ TabMap =
 \markup {"Traversing the neck with a pentatonic scale - chord by chord"}
 \score 
 {
-\transpose d e	
+%\transpose d e	
 <<
     \new FretBoards 
 	{
@@ -164,7 +168,7 @@ TabMap =
 \markup {"stationary arpeggios"}
 \score	
 {
-\transpose d e	
+%\transpose d e	
 <<	
 	\new voice	
 	{
@@ -182,7 +186,7 @@ TabMap =
 \markup {"fretboard model with pentatonic scale"}
 \score
 {	
-\transpose d e
+%\transpose d e
 <<	
 	\new voice	
 	{

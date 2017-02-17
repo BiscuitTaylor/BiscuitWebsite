@@ -3,7 +3,7 @@
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
 \header {
-  title = "Biscuit Fretboard Map"
+  title = "Ukulele Symphony"
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
@@ -37,33 +37,25 @@ defineMyFretboard =
   \biscuitCustomFretboards
 >>
 
-FretMapChords = \chordmode 
+SymphonyChords = \chordmode 
 {	
 	\bigChordNames	% for geezers;  from biscuit-fretboards.ly
 
 	\set Staff.instrumentName = #"Open G Tuning"
-	\set Staff.shortInstrumentName = #"Open G"
-	d'''1:min7 d'''1:min d1:min7 d1:min d''1:min d''1:min7
+	\set Staff.shortInstrumentName = #"Root"
+	g1:6 a1:9 b1:7 e''1:min c1:dim7
+	\set Staff.shortInstrumentName = #"1st Inversion"
+	g''1:6 a''1:9 b''1:7 e'''1:min c''1:dim7
+	\set Staff.shortInstrumentName = #"2nd Inversion"
+	g'''1:6 a'''1:9 b'''1:7 e1:min c'''1:dim7
 }
-%FretMapChordsOnStaff = \chordmode 
-%{	
-%	% TODO: abandon chordmode; use "chorded notes"
-%	d/a1:min7 d/a1:min d1:min7 d1:min d/f1:min d/f1:min7
-%}
-FretMapChordsOnStaff = 
+SymphonyChordsOnStaff = \chordmode 
 {	
-	% "chorded notes" (absolute pitch (octave)
-    <a d' f' c'>1 <a d' f' a'>1
-    <c' f' a' d''>1 <d' f' a' d''>1   
-    <f' a' d'' f''>1 <f' c'' d'' f''>1
-}
-
-TabChordsOnStaff = 
-{	
-	% "chorded notes" (absolute pitch (octave)
-    <a,\4 d\3 f\2 c'\1>1 <a,\4 d\3 f\2 a\1>1
-    <c\4 f\3 a\2 d'\1>1 <d\4 f\3 a\2 d'\1>1   
-    <f a d' f'>1 <f c' d' f'>1
+	g,1:6 a,1:9 b,1:7 e1:min c1:dim7
+	\break
+	g/b1:6 a/cis1:9 b/ees1:7 e'/g1:min c'/ees1:dim7
+	\break
+	g/d1:6 a/e1:9 b/ges'''1:7 e'/b1:min c'/ges1:dim7
 }
 
 
@@ -76,7 +68,7 @@ TabChordsOnStaff =
 	{
         \defineMyFretboard
 		{
-			\FretMapChords
+			\SymphonyChords
 		}
 	}
 
@@ -84,7 +76,7 @@ TabChordsOnStaff =
 	{
 		% \with { midiInstrument = #"acoustic guitar (nylon)" }
 		{
-			\FretMapChords
+			\SymphonyChords
 		}	
 	}
   
@@ -94,22 +86,15 @@ TabChordsOnStaff =
 	<<
 	\new voice	
 	{
-		\FretMapChordsOnStaff
+		\SymphonyChordsOnStaff
 	}
 	>>
-	\new TabStaff {
-		\set TabStaff.stringTunings = #biscuitTuning
-		\TabChordsOnStaff
-		}
-	
 >>
   \layout
   {
     indent = 0.0\cm 
   }
 } 
-\markup {"Traversing the neck with a pentatonic scale - chord by chord"}
-
 \paper
 {
     top-margin = 0.5\in

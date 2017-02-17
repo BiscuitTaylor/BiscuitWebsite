@@ -1,4 +1,4 @@
-\version "2.16.2"
+\version "2.18.2"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))

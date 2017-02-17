@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.2"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -8,7 +8,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
-  	"; engraved with LilyPond" #(ly:export (lilypond-version))
+  	"; engraved with LilyPond" $(lilypond-version)
   }
 }
 
@@ -29,6 +29,10 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % ****************************************************************
 % ly snippet:
 % ****************************************************************
+#(ly:set-option 'relative-includes #t)
+% With relative-includes set, the path for each \include command will be taken relative to the file containing that command.
+% This behavior is recommended and it will become the default behavior in a future version of lilypond.
+
 \include "../fretboards/biscuit-fretboards.ly"
 \include "predefined-guitar-fretboards.ly"
 \include "../fretboards/biscuit-guitar-fretboards.ly"
@@ -55,9 +59,9 @@ verseChords = \chordmode
 	\override ChordName #'font-series = #'bold
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	g1 |
-	g1 | g1 | g1 | d1 |
-	g1 | g1 | g2 d2 | g1
+	g''1 |
+	g''1 | g''1 | g''1 | d'''1 |
+	g''1 | g''1 | g''2 d'''2 | g''1
 }
 
 chorusChords = \chordmode 
@@ -66,14 +70,17 @@ chorusChords = \chordmode
 	\override ChordName #'font-size = #2 
 	\override ChordName #'font-series = #'bold
 
-	c1 | g1 | d1 | g1 |
-	c1 | g1 | d1 | g1
+	c'''1 | g1 | d'''1 | g''1 |
+	c'''1 | g1 | d'''1 | g''1
 }
 
 % Note - vocalHarmony part is written in the Key of C.
 % Prolly should write it in G, and transpose it to C!
 chorusHarmony =
 \new Voice = "vocalHarmony"
+\with {
+  instrumentName = #"Harmony"
+  shortInstrumentName = #"harmony"}  %Why doesn't this work?  No 'staff'?
 {
   f''4 c''4 a'4 c''4 | e''4 c''4 g'4 c''8. c''16 | \break
   f''4 f''4 g''4 c''4 | e''2. e''8. e''16 | \break

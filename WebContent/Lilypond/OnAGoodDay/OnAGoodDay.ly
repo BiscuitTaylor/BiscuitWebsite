@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.1"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -8,7 +8,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
-  	"; engraved by LilyPond" #(ly:export (lilypond-version))
+  	"; engraved by LilyPond" $(lilypond-version)
   }
 }
 
@@ -25,10 +25,44 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 
 
 % ****************************************************************
-% ly snippet:
+% Fingerboard diagrams:
 % ****************************************************************
 \include "../fretboards/biscuit-fretboards.ly"
 \include "predefined-guitar-fretboards.ly"
+\include "predefined-ukulele-fretboards.ly"
+
+defineMyFretboard =
+<<
+\tag #'StandardGuitarFretboard
+{
+  %Nothing to define... defaults work just fine
+  %\set predefinedDiagramTable = #default-fret-table
+}
+\tag #'BiscuitUkeFretboard
+{
+  %define fretboard diagrams for open-g tenor ukulele
+  \biscuitCustomFretboards
+  %\set predefinedDiagramTable = #custom-fretboard-table-uptheneck
+}
+\tag #'StandardUkeFretboard
+{
+  %define fretboard diagrams for c6 tenor ukulele
+    \set stringTunings = #ukulele-tuning
+}
+
+>>
+
+ukeFingering =
+{
+	\tag #'BiscuitUkeFretboard
+	{
+	\set stringTunings = #biscuitTuning
+	\override FretBoard
+    	#'(fret-diagram-details string-count) = #'4
+	\override FretBoard
+    	#'(fret-diagram-details finger-code) = #'in-dot
+	}
+}
 
 introChords = \chordmode { g:min | f | ees }
 
@@ -119,18 +153,13 @@ verseLyrics =
 		\verseMelody
 	%}
 	
-    %\keepWithTag #'BiscuitUkeFretboard \new FretBoards 
-    \removeWithTag #'BiscuitUkeFretboard \new FretBoards 
-	{
-		\tag #'BiscuitUkeFretboard
-		{
-    	\set stringTunings = #biscuitTuning
-    	\override FretBoard
-        	#'(fret-diagram-details string-count) = #'4
-    	\override FretBoard
-        	#'(fret-diagram-details finger-code) = #'in-dot
-		}
-	  	
+    \keepWithTag #'StandardUkeFretboard
+    \removeWithTag #'BiscuitUkeFretboard
+    \removeWithTag #'StandardGuitarFretboard
+    \new FretBoards 
+	{	  	
+		\ukeFingering
+		\defineMyFretboard
 		{
 			%\introChords
 			\transpose bes g

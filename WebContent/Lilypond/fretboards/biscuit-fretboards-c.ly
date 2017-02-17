@@ -4,6 +4,9 @@
 \version "2.16.1"
 
 
+#(ly:set-option 'relative-includes #t)
+% With relative-includes set, the path for each \include command will be taken relative to the file containing that command.
+% This behavior is recommended and it will become the default behavior in a future version of lilypond.
 \include "biscuit-fretboards-style.ly"
 \include "biscuit-fretboards-chordshapes.ly"
 

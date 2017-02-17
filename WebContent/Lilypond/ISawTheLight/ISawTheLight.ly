@@ -1,4 +1,4 @@
-\version "2.16.2"
+\version "2.18.2"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -37,27 +37,27 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
       (loop (cdr x)))))))
 
 color_grey = {
-	\override NoteHead #'color = #grey
-	\override Dots #'color = #grey
-	\override Accidental #'color = #grey
-	\override Stem #'color = #grey
-	\override Beam #'color = #grey
-	\override ChordName #'color = #grey 
+	\override NoteHead.color = #grey
+	\override Dots.color = #grey
+	\override Accidental.color = #grey
+	\override Stem.color = #grey
+	\override Beam.color = #grey
+	\override ChordName.color = #grey 
 	
 	%doesn't really belong
-	\override ChordName #'font-series = #'regular
+	\override ChordName.font-series = #'regular
 }
 
 color_black = {
-	\override NoteHead #'color = #black
-	\override Dots #'color = #black
-	\override Accidental #'color = #black
-	\override Stem #'color = #black
-	\override Beam #'color = #black
-	\override ChordName #'color = #black 
+	\override NoteHead.color = #black
+	\override Dots.color = #black
+	\override Accidental.color = #black
+	\override Stem.color = #black
+	\override Beam.color = #black
+	\override ChordName.color = #black 
 	
 	%doesn't really belong
-	\override ChordName #'font-series = #'bold
+	\override ChordName.font-series = #'bold
 }
 
 % ****************************************************************
@@ -94,10 +94,8 @@ lowGUkeFingering =
 	\tag #'LowGUkeFretboard
 	{
 	\set stringTunings = #lowGUkeTuning
-	\override FretBoard
-    	#'(fret-diagram-details string-count) = #'4
-	\override FretBoard
-    	#'(fret-diagram-details finger-code) = #'in-dot
+	\override FretBoard.fret-diagram-details.string-count = #'4
+	\override FretBoard.fret-diagram-details.finger-code = #'in-dot
 	}
 }
 
@@ -414,15 +412,15 @@ chorusLyrics =
 		}
 	}
 
-	\new ChordNames
-	{
-		% \with { midiInstrument = #"acoustic guitar (nylon)" }
-		{
-			\transpose c e
-		    \verseChordNames
-		}	
-	}
-  
+%	\new ChordNames
+%	{
+%		% \with { midiInstrument = #"acoustic guitar (nylon)" }
+%		{
+%			\transpose c e
+%		    \verseChordNames
+%		}	
+%	}
+%  
 	\new Staff \with {instrumentName = #"Uke"}
 	{
 		\key e \major
@@ -430,7 +428,10 @@ chorusLyrics =
 		\verseChords
 	}
 	%Lyrics
-	\new Lyrics 
+	\new Lyrics  \with {
+    	%\override VerticalAxisGroup.nonstaff-relatedstaff-spacing = #'((basic-distance . 24))
+		% Note - this override only makes a difference when Fret Diagrams are present!
+		}
 	{
 		\verseLyrics
 	}

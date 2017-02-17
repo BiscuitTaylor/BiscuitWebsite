@@ -3,8 +3,8 @@
 %         Open G; low g in the bass
 \version "2.16.1"
 
-\include "biscuit-fretboards-style.ly"
-\include "biscuit-fretboards-chordshapes.ly"
+\include "../fretboards/biscuit-fretboards-style.ly"
+\include "../fretboards/biscuit-fretboards-chordshapes.ly"
 
 %%%%%%%%%%%%%% A %%%%%%%%%%%%%%%%%
 % A - root position
@@ -121,7 +121,10 @@
 % A minor - second inversion
 \storePredefinedDiagram #default-fret-table \chordmode { a''':min } 
                         #biscuitTuning
-                        #(offset-fret 5 (chord-shape 'secondMinorChordShape biscuitTuning))
+                        #(offset-fret 5 (chord-shape 'secondMin6ChordShape biscuitTuning))
+\storePredefinedDiagram #default-fret-table \chordmode { a''':min6 } 
+                        #biscuitTuning
+                        #(offset-fret 5 (chord-shape 'secondMin7ChordShape biscuitTuning))
 \storePredefinedDiagram #default-fret-table \chordmode { a''':min7 } 
                         #biscuitTuning
                         #(offset-fret 5 (chord-shape 'secondMin7ChordShape biscuitTuning))

@@ -74,12 +74,12 @@ verseHarmony =
 \new Voice = "verseVocalHarmony"
 {
   r2 g'4 (b'4) | b'8 b'8 ~ b'4 a'4 g'4         | b'2 b'4 d''4 | d''2 <\tweak #'color #grey d''>8 a'4.  |
-  b'2 b'4 (e''4) | e''2 c''4 (a'4)  | a'8 b'8 ~ b'2. \break
+  b'2 b'4 (e''4) | e''2 c''2  | a'4 ~ b'2. \break
   r2 g'4 (b'4) | b'2 a'4 (g'4)                 | b'2 b'4 (d''4) | 
   											         %\time 3/2  d''2 r4 e''4  d''4 c''4 |  \time 2/2
 %  											         \time 3/2  d''2 r4 a'4  a'4 e'4 |  \time 2/2
                                                       \time 3/2  d''2 r4 d''4  d''4 a'4 |  \time 2/2            
-  b'4 r4 g''4 (d''4) | d''2 ~ d''4 a'4 | b'2 d''4 (e''4) | e''2 c''4 (a'4) | a'4 (b'4) r2
+  b'4 r4 g''2 | d''2 ~ d''4 d'4 | b'2 d''4 (e''4) | e''2 c''2     | a'2 r2
 %  fis'4 r4 g''4 (d''4) | d''2 ~ c''4 c''4 | b'8 (g'4.) d''4 (e''4) | e''2 c''2 | b'2 r2
 }
 
@@ -106,6 +106,11 @@ bridgeMelody =
 {
   r2 d''4 b'4 | a'2  a'4 g'4 | e'8 (d'8) ~ d'4  d'4 (g'4) | g'2  e'4 (d'4) | d'1           
 }
+bridgeFiller =
+\new Voice = "bridgeFiller"
+{
+  r1 | r1 | r1 | r1 | r1           
+}
 bridgeChords = \chordmode 
 {	
 	%Big chord names, so old geezers can percieve them			
@@ -114,7 +119,7 @@ bridgeChords = \chordmode
 	\override ChordName #'font-series = #'bold
 
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
-	g1 | d1 | g1  | c1 | g1  | \skip1
+	g1 | d1 | g1  | c1 | g1
 }
 
 verseLyrics = 
@@ -150,7 +155,7 @@ verseLyrics =
   {
   \lyricmode
 	  { \set stanza = "3. "
-	  " "2  "Fo-"4 "nd"4 mem'-2 ries4 "I'll"4 "keep"2 "of"4 the4 
+	  " "2  "Fo-"4 "nd"4 mem'-2 ries4 "I'll"4 "keep"2 "o-"4 "f"4
 	  "hap-"2. "py"4 "wa-"8 "ys"4. "that"8 on4. earth2 we2 trod1
     " "2 "A-"4 "nd"4 | when2 "I"2 "come"2 "we"4 "will"4 walk2 "ha-"4 "nd"4
      "i-"4 "n"4 "hand"2
@@ -169,6 +174,15 @@ chorusLyrics =
 	  		        "m-"4 "y"4 "da-"4 "r-"4 "ling"2 " "2 " "2 " "2
 			My4 heart4 breaks2 as4 you4 take2
 			"Yo-"4 "ur"4 "lone"2 "jou-"4 "r-"4 "ney"1
+	  		}
+  }
+
+bridgeLyrics = 
+
+  \new Lyrics  
+  {
+  \lyricmode {
+	  		" "1 " "1 " "1 " "1 " "1 
 	  		}
   }
 
@@ -209,7 +223,10 @@ chorusLyrics =
 		% without getting a "N.C." symbol at the start of the measure.
 		\set chordChanges = ##t
 		{
+			%\transpose g d	% Sammy and Nadine recording is in D
 	    	%\introChords
+		    \bridgeChords
+
 			%\transpose g e % Doc and Rosa Lee recorded it in E
 			%\transpose g d	% Sammy and Nadine recording is in D
 		    \verseChords
@@ -217,8 +234,6 @@ chorusLyrics =
 			%\transpose g d	% Sammy and Nadine recording is in D
 		    \chorusChords
 		    
-			%\transpose g d	% Sammy and Nadine recording is in D
-		    \bridgeChords
 		}	
 	}
 
@@ -234,6 +249,15 @@ chorusLyrics =
 			%\repeat volta 3 
 			{
 				%\new Staff = "melodyStaff"
+				{
+					\key g \major	
+				    \set Staff.midiInstrument = #"cello"
+					\set Staff.instrumentName = #"harmony"
+					{
+					    \bridgeFiller
+					}
+				}
+				\break
 				{
 					\key g \major	
 				    \set Staff.midiInstrument = #"cello"
@@ -265,25 +289,25 @@ chorusLyrics =
 	  		%\introMelody
 			\repeat volta 3 
 			{
+				\key g \major	
+			    \set Staff.midiInstrument = #"violin"
+				\set Staff.instrumentName = #"lead\nvocal"
 				%\new Staff = "melodyStaff"
 				{
-					\key g \major	
-				    \set Staff.midiInstrument = #"violin"
-					\set Staff.instrumentName = #"lead\nvocal"
 					{
-					    \verseMelody
-					}
-				}
-				\pageBreak
-				{
-					{
-					    \chorusMelody
+					    \bridgeMelody
 					}
 				}
 				\break
 				{
 					{
-					    \bridgeMelody
+					    \verseMelody
+					}
+				}
+				\break
+				{
+					{
+					    \chorusMelody
 					}
 				}
 			}
@@ -294,6 +318,7 @@ chorusLyrics =
 	%Lyrics
 	{
 		%\introLyrics
+		\bridgeLyrics
 		\verseLyrics
 		\chorusLyrics
 	}

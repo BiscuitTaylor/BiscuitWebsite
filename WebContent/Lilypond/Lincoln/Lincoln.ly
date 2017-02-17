@@ -45,7 +45,7 @@ verseChords = \chordmode
 }
 
 
-
+% absolute pitch
 firstUke =
 \new Voice = "Uke 1"
 {

@@ -30,7 +30,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 chorusChords = \chordmode 
 {
 	c1 | g1| f1 | g | 
-
+	c1 | g1| f1 | g | 
 }
 
 

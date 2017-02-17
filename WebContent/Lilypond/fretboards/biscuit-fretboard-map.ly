@@ -43,6 +43,9 @@ FretMapChords = \chordmode
 
 	\set Staff.instrumentName = #"Open G Tuning"
 	\set Staff.shortInstrumentName = #"Open G"
+	\set additionalPitchPrefix = #"add"
+	%f''1:9^7 % 9th chord minus the 7th = 'add9'
+	f1:5.9 % 'add9'
 	f''1
 	d'''1:min d'''1:min7 
 	f'''1
@@ -54,6 +57,8 @@ FretMapChords = \chordmode
 FretMapChordsOnStaff = \chordmode 
 {	
 	% TODO: abandon chordmode; use "chorded notes"
+	%f1:9^7
+	f1:5.9
 	f
 	d/a1:min d/a1:min7 
 	f
@@ -73,6 +78,7 @@ FretMapChordsOnStaff = \chordmode
 TabChordsOnStaff = 
 {	
 	% "chorded notes" (absolute pitch (octave)
+    <a\4 c'\3 f'\2 g'\1>1    
     <a\4 c'\3 f'\2>1    
     <a\4 d'\3 f'\2 a'\1>1 <a\4 d'\3 f'\2 c''\1>1
     <c'\4 f'\3 a'\2 c''\1>1 
@@ -86,6 +92,7 @@ TabScale =
 {	
 	% "scale" (absolute pitch (octave) 
 	% unadorned pitch names = the octave (c3 to b3) immediately below middle c
+    a4\4 c'4\3 f'4\2 g'4\1
     a4\4 c'4\3 f'2\2  
     a4\4 d'4\3 f'4\2 a'4\1      a4\4 d'4\3 f'4\2 c''4\1
     c'4\4 f'4\3 a'4\2 c''4\1

@@ -88,8 +88,8 @@ dreamChords = \chordmode
 
 ahChords = \chordmode 
 {	
-	a2  d'''2 | a2  d'''2 |
-	a1 | a1 | g2  d'''2 | f''1 | g | a
+	a1 | d'''1 | a1 | d'''1 |
+	a1 | a1 | g1 | d'''1 | f''1 | g | a | a
 }
 
 skidMarksChords = \chordmode 
@@ -187,9 +187,9 @@ ahLyrics =
   %\lyricsto vocalHarmony 
   {
   \lyricmode {
-	"Ah... Ah..."1
+	"Ah... "1 Ah..."1
 	"Ah..."1
-	\repeat unfold 6 { \skip 1 }	
+	\repeat unfold 9 { \skip 1 }	
 		  }
   }
 
@@ -367,10 +367,29 @@ outroLyrics =
 		\outroLyrics
 	}
 
+	% some empty staves
+	\new staff
+	{
+	    %\repeat volta 2
+	    {
+	    	%\verseChords
+			\repeat unfold 8 { \skip 1 }
+	    }
+	    %\alternative {
+						% alternate endings
+						\repeat unfold 4 { \skip 1 }
+						\repeat unfold 4 { \skip 1 }
+		%			 }				 
+	}
+	%\new Staff \chorusChords
+	\new Staff \repeat unfold 6 { \skip 1 }
+	%\new Staff \bridgeChords
+	\new Staff \repeat unfold 4 { \skip 1 }
+
 	% Enable this to write the notes of each chord on a new staff below the melody staff
 %	\new staff
 %	{
-%	    \repeat volta 4
+%	    \repeat volta 2
 %	    {
 %	    	\verseChords
 %	    }

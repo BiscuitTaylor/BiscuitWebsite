@@ -1,4 +1,4 @@
-\version "2.16.1"
+\version "2.16.2"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -35,12 +35,12 @@ verseChords = \chordmode
 	%\set Staff.midiInstrument = #"acoustic guitar (nylon)"
 
               d2. | d2. | a2.:7 | a2.:7 | \break
-              d2. | d2. | g2. | a2. | \break
+              d2. | d2. | e2.:min | a2. | \break
               
               d2. |d2. | a2.:7 | a2.:7 | \break
-              d2. | g2. | d2.:7 | d2.:7 | \break
+              d2. | e2.:min | d2. | d2. | \break
               
-              d2. | d2. | g2. | g2. | \break
+              d2. | d2. | a2.:7 | a2.:7 | \break
               %d2. | d2. | a2.:sus4 | a2. | \break
               d2. | d2. | g2. | a2. | \break
               

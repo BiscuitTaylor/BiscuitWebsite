@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.1"
 
 date = #(strftime "%Y.%m.%d" (localtime (current-time)))
 hour = #(strftime "%H:%M" (localtime (current-time)))
@@ -8,7 +8,7 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
   tagline = \markup 
   {
   	"Transcribed by Biscuit on: " \date "at " \hour 
-  	"; engraved by LilyPond" #(ly:export (lilypond-version))
+  	"; engraved by LilyPond" $(lilypond-version)
   }
 }
 

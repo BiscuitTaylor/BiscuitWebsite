@@ -29,6 +29,15 @@ hour = #(strftime "%H:%M" (localtime (current-time)))
 % pitch-name with three apostrophes indicates Second inversion.
 % (pitch-name with one apostrophe is reserved for some transposing bullshit.)
 
+degreeRoot = \tweak #'color #black
+degreeThird = \tweak #'color #cyan
+degreeMinorThird = \tweak #'color #darkcyan
+degreeFifth = \tweak #'color #gray
+degreeFlatFive = \tweak #'color #blue
+degreeSixth = \tweak #'color #yellow
+degreeSeventh = \tweak #'color #darkred
+degreeExtended = \tweak #'color #magenta
+degreeEnharmonic = \tweak #'color #red
 
 defineMyFretboard =
 <<
